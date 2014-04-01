@@ -1,0 +1,8 @@
+ja:
+  activerecord:
+    models:
+      subject: '試験科目'
+    attributes:
+      subject:
+        department_id: '学科ID'
+        name: '科目名'
