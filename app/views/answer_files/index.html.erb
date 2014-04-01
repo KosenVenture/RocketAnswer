@@ -1,0 +1,31 @@
+<h1>Listing answer_files</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Answer</th>
+      <th>User</th>
+      <th>Image</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @answer_files.each do |answer_file| %>
+      <tr>
+        <td><%= answer_file.answer %></td>
+        <td><%= answer_file.user %></td>
+        <td><%= answer_file.image %></td>
+        <td><%= link_to 'Show', answer_file %></td>
+        <td><%= link_to 'Edit', edit_answer_file_path(answer_file) %></td>
+        <td><%= link_to 'Destroy', answer_file, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Answer file', new_answer_file_path %>

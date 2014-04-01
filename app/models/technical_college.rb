@@ -1,0 +1,2 @@
+class TechnicalCollege < School
+end
