@@ -1,0 +1,9 @@
+doctype html
+html
+  head
+    title KaitouShare
+    = stylesheet_link_tag 'admin/application', media: 'all'
+    = javaScript_include_tag 'admin/application'
+    = csrf_meta_tags
+  body
+    = yield
