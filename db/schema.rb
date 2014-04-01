@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(version: 20140401075251) do
     t.datetime "updated_at"
   end
 
-  add_index "answer_files", ["answer_id"], name: "index_answer_files_on_answer_id", using: :btree
-  add_index "answer_files", ["user_id"], name: "index_answer_files_on_user_id", using: :btree
+  add_index "answer_files", ["answer_id"], name: "index_answer_files_on_answer_id"
+  add_index "answer_files", ["user_id"], name: "index_answer_files_on_user_id"
 
   create_table "answers", force: true do |t|
     t.integer  "subject_id"
@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(version: 20140401075251) do
     t.datetime "updated_at"
   end
 
-  add_index "answers", ["subject_id"], name: "index_answers_on_subject_id", using: :btree
-  add_index "answers", ["user_id"], name: "index_answers_on_user_id", using: :btree
+  add_index "answers", ["subject_id"], name: "index_answers_on_subject_id"
+  add_index "answers", ["user_id"], name: "index_answers_on_user_id"
 
   create_table "departments", force: true do |t|
     t.integer  "school_id"
@@ -45,9 +45,9 @@ ActiveRecord::Schema.define(version: 20140401075251) do
     t.datetime "updated_at"
   end
 
-  add_index "departments", ["kind"], name: "index_departments_on_kind", using: :btree
-  add_index "departments", ["prefecture"], name: "index_departments_on_prefecture", using: :btree
-  add_index "departments", ["school_id"], name: "index_departments_on_school_id", using: :btree
+  add_index "departments", ["kind"], name: "index_departments_on_kind"
+  add_index "departments", ["prefecture"], name: "index_departments_on_prefecture"
+  add_index "departments", ["school_id"], name: "index_departments_on_school_id"
 
   create_table "schools", force: true do |t|
     t.string   "type"
@@ -57,9 +57,9 @@ ActiveRecord::Schema.define(version: 20140401075251) do
     t.datetime "updated_at"
   end
 
-  add_index "schools", ["establishment"], name: "index_schools_on_establishment", using: :btree
-  add_index "schools", ["name"], name: "index_schools_on_name", using: :btree
-  add_index "schools", ["type"], name: "index_schools_on_type", using: :btree
+  add_index "schools", ["establishment"], name: "index_schools_on_establishment"
+  add_index "schools", ["name"], name: "index_schools_on_name"
+  add_index "schools", ["type"], name: "index_schools_on_type"
 
   create_table "subjects", force: true do |t|
     t.integer  "department_id"
@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 20140401075251) do
     t.datetime "updated_at"
   end
 
-  add_index "subjects", ["department_id"], name: "index_subjects_on_department_id", using: :btree
+  add_index "subjects", ["department_id"], name: "index_subjects_on_department_id"
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -81,8 +81,8 @@ ActiveRecord::Schema.define(version: 20140401075251) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["department_id"], name: "index_users_on_department_id", using: :btree
-  add_index "users", ["school_id"], name: "index_users_on_school_id", using: :btree
+  add_index "users", ["department_id"], name: "index_users_on_department_id"
+  add_index "users", ["school_id"], name: "index_users_on_school_id"
 
   create_table "wish_universities", force: true do |t|
     t.integer  "user_id"
@@ -93,9 +93,9 @@ ActiveRecord::Schema.define(version: 20140401075251) do
     t.datetime "updated_at"
   end
 
-  add_index "wish_universities", ["department_id"], name: "index_wish_universities_on_department_id", using: :btree
-  add_index "wish_universities", ["university_id"], name: "index_wish_universities_on_university_id", using: :btree
-  add_index "wish_universities", ["user_id", "university_id", "department_id"], name: "wish_universities_uniquness", unique: true, using: :btree
-  add_index "wish_universities", ["user_id"], name: "index_wish_universities_on_user_id", using: :btree
+  add_index "wish_universities", ["department_id"], name: "index_wish_universities_on_department_id"
+  add_index "wish_universities", ["university_id"], name: "index_wish_universities_on_university_id"
+  add_index "wish_universities", ["user_id", "university_id", "department_id"], name: "wish_universities_uniquness", unique: true
+  add_index "wish_universities", ["user_id"], name: "index_wish_universities_on_user_id"
 
 end
