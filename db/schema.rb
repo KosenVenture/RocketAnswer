@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140401061429) do
+ActiveRecord::Schema.define(version: 20140401073916) do
+
+  create_table "answers", force: true do |t|
+    t.integer  "subject_id"
+    t.integer  "user_id"
+    t.integer  "year"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "answers", ["subject_id"], name: "index_answers_on_subject_id", using: :btree
+  add_index "answers", ["user_id"], name: "index_answers_on_user_id", using: :btree
 
   create_table "departments", force: true do |t|
     t.integer  "school_id"

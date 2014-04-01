@@ -1,9 +1,11 @@
 KaitouShare::Application.routes.draw do
 
-  resources :subjects
-
   resources :schools do
     resources :departments
+  end
+
+  resources :subjects do
+    resources :answers
   end
 
   namespace :admin do
