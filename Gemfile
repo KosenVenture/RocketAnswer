@@ -23,7 +23,7 @@ gem 'jquery-rails'
 # view系
 gem 'jbuilder', '~> 1.2'
 gem 'slim-rails'
-
+gem 'font-awesome-rails'
 
 # 開発ツール系
 ## 高機能コンソール

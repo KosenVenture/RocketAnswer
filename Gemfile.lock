@@ -69,6 +69,8 @@ GEM
       factory_girl (~> 4.4.0)
       railties (>= 3.0.0)
     ffi (1.9.3)
+    font-awesome-rails (4.0.3.1)
+      railties (>= 3.2, < 5.0)
     formatador (0.2.4)
     growl (1.0.3)
     guard (2.6.0)
@@ -246,6 +248,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   database_cleaner
   factory_girl_rails
+  font-awesome-rails
   growl
   guard
   guard-livereload
