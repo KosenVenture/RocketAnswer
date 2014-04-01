@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140401054735) do
+ActiveRecord::Schema.define(version: 20140401061429) do
 
   create_table "departments", force: true do |t|
     t.integer  "school_id"
@@ -38,5 +38,14 @@ ActiveRecord::Schema.define(version: 20140401054735) do
   add_index "schools", ["establishment"], name: "index_schools_on_establishment", using: :btree
   add_index "schools", ["name"], name: "index_schools_on_name", using: :btree
   add_index "schools", ["type"], name: "index_schools_on_type", using: :btree
+
+  create_table "subjects", force: true do |t|
+    t.integer  "department_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "subjects", ["department_id"], name: "index_subjects_on_department_id", using: :btree
 
 end
