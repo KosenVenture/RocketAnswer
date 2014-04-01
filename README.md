@@ -20,7 +20,7 @@ cd KaitouShare
 bundle install --path vendor/bundle --without production
 
 # DBの設定
-cp config/database{.yml.sample,}
+cp config/database{.yml.sample,.yml}
 # config/database.yml を各自の環境に合わせて設定してください
 
 # DBの作成
