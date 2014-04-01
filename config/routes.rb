@@ -1,5 +1,7 @@
 KaitouShare::Application.routes.draw do
 
+  resources :answer_files
+
   resources :schools do
     resources :departments
   end

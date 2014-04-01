@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140401073916) do
+ActiveRecord::Schema.define(version: 20140401074246) do
+
+  create_table "answer_files", force: true do |t|
+    t.integer  "answer_id"
+    t.integer  "user_id"
+    t.string   "image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "answer_files", ["answer_id"], name: "index_answer_files_on_answer_id", using: :btree
+  add_index "answer_files", ["user_id"], name: "index_answer_files_on_user_id", using: :btree
 
   create_table "answers", force: true do |t|
     t.integer  "subject_id"
