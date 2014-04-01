@@ -1,0 +1,32 @@
+# Ignore bundler config.
+/.bundle
+/vendor/bundle
+
+# Ignore all logfiles and tempfiles.
+/log/*.log
+/tmp
+
+# エディタなどで生成される不要なファイル
+.DS_Store
+*.swp
+*~
+*.bak
+*.sublime-workspace
+*.sublime-project
+\#*\#
+.\#*
+
+# Code coverageのファイル
+/coverage
+
+# For rails_config
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml
+config/settings/*.local.rb
+
+# RSpecの設定は各自調整できるように
+.rspec
+
+# config/database.ymlは各環境で変わるので除外
+config/database.yml
