@@ -22,7 +22,7 @@ gem 'jquery-rails'
 
 # view系
 gem 'jbuilder', '~> 1.2'
-gem 'slim'
+gem 'slim-rails'
 
 
 # 開発ツール系
