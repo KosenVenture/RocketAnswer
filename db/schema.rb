@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140401053757) do
+ActiveRecord::Schema.define(version: 20140401054735) do
+
+  create_table "departments", force: true do |t|
+    t.integer  "school_id"
+    t.string   "name"
+    t.string   "kind"
+    t.string   "prefecture"
+    t.string   "address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "departments", ["kind"], name: "index_departments_on_kind", using: :btree
+  add_index "departments", ["prefecture"], name: "index_departments_on_prefecture", using: :btree
+  add_index "departments", ["school_id"], name: "index_departments_on_school_id", using: :btree
 
   create_table "schools", force: true do |t|
     t.string   "type"

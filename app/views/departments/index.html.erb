@@ -1,0 +1,35 @@
+<h1>Listing departments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>School</th>
+      <th>Name</th>
+      <th>Kind</th>
+      <th>Prefecture</th>
+      <th>Address</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @departments.each do |department| %>
+      <tr>
+        <td><%= department.school %></td>
+        <td><%= department.name %></td>
+        <td><%= department.kind %></td>
+        <td><%= department.prefecture %></td>
+        <td><%= department.address %></td>
+        <td><%= link_to 'Show', department %></td>
+        <td><%= link_to 'Edit', edit_department_path(department) %></td>
+        <td><%= link_to 'Destroy', department, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Department', new_department_path %>
