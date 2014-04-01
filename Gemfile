@@ -45,9 +45,6 @@ group :development do
   gem 'spring'
   gem "spring-commands-rspec"
 
-  # N+1 Query検出
-  gem 'bullet'
-
   # ER図作成
   gem 'rails-erd'
 end
@@ -73,5 +70,8 @@ group :development, :test do
 
   # Code coverage
   gem "simplecov", require: false
+
+  # N+1 Query検出
+  gem 'bullet'
 end
 
