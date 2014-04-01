@@ -3,7 +3,15 @@ html
   head
     title KaitouShare
     = stylesheet_link_tag 'admin/application', media: 'all'
-    = javaScript_include_tag 'admin/application'
+    = javascript_include_tag 'admin/application'
     = csrf_meta_tags
+
   body
-    = yield
+    = render 'admin/menu/navbar'
+
+    .container-fluid
+      .row
+        .col-sm-3.col-md-2.sidebar
+          = render 'admin/menu/sidebar'
+        .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
+          = yield
