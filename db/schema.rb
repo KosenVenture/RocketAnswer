@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140401074707) do
+ActiveRecord::Schema.define(version: 20140401075251) do
 
   create_table "answer_files", force: true do |t|
     t.integer  "answer_id"
@@ -83,5 +83,19 @@ ActiveRecord::Schema.define(version: 20140401074707) do
 
   add_index "users", ["department_id"], name: "index_users_on_department_id", using: :btree
   add_index "users", ["school_id"], name: "index_users_on_school_id", using: :btree
+
+  create_table "wish_universities", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "university_id"
+    t.integer  "department_id"
+    t.integer  "rank"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "wish_universities", ["department_id"], name: "index_wish_universities_on_department_id", using: :btree
+  add_index "wish_universities", ["university_id"], name: "index_wish_universities_on_university_id", using: :btree
+  add_index "wish_universities", ["user_id", "university_id", "department_id"], name: "wish_universities_uniquness", unique: true, using: :btree
+  add_index "wish_universities", ["user_id"], name: "index_wish_universities_on_user_id", using: :btree
 
 end
