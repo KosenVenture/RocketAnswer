@@ -5,7 +5,9 @@ class Subject < ActiveRecord::Base
   has_many :answers
 
   ###### Validation ######
-
+  validates :name,
+    presence: true,
+    length: { maximum: 255 }
 
   ###### Scope ######
 
