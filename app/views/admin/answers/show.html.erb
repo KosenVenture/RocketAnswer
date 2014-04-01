@@ -1,0 +1,32 @@
+<ol class="breadcrumb">
+  <li><%= @subject.department.school.name %></li>
+  <li><%= @subject.department.name %></li>
+  <li><%= link_to @subject.name, admin_subject_path(@subject) %></li>
+  <li><%= @answer.year %>年</li>
+</ol>
+
+<div class="page-header">
+  <h2>
+    <%= @subject.name %> (<%= @answer.year %>年)
+  </h2>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="pull-right">
+        <span class="label label-primary">
+          <i class="fa fa-user"></i>
+          <%= @answer.user.try(:nickname) %>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<hr>
+
+<p>
+  <%= link_to admin_subject_path(@subject), class: 'btn btn-info btn-sm' do %>
+    <i class="fa fa-arrow-left"></i> 戻る
+  <% end %>
+</p>

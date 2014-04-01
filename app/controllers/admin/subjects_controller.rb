@@ -1,15 +1,17 @@
 class Admin::SubjectsController < Admin::ApplicationController
-  before_action :set_subject, only: [:show, :edit, :update, :destroy]
+  before_action :set_subject, only: [:edit, :update, :destroy]
 
   # GET /subjects
   # GET /subjects.json
   def index
-    @subjects = Subject.all
+    @subjects = Subject.includes(:department).all
   end
 
   # GET /subjects/1
   # GET /subjects/1.json
   def show
+    @subject = Subject.includes(answers: :user).find(params[:id])
+    @answers = @subject.answers
   end
 
   # GET /subjects/new
