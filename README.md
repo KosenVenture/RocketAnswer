@@ -26,6 +26,7 @@ cp config/database{.yml.sample,.yml}
 # DBの作成
 bundle exec rake db:create
 bundle exec rake db:migrate
+bundle exec rake db:seed # 簡単なテストデータが投入される
 ```
 
 
