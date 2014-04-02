@@ -11,7 +11,7 @@ class AnswerFile < ActiveRecord::Base
 
 
   ###### Scope ######
-
+  default_scope -> { order('`order`') }
 
   ###### Callback ######
 
