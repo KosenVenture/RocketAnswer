@@ -14,7 +14,9 @@ KaitouShare::Application.routes.draw do
     root 'dashboard#top'
 
     resources :subjects do
-      resources :answers, except: [:index]
+      resources :answers, except: [:index] do
+        resources :answer_files, only: [:create, :destroy]
+      end
     end
   end
 end

@@ -5,6 +5,8 @@ class Admin::AnswersController < Admin::ApplicationController
   # GET /answers/1
   # GET /answers/1.json
   def show
+    @answer_files = @answer.answer_files
+    @new_answer_file = @answer.answer_files.build
   end
 
   # GET /answers/new
