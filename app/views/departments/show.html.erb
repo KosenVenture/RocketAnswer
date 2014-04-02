@@ -1,29 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>School:</strong>
-  <%= @department.school %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @department.name %>
-</p>
-
-<p>
-  <strong>Kind:</strong>
-  <%= @department.kind %>
-</p>
-
-<p>
-  <strong>Prefecture:</strong>
-  <%= @department.prefecture %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @department.address %>
-</p>
+<h1><%= @department.name %></h1>
+<table class="table table-hover table-bordered">
+  <thead>
+    <tr>
+      <th>No</th>
+      <th>科目</th>
+      <th>回答数</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><a href="">数学</a></td>
+      <td>5件</td>
+    </tr>
+  </tbody>
+</table>
 
 <%= link_to 'Edit', edit_department_path(@department) %> |
 <%= link_to 'Back', departments_path %>
