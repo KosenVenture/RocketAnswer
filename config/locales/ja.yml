@@ -1,0 +1,13 @@
+ja:
+  activerecord:
+    models:
+      subject: '試験科目'
+      answer: '解答'
+    attributes:
+      subject:
+        department_id: '学科ID'
+        name: '科目名'
+      answer:
+        subject_id: '試験科目ID'
+        user_id: 'ユーザID'
+        year: '実施年'

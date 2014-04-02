@@ -1,0 +1,47 @@
+<ol class="breadcrumb">
+  <li><%= @subject.department.school.name %></li>
+  <li><%= @subject.department.name %></li>
+</ol>
+<div class="page-header">
+  <h2><%= @subject.name %></h2>
+</div>
+
+<h2>投稿されている解答</h2>
+
+<p>
+  <%= link_to new_admin_subject_answer_path(@subject),
+    class: 'btn btn-primary btn-sm' do %>
+    <i class="fa fa-plus"></i> 追加
+  <% end %>
+</p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>操作</th>
+      <th>実施年</th>
+      <th>投稿ユーザ</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @answers.each do |answer| %>
+      <tr>
+        <td>
+          <%= link_to '開く', admin_subject_answer_path(@subject, answer),
+            class: 'btn btn-xs btn-primary' %>
+        </td>
+        <td><%= answer.year %></td>
+        <td><%= answer.user.try(:nickname) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<hr>
+
+<p>
+  <%= link_to admin_subjects_path, class: 'btn btn-info btn-sm' do %>
+    <i class="fa fa-arrow-left"></i> 戻る
+  <% end %>
+</p>

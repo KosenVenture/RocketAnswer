@@ -1,0 +1,13 @@
+<% if object.errors.any? %>
+  <div class="panel panel-danger">
+    <div class="panel-heading">
+      エラーがあります
+    </div>
+
+    <ul class="list-group">
+      <% object.errors.full_messages.each do |msg| %>
+        <li class="list-group-item"><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
