@@ -4,7 +4,6 @@ gem 'rails', '4.0.4'
 
 # DB系
 gem 'mysql2'
-gem 'sqlite3'
 
 # 機能ライブラリ系
 gem 'bcrypt', '~> 3.1.7'

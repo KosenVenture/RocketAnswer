@@ -212,7 +212,6 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
-    sqlite3 (1.3.9)
     tapp (1.4.0)
       thor
     terminal-notifier-guard (1.5.3)
@@ -272,7 +271,6 @@ DEPENDENCIES
   simplecov
   spring
   spring-commands-rspec
-  sqlite3
   tapp
   terminal-notifier-guard
   therubyracer

@@ -30,6 +30,3 @@ config/settings/*.local.rb
 
 # config/database.ymlは各環境で変わるので除外
 config/database.yml
-
-# sqlite3のデータベースファイル
-/db/*.sqlite3
