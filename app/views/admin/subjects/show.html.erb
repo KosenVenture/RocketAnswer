@@ -28,11 +28,6 @@
     <% @answers.each do |answer| %>
       <tr>
         <td>
-          <%= link_to '削除', admin_subject_answer_path(@subject, answer),
-            class: 'btn btn-xs btn-danger',
-            method: :delete, data: { confirm: '削除してよろしいですか？' } %>
-          <%= link_to '編集', edit_admin_subject_answer_path(@subject, answer),
-            class: 'btn btn-xs btn-success' %>
           <%= link_to '開く', admin_subject_answer_path(@subject, answer),
             class: 'btn btn-xs btn-primary' %>
         </td>
