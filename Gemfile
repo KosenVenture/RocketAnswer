@@ -12,6 +12,8 @@ gem 'kaminari'
 gem 'rails-i18n'
 ## 設定ファイルの管理に
 gem 'rails_config'
+gem 'jquery-fileupload-rails'
+gem 'carrierwave'
 
 # asset系
 gem 'sass-rails', '~> 4.0.2'
