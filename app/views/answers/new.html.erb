@@ -1,5 +1,13 @@
-<h1>New answer</h1>
+<div class="page-header">
+  <h1>解答を追加</h1>
+</div>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', answers_path %>
+<hr>
+
+<p>
+  <%= link_to subject_path(@subject), class: 'btn btn-info btn-sm' do %>
+    <i class="fa fa-arrow-left"></i> 戻る
+  <% end %>
+</p>

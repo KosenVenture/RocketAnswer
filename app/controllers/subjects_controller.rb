@@ -1,15 +1,17 @@
 class SubjectsController < ApplicationController
-  before_action :set_subject, only: [:show, :edit, :update, :destroy]
+  before_action :set_subject, only: [:edit, :update, :destroy]
 
   # GET /subjects
   # GET /subjects.json
   def index
-    @subjects = Subject.all
+    @subjects = Subject.includes(:department).all
   end
 
   # GET /subjects/1
   # GET /subjects/1.json
   def show
+    @subject = Subject.includes(answers: :user).find(params[:id])
+    @answers = @subject.answers
   end
 
   # GET /subjects/new
@@ -28,11 +30,12 @@ class SubjectsController < ApplicationController
 
     respond_to do |format|
       if @subject.save
-        format.html { redirect_to @subject, notice: 'Subject was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @subject }
+        format.html {
+          redirect_to subject_path(@subject),
+            notice: '作成しました。'
+        }
       else
         format.html { render action: 'new' }
-        format.json { render json: @subject.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -42,11 +45,12 @@ class SubjectsController < ApplicationController
   def update
     respond_to do |format|
       if @subject.update(subject_params)
-        format.html { redirect_to @subject, notice: 'Subject was successfully updated.' }
-        format.json { head :no_content }
+        format.html {
+          redirect_to subject_path(@subject),
+            notice: '更新しました。'
+          }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @subject.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -55,9 +59,9 @@ class SubjectsController < ApplicationController
   # DELETE /subjects/1.json
   def destroy
     @subject.destroy
+
     respond_to do |format|
       format.html { redirect_to subjects_url }
-      format.json { head :no_content }
     end
   end
 
