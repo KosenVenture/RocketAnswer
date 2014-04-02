@@ -1,6 +1,8 @@
 //= require bootstrap/bootstrap
+//= require jquery.ui.all
 //= require font-awesome
 //= require jquery.fileupload-ui
+//= require_tree .
 //= require_self
 
 /* Move down content because we have a fixed navbar that is 50px tall */
