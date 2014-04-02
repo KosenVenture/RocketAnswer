@@ -1,25 +1,24 @@
-<%= form_for(@subject) do |f| %>
-  <% if @subject.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@subject.errors.count, "error") %> prohibited this subject from being saved:</h2>
+<%= form_for @subject,
+  html: { class: 'form-horizontal' } do |f| %>
+  <%= render partial: 'shared/form_error', locals: { object: @subject } %>
 
-      <ul>
-      <% @subject.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+  <div class="form-group">
+    <%= f.label :department_id, class: 'control-label col-sm-2' %>
+    <div class="col-sm-4">
+      <%= f.text_field :department_id, class: 'form-control' %>
     </div>
-  <% end %>
+  </div>
 
-  <div class="field">
-    <%= f.label :department_id %><br>
-    <%= f.text_field :department_id %>
+  <div class="form-group">
+    <%= f.label :name, class: 'control-label col-sm-2' %>
+    <div class="col-sm-4">
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit class: 'btn btn-primary btn-sm' %>
+    </div>
   </div>
 <% end %>

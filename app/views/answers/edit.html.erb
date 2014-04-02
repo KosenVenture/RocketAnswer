@@ -1,6 +1,13 @@
-<h1>Editing answer</h1>
+<div class="page-header">
+  <h1>解答を編集</h1>
+</div>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @answer %> |
-<%= link_to 'Back', answers_path %>
+<hr>
+
+<p>
+  <%= link_to subject_answer_path(@subject, @answer), class: 'btn btn-info btn-sm' do %>
+    <i class="fa fa-arrow-left"></i> 戻る
+  <% end %>
+</p>

@@ -2,7 +2,7 @@
   <div class="page-header">
   <h3>画像を追加</h3>
   </div>
-  <%= form_for [:admin, @subject, @answer, @new_answer_file],
+  <%= form_for [@subject, @answer, @new_answer_file],
     html: { multipart: true } do |f| %>
     <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
     <div class="row fileupload-buttonbar">

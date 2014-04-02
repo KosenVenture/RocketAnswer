@@ -1,29 +1,24 @@
-<%= form_for(@answer) do |f| %>
-  <% if @answer.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@answer.errors.count, "error") %> prohibited this answer from being saved:</h2>
+<%= form_for [@subject, @answer],
+  html: { class: 'form-horizontal' } do |f| %>
+  <%= render partial: 'shared/form_error', locals: { object: @subject } %>
 
-      <ul>
-      <% @answer.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+  <div class="form-group">
+    <%= f.label :user_id, class: 'control-label col-sm-2' %>
+    <div class="col-sm-4">
+      <%= f.text_field :user_id, class: 'form-control' %>
     </div>
-  <% end %>
+  </div>
 
-  <div class="field">
-    <%= f.label :subject_id %><br>
-    <%= f.text_field :subject_id %>
+  <div class="form-group">
+    <%= f.label :year, class: 'control-label col-sm-2' %>
+    <div class="col-sm-4">
+      <%= f.text_field :year, class: 'form-control' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :year %><br>
-    <%= f.number_field :year %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit class: 'btn btn-primary btn-sm' %>
+    </div>
   </div>
 <% end %>
