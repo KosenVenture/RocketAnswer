@@ -14,6 +14,10 @@ class AnswerFile < ActiveRecord::Base
   default_scope -> { order('`order`') }
 
   ###### Callback ######
+  before_create do |obj|
+    last_num = obj.answer.answer_files.last.try(:order) if obj.answer
+    obj.order = last_num ? last_num + 1 : 0
+  end
 
 
   ###### Class Method ######

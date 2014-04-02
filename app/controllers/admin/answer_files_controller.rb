@@ -27,10 +27,10 @@ class Admin::AnswerFilesController < Admin::ApplicationController
   end
 
   def destroy
-    @answer_file = @answer.find(params[:id])
+    @answer_file = @answer.answer_files.find(params[:id])
 
     respond_to do |format|
-      if @answer_file.destory
+      if @answer_file.destroy
         format.html {
           redirect_to admin_subject_answer_path(@subject, @answer),
             notice: '削除されました。'

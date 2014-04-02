@@ -6,7 +6,7 @@ class Admin::AnswersController < Admin::ApplicationController
   # GET /answers/1.json
   def show
     @answer_files = @answer.answer_files
-    @new_answer_file = @answer.answer_files.build
+    @new_answer_file = AnswerFile.new(answer: @answer)
   end
 
   # GET /answers/new
@@ -71,6 +71,6 @@ class Admin::AnswersController < Admin::ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def answer_params
-      params.require(:answer).permit(:subject_id, :user_id, :year)
+      params.require(:answer).permit(:subject_id, :user_id, :year, answer_files_attributes: [:id, :order])
     end
 end
