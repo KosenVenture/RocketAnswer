@@ -1,5 +1,7 @@
 KaitouShare::Application.routes.draw do
 
+  root to: 'home#index'
+
   resources :schools do
     resources :departments
   end
