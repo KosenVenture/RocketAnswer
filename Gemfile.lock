@@ -108,6 +108,8 @@ GEM
     formatador (0.2.4)
     formtastic (2.3.0.rc2)
       actionpack (>= 3.0)
+    gretel (3.0.6)
+      rails (>= 3.2.0)
     growl (1.0.3)
     guard (2.6.0)
       formatador (>= 0.2.4)
@@ -300,6 +302,7 @@ DEPENDENCIES
   database_cleaner
   factory_girl_rails
   font-awesome-rails
+  gretel
   growl
   guard
   guard-livereload

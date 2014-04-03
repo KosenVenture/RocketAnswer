@@ -1,7 +1,5 @@
-<ol class="breadcrumb">
-  <li><%= @subject.department.school.name %></li>
-  <li><%= @subject.department.name %></li>
-</ol>
+<% breadcrumb @subject %>
+
 <div class="page-header">
   <h2><%= @subject.name %></h2>
   <%= link_to '削除', subject_path(@subject),
