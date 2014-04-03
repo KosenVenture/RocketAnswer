@@ -4,7 +4,7 @@ Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
-  # config.secret_key = '203a49cddc81c31bbce7d5af99e5c2f1f32c9ac52ca7c288967707fe0761aa7dda93af28b45ca1839fbc65b69105cce1b7704b262539a02610ef6d1fb1bc344a'
+  # config.secret_key = '7a31120c448a46bb25c125377cb6539c7a1fb7a1e2cf37eaa7ec8b24ed0806ab4adde9131910a6db3b8612bac80c00ba118225f760c4dffe4d9e85ef5cfdfd49'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -97,7 +97,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = '6bb68e3428d7b3ca2a730d252c311ba2e14224d8a2892b671ff7010fd0559ca511fd9a90c22670ce15f2e1043064294f514097a27824fc63045b71aaa3f100a9'
+  # config.pepper = '90a30154d143718b8247db894835c80e778380731694c387358a39e36c3b2e3532108f330c17ee17161beec7980fac74db24ae9b15fde4fbe3afa138f2851691'
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -137,12 +137,12 @@ Devise.setup do |config|
 
   # ==> Configuration for :validatable
   # Range for password length.
-  config.password_length = 8..128
+  config.password_length = 6..128
 
   # Email regex used to validate email formats. It simply asserts that
   # one (and only one) @ exists in the given string. This is mainly
   # to give user feedback and not to assert the e-mail validity.
-  # config.email_regexp = /\A[^@]+@[^@]+\z/
+  config.email_regexp = /\A[^@]+@[^@]+\z/
 
   # ==> Configuration for :timeoutable
   # The time you want to timeout the user session without activity. After this
@@ -202,7 +202,7 @@ Devise.setup do |config|
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
   # "users/sessions/new". It's turned off by default because it's slower if you
   # are using only default views.
-  # config.scoped_views = false
+  config.scoped_views = true
 
   # Configure the default scope given to Warden. By default it's the first
   # devise role declared in your routes (usually :user).

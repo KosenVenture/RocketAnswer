@@ -1,6 +1,11 @@
 KaitouShare::Application.routes.draw do
   root to: 'home#index'
 
+  devise_for :user,
+    controllers: {
+      registrations: 'user/registrations'
+    }
+
   resources :universities, only: [:index, :show] do
     resources :departments, only: [:show]
   end

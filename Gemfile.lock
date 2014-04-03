@@ -300,6 +300,7 @@ DEPENDENCIES
   carrierwave
   coffee-rails (~> 4.0.0)
   database_cleaner
+  devise
   factory_girl_rails
   font-awesome-rails
   gretel

@@ -107,17 +107,29 @@ ActiveRecord::Schema.define(version: 20140403093458) do
   add_index "subjects", ["department_id"], name: "index_subjects_on_department_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "name"
     t.string   "nickname"
-    t.string   "email"
+    t.string   "email",                  default: "", null: false
     t.integer  "school_id"
     t.integer  "department_id"
     t.integer  "graduate_year"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   add_index "users", ["department_id"], name: "index_users_on_department_id", using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["school_id"], name: "index_users_on_school_id", using: :btree
 
   create_table "wish_universities", force: true do |t|

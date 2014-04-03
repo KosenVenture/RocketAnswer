@@ -1,0 +1,156 @@
+<div class="page-header">
+  <h1>利用登録</h1>
+</div>
+
+<%= form_for(resource,
+  as: resource_name,
+  url: registration_path(resource_name),
+  html: { class: 'form-horizontal' }
+  ) do |f| %>
+
+  <%= render partial: 'shared/form_error', locals: { object: resource } %>
+
+  <script>
+    $(function(){
+      // エラーのあるフィールドを赤く
+      <% resource.errors.each do |i| %>
+        $('#user_<%= i %>').parents('.form-group').addClass('has-error');
+      <% end %>
+
+      // focusされたらエラーを消す
+      $('input').focus(function() {
+        $(this).parents('.form-group').removeClass('has-error');
+      });
+    });
+  </script>
+
+  <div class="form-group">
+    <%= f.label :name, class: 'control-label col-sm-2' %>
+    <div class="col-sm-4">
+      <div class="row">
+        <div class="col-xs-6">
+          <%= f.text_field :last_name,
+            placeholder: '姓',
+            autofocus: true,
+            class: 'form-control' %>
+        </div>
+        <div class="col-xs-6">
+          <%= f.text_field :first_name,
+            placeholder: '名',
+            class: 'form-control' %>
+        </div>
+      </div>
+    </div>
+    <span class="label label-danger">必須</span>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :nickname, class: 'control-label col-sm-2' %>
+    <div class="col-sm-4">
+      <%= f.text_field :nickname,
+        class: 'form-control' %>
+    </div>
+    <span class="label label-danger">必須</span>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :email, class: 'control-label col-sm-2' %>
+    <div class="col-sm-4">
+      <%= f.email_field :email,
+        class: 'form-control' %>
+    </div>
+    <span class="label label-danger">必須</span>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password,
+      class: 'control-label col-sm-2' %>
+    <div class="col-sm-4">
+      <%= f.password_field :password,
+        autocomplete: "off",
+        class: 'form-control' %>
+    </div>
+    <span class="label label-danger">必須</span>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password_confirmation,
+      class: 'control-label col-sm-2' %>
+    <div class="col-sm-4">
+      <%= f.password_field :password_confirmation,
+        autocomplete: "off",
+        class: 'form-control' %>
+    </div>
+    <span class="label label-danger">必須</span>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :school,
+      class: 'control-label col-sm-2' %>
+    <div class="col-sm-4">
+      <%= f.collection_select :school_id,
+        @schools,
+        :id,
+        :name,
+        { include_blank: true },
+        class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :department,
+      class: 'control-label col-sm-2' %>
+    <div class="col-sm-4">
+      <%= f.collection_select :department_id,
+        @departments,
+        :id,
+        :name,
+        { include_blank: true },
+        class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :graduate_year, class: 'control-label col-sm-2' %>
+    <div class="col-sm-4">
+      <%= f.text_field :graduate_year,
+        class: 'form-control' %>
+    </div>
+  </div>
+
+  <%= f.fields_for :wish_universities do |univ_form| %>
+    <div class="form-group">
+      <%= univ_form.label "第#{univ_form.index + 1}志望",
+        class: 'control-label col-sm-2' %>
+
+      <div class="col-sm-4">
+        <div class="row">
+          <div class="col-xs-6">
+            <%= univ_form.collection_select :university_id,
+              @universities,
+              :id,
+              :name,
+              { include_blank: true },
+              class: 'form-control' %>
+          </div>
+          <div class="col-xs-6">
+            <%= univ_form.collection_select :department_id,
+              @departments,
+              :id,
+              :name,
+              { include_blank: true },
+              class: 'form-control' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit '登録する', class: 'btn btn-warning' %>
+    </div>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
