@@ -26,6 +26,8 @@ gem 'jquery-ui-rails'
 # view系
 gem 'jbuilder', '~> 1.2'
 gem 'font-awesome-rails'
+## パンくずリスト
+gem 'gretel'
 
 # 管理画面
 gem 'activeadmin', github: 'gregbell/active_admin'
