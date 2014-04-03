@@ -1,13 +1,11 @@
-<h1>Listing university</h1>
+<h1>学校一覧</h1>
 
-<table>
+<table class="table table-hover table-bordered">
   <thead>
     <tr>
-      <th>Type</th>
-      <th>Establishment</th>
-      <th>Name</th>
-      <th></th>
-      <th></th>
+      <th>種類</th>
+      <th>設立</th>
+      <th>学校名</th>
       <th></th>
     </tr>
   </thead>
@@ -18,14 +16,8 @@
         <td><%= university.type %></td>
         <td><%= university.establishment %></td>
         <td><%= university.name %></td>
-        <td><%= link_to 'Show', university %></td>
-        <td><%= link_to 'Edit', edit_university_path(university) %></td>
-        <td><%= link_to 'Destroy', university, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '詳細', university %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New School', new_university_path %>

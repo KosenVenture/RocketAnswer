@@ -1,23 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <h1><%= @university.name %></h1>
-<table class="table table-bordered">
+<table class="table  table-hover table-bordered">
   <tr>
-    <th>No.</th>
     <th>学科</th>
-    <th>合格率</th>
+    <th>種類</th>
+    <th>県</th>
+    <th>住所</th>
   </tr>
-  <tr>
-    <td>1.</td>
-    <td><a href="/department.html">XXX学科</a></td>
-    <td>50%</td>
-  </tr>
-  <tr>
-    <td>2.</td>
-    <td><a href="">YYY学科</a></td>
-    <td>50%</td>
-  </tr>
+  <% @university.departments.each do |department| %>
+    <tr>
+      <td><%= link_to department.name, university_department_path(@university, department) %></td>
+      <td><%= department.kind %></td>
+      <td><%= department.prefecture %></td>
+      <td><%= department.address %></td>
+    </tr>
+  <% end %>
 </table>
-
-<%= link_to 'Edit', edit_university_path(@university) %> |
-<%= link_to 'Back', universities_path %>
