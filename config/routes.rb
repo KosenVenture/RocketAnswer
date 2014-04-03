@@ -2,6 +2,8 @@ KaitouShare::Application.routes.draw do
 
   root to: 'home#index'
 
+  devise_for :user
+
   resources :schools do
     resources :departments
   end

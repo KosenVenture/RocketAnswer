@@ -14,6 +14,7 @@ gem 'rails-i18n'
 gem 'rails_config'
 gem 'jquery-fileupload-rails'
 gem 'carrierwave'
+gem 'devise'
 
 # asset系
 gem 'sass-rails', '~> 4.0.2'
