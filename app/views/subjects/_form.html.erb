@@ -2,12 +2,7 @@
   html: { class: 'form-horizontal' } do |f| %>
   <%= render partial: 'shared/form_error', locals: { object: @subject } %>
 
-  <div class="form-group">
-    <%= f.label :department_id, class: 'control-label col-sm-2' %>
-    <div class="col-sm-4">
-      <%= f.text_field :department_id, class: 'form-control' %>
-    </div>
-  </div>
+  <%= f.hidden_field :department_id, value: params[:department_id] || @subject.department_id %>
 
   <div class="form-group">
     <%= f.label :name, class: 'control-label col-sm-2' %>

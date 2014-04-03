@@ -1,11 +1,11 @@
 KaitouShare::Application.routes.draw do
   root to: 'home#index'
 
-  resources :universities do
-    resources :departments
+  resources :universities, only: [:index, :show] do
+    resources :departments, only: [:show]
   end
 
-  resources :subjects do
+  resources :subjects, except: [:index] do
     resources :answers, except: [:index] do
       resources :answer_files, only: [:create, :destroy]
     end

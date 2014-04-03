@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1><%= @department.name %></h1>
+
 <table class="table table-hover table-bordered">
   <thead>
     <tr>
@@ -17,3 +18,9 @@
     <% end %>
   </tbody>
 </table>
+
+<p>
+  <%= link_to new_subject_path(department_id: @department.id), class: 'btn btn-primary btn-sm' do %>
+    <i class="fa fa-plus"></i> 科目の追加
+  <% end %>
+</p>
