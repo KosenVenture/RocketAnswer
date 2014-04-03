@@ -40,13 +40,14 @@ User.create(
 )
 
 univs = University.create([
-  { establishment: '国立', name: '東京工業大学' },
-  { establishment: '国立', name: '東京大学' }
+  { establishment: '国立', name: '東京工業大学', prefecture: '東京都' },
+  { establishment: '国立', name: '東京大学', prefecture: '東京都' }
 ])
 
 tsukuba = University.create(
   establishment: '国立',
-  name: '筑波大学'
+  name: '筑波大学',
+  prefecture: '茨城県'
 )
 math = tsukuba.departments.create(
   name: '理工学群数学類',

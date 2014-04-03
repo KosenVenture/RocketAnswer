@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140402084905) do
+ActiveRecord::Schema.define(version: 20140403083933) do
 
   create_table "answer_files", force: true do |t|
     t.integer  "answer_id"
@@ -56,6 +56,8 @@ ActiveRecord::Schema.define(version: 20140402084905) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "prefecture"
+    t.string   "address"
   end
 
   add_index "schools", ["establishment"], name: "index_schools_on_establishment", using: :btree
