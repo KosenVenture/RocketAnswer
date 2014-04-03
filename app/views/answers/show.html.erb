@@ -1,9 +1,4 @@
-<ol class="breadcrumb">
-  <li><%= @subject.department.school.name %></li>
-  <li><%= @subject.department.name %></li>
-  <li><%= link_to @subject.name, subject_path(@subject) %></li>
-  <li><%= @answer.year %>年</li>
-</ol>
+<% breadcrumb @answer %>
 
 <div class="page-header">
   <h2>
@@ -42,7 +37,6 @@
 
 <!-- アップロードフォーム -->
 <%= render partial: 'upload_form' %>
-
 
 <hr>
 
