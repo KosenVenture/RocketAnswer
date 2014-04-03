@@ -13,3 +13,10 @@ body {
   padding-top: 15px;
   padding-bottom: 30px;
 }
+
+.alert {
+  font-size: 13px;
+  .message {
+    margin-left: 10px;
+  }
+}
