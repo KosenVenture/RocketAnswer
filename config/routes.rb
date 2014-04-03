@@ -2,7 +2,10 @@ KaitouShare::Application.routes.draw do
 
   root to: 'home#index'
 
-  devise_for :user
+  devise_for :user,
+    controllers: {
+      registrations: 'user/registrations'
+    }
 
   resources :schools do
     resources :departments

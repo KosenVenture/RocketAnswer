@@ -6,8 +6,11 @@ class User < ActiveRecord::Base
   belongs_to :school
   belongs_to :department
   has_many :wish_universities
+  accepts_nested_attributes_for :wish_universities
 
   ###### Validation ######
+  validates :first_name, :last_name, :nickname,
+    presence: true
 
 
   ###### Scope ######
