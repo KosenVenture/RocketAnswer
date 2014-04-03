@@ -1,5 +1,4 @@
 KaitouShare::Application.routes.draw do
-
   root to: 'home#index'
 
   resources :universities do
@@ -12,7 +11,6 @@ KaitouShare::Application.routes.draw do
     end
   end
 
-  namespace :admin do
-    root 'dashboard#top'
-  end
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
 end
