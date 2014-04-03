@@ -4,19 +4,16 @@
 <table class="table table-hover table-bordered">
   <thead>
     <tr>
-      <th>No</th>
       <th>科目</th>
       <th>回答数</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>1</td>
-      <td><a href="">数学</a></td>
-      <td>5件</td>
-    </tr>
+    <% @department.subjects.each do |subject| %>
+      <tr>
+        <td><%= link_to subject.name, subject_path(subject) %></td>
+        <td><%= subject.answers.count %></td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
-
-<%= link_to 'Edit', edit_department_path(@department) %> |
-<%= link_to 'Back', departments_path %>

@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe "dashboard/top.html.slim" do
+describe AdminUser do
   pending "add some examples to (or delete) #{__FILE__}"
 end

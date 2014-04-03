@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= @university.name %></h1>
+<table class="table  table-hover table-bordered">
+  <tr>
+    <th>学科</th>
+    <th>種類</th>
+    <th>県</th>
+    <th>住所</th>
+  </tr>
+  <% @university.departments.each do |department| %>
+    <tr>
+      <td><%= link_to department.name, university_department_path(@university, department) %></td>
+      <td><%= department.kind %></td>
+      <td><%= department.prefecture %></td>
+      <td><%= department.address %></td>
+    </tr>
+  <% end %>
+</table>

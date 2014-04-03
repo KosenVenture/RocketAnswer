@@ -27,6 +27,9 @@ gem 'jquery-ui-rails'
 gem 'jbuilder', '~> 1.2'
 gem 'font-awesome-rails'
 
+# 管理画面
+gem 'activeadmin', github: 'gregbell/active_admin'
+
 # 開発ツール系
 ## 高機能コンソール
 gem 'pry'
