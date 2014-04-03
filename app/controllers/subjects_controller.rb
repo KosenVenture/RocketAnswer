@@ -31,7 +31,8 @@ class SubjectsController < ApplicationController
     respond_to do |format|
       if @subject.save
         format.html {
-          redirect_to subject_path(@subject),
+          dep = @subject.department
+          redirect_to university_department_path(dep.school.id, dep),
             notice: '作成しました。'
         }
       else
@@ -58,10 +59,11 @@ class SubjectsController < ApplicationController
   # DELETE /subjects/1
   # DELETE /subjects/1.json
   def destroy
+    dep = @subject.department
     @subject.destroy
 
     respond_to do |format|
-      format.html { redirect_to subjects_url }
+      format.html { redirect_to university_department_path(dep.school.id, dep) }
     end
   end
 

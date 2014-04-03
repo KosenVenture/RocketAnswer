@@ -4,6 +4,11 @@
 </ol>
 <div class="page-header">
   <h2><%= @subject.name %></h2>
+  <%= link_to '削除', subject_path(@subject),
+    class: 'btn btn-xs btn-danger',
+    method: :delete, data: { confirm: '削除してよろしいですか？' } %>
+  <%= link_to '編集', edit_subject_path(@subject),
+    class: 'btn btn-xs btn-success' %>
 </div>
 
 <h2>投稿されている解答</h2>
@@ -37,11 +42,3 @@
     <% end %>
   </tbody>
 </table>
-
-<hr>
-
-<p>
-  <%= link_to subjects_path, class: 'btn btn-info btn-sm' do %>
-    <i class="fa fa-arrow-left"></i> 戻る
-  <% end %>
-</p>

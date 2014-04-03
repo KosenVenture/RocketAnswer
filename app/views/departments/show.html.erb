@@ -20,7 +20,7 @@
 </table>
 
 <p>
-  <%= link_to new_subject_path, class: 'btn btn-primary btn-sm' do %>
+  <%= link_to new_subject_path(department_id: @department.id), class: 'btn btn-primary btn-sm' do %>
     <i class="fa fa-plus"></i> 科目の追加
   <% end %>
 </p>
