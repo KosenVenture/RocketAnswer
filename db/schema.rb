@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140404020252) do
+ActiveRecord::Schema.define(version: 20140404050023) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -143,7 +143,6 @@ ActiveRecord::Schema.define(version: 20140404020252) do
 
   add_index "wish_universities", ["department_id"], name: "index_wish_universities_on_department_id", using: :btree
   add_index "wish_universities", ["university_id"], name: "index_wish_universities_on_university_id", using: :btree
-  add_index "wish_universities", ["user_id", "university_id", "department_id"], name: "wish_universities_uniquness", unique: true, using: :btree
   add_index "wish_universities", ["user_id"], name: "index_wish_universities_on_user_id", using: :btree
 
 end
