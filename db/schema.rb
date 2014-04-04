@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140404050023) do
+ActiveRecord::Schema.define(version: 20140404051757) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -59,14 +59,12 @@ ActiveRecord::Schema.define(version: 20140404050023) do
   add_index "answer_files", ["user_id"], name: "index_answer_files_on_user_id", using: :btree
 
   create_table "answers", force: true do |t|
-    t.integer  "subject_id"
     t.integer  "user_id"
     t.integer  "year"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "answers", ["subject_id"], name: "index_answers_on_subject_id", using: :btree
   add_index "answers", ["user_id"], name: "index_answers_on_user_id", using: :btree
 
   create_table "departments", force: true do |t|
@@ -96,15 +94,6 @@ ActiveRecord::Schema.define(version: 20140404050023) do
   add_index "schools", ["establishment"], name: "index_schools_on_establishment", using: :btree
   add_index "schools", ["name"], name: "index_schools_on_name", using: :btree
   add_index "schools", ["type"], name: "index_schools_on_type", using: :btree
-
-  create_table "subjects", force: true do |t|
-    t.integer  "department_id"
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "subjects", ["department_id"], name: "index_subjects_on_department_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "nickname"
