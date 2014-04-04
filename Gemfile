@@ -15,6 +15,8 @@ gem 'rails_config'
 gem 'jquery-fileupload-rails'
 gem 'carrierwave'
 gem 'devise'
+## 認可ライブラリ
+gem 'cancancan', '~> 1.7'
 
 # asset系
 gem 'sass-rails', '~> 4.0.2'
