@@ -15,15 +15,14 @@
           </div>
           <div class="panel-body">
             <ul class="list-unstyled">
-              <!-- とりあえずsubjectで実装。subject廃止したらanswerにしてください。 -->
-              <% dep.subjects.limit(5).each do |subject| %>
+              <% dep.answers.limit(5).each do |answer| %>
                 <li>
                   <span class="label label-info">
                     <i class="fa fa-thumbs-o-up"></i>
                     12
                   </span>
                   &nbsp;
-                  <%= link_to subject.name, subject_path(subject) %>
+                  <%= link_to answer.name, answer_path(answer) %>
                 </li>
               <% end %>
             </ul>

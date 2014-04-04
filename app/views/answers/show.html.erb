@@ -2,7 +2,7 @@
 
 <div class="page-header">
   <h2>
-    <%= @subject.name %> (<%= @answer.year %>年)
+    <%= @answer.name %>
   </h2>
 
   <div class="row">
@@ -15,13 +15,13 @@
           </span>
         </h4>
 
-        <%= link_to edit_subject_answer_path(@subject, @answer),
+        <%= link_to edit_answer_path(@answer),
           class: 'btn btn-success btn-sm' do %>
           <i class="fa fa-pencil"></i>
           編集
         <% end %>
 
-        <%= link_to subject_answer_path(@subject, @answer),
+        <%= link_to answer_path(@answer),
           class: 'btn btn-danger btn-sm',
           method: :delete, data: { confirm: '削除してよろしいですか？' } do %>
           <i class="fa fa-trash-o"></i>
@@ -41,7 +41,7 @@
 <hr>
 
 <p>
-  <%= link_to subject_path(@subject), class: 'btn btn-info btn-sm' do %>
+  <%= link_to university_department_path(@answer.department.school, @answer.department), class: 'btn btn-info btn-sm' do %>
     <i class="fa fa-arrow-left"></i> 戻る
   <% end %>
 </p>

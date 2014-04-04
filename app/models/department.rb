@@ -1,5 +1,12 @@
 class Department < ActiveRecord::Base
+
+  ###### Association ######
   belongs_to :school
   has_many :answers,
-    dependent: :restrict # 投稿がある場合削除できない
+    dependent: :nullify
+
+  ###### Instance Method ######
+  def full_name
+    school.name + ' ' + name
+  end
 end

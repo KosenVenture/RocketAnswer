@@ -8,7 +8,8 @@ class Answer < ActiveRecord::Base
   accepts_nested_attributes_for :answer_files
 
   ###### Validation ######
-
+  validates :department_id, :subject, :year,
+    presence: true
 
   ###### Scope ######
 
