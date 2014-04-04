@@ -31,12 +31,14 @@ j = nnct.departments.create(
 )
 
 User.create(
-  school_id: nnct.id,
-  department_id: j.id,
-  name: '長野　高専',
+  school: nnct.name,
+  department: j.name,
+  last_name: '長野',
+  first_name: '高専',
   nickname: 'こうせん',
   email: 'nnct@example.com',
-  graduate_year: 2010
+  graduate_year: 2010,
+  password: 'testtest', password_confirmation: 'testtest'
 )
 
 univs = University.create([
@@ -54,7 +56,8 @@ math = tsukuba.departments.create(
   kind: '数学系',
   prefecture: '茨城県'
 )
-math.subjects.create([
-  { name: '数学' },
-  { name: '英語' }
-])
+
+AdminUser.create(
+  email: 'admin@example.com',
+  password: 'password', password_confirmation: 'password'
+  )
