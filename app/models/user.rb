@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   ###### Validation ######
   validates :first_name, :last_name, :nickname,
     presence: true
+  validates :nickname,
+    uniqueness: true
 
 
   ###### Scope ######
