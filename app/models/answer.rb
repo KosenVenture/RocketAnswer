@@ -1,7 +1,7 @@
 class Answer < ActiveRecord::Base
 
   ###### Association ######
-  belongs_to :subject
+  belongs_to :department
   belongs_to :user
   has_many :answer_files,
     dependent: :destroy
@@ -20,5 +20,7 @@ class Answer < ActiveRecord::Base
 
 
   ###### Instance Method ######
-
+  def name
+    "#{subject}（#{year}年）"
+  end
 end
