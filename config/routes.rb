@@ -7,7 +7,7 @@ KaitouShare::Application.routes.draw do
     }
 
   resources :universities, only: [:index, :show] do
-    resources :departments, only: [:show]
+    resources :departments, only: [:index, :show]
   end
 
   resources :subjects, except: [:index] do

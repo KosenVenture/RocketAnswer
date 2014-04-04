@@ -23,6 +23,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+gem 'selectize-rails'
 
 # view系
 gem 'jbuilder', '~> 1.2'
