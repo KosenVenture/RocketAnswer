@@ -15,17 +15,21 @@
           </span>
         </h4>
 
-        <%= link_to edit_answer_path(@answer),
-          class: 'btn btn-success btn-sm' do %>
-          <i class="fa fa-pencil"></i>
-          編集
+        <% if can? :update, @answer %>
+          <%= link_to edit_answer_path(@answer),
+            class: 'btn btn-success btn-sm' do %>
+            <i class="fa fa-pencil"></i>
+            編集
+          <% end %>
         <% end %>
 
-        <%= link_to answer_path(@answer),
-          class: 'btn btn-danger btn-sm',
-          method: :delete, data: { confirm: '削除してよろしいですか？' } do %>
-          <i class="fa fa-trash-o"></i>
-          削除
+        <% if can? :delete, @answer %>
+          <%= link_to answer_path(@answer),
+            class: 'btn btn-danger btn-sm',
+            method: :delete, data: { confirm: '削除してよろしいですか？' } do %>
+            <i class="fa fa-trash-o"></i>
+            削除
+          <% end %>
         <% end %>
       </div>
     </div>
@@ -35,8 +39,10 @@
 <!-- ビューア -->
 <%= render partial: 'viewer' %>
 
-<!-- アップロードフォーム -->
-<%= render partial: 'upload_form' %>
+<% if can? :update, @answer %>
+  <!-- アップロードフォーム -->
+  <%= render partial: 'upload_form' %>
+<% end %>
 
 <hr>
 

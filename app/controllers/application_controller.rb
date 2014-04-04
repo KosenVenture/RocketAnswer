@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  rescue_from CanCan::AccessDenied do |e|
+    redirect_to root_url, alert: '許可されていない操作です'
+  end
+
   protected
 
   def configure_permitted_parameters

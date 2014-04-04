@@ -12,8 +12,18 @@
     </div>
 
     <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-left">
+        <li>
+          <%= link_to universities_path do %>
+            <i class="fa fa-building-o"></i> 大学一覧
+          <% end %>
+        </li>
+      </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
+          <li>
+            <p class="navbar-text"><%= current_user.nickname %> さん</p>
+          </li>
           <li>
             <%= link_to destroy_user_session_path, method: :delete do %>
               <i class="fa fa-sign-out"></i> ログアウト
