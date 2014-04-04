@@ -13,5 +13,33 @@ ActiveAdmin.register AnswerFile do
   #  permitted << :other if resource.something?
   #  permitted
   # end
-  
+
+  index do
+    column :id
+    column :answer_id do |answer_file|
+      link_to answer_file.id, admin_answer_path(answer_file.answer)
+    end
+    column :image do |answer_file|
+      image_tag(answer_file.image)
+    end
+    column :order
+    column :created_at
+    column :updated_at
+    default_actions
+  end
+
+  show do |answer_file|
+    attributes_table do
+      row :id
+      row :answer_id
+      row :image do
+        image_tag(answer_file.image)
+      end
+      row :order
+      row :created_at
+      row :updated_at
+    end
+    active_admin_comments
+  end
+
 end
