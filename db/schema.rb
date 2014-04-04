@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140403093458) do
+ActiveRecord::Schema.define(version: 20140404020252) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -109,8 +109,6 @@ ActiveRecord::Schema.define(version: 20140403093458) do
   create_table "users", force: true do |t|
     t.string   "nickname"
     t.string   "email",                  default: "", null: false
-    t.integer  "school_id"
-    t.integer  "department_id"
     t.integer  "graduate_year"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -125,12 +123,14 @@ ActiveRecord::Schema.define(version: 20140403093458) do
     t.string   "last_sign_in_ip"
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "school"
+    t.string   "department"
   end
 
-  add_index "users", ["department_id"], name: "index_users_on_department_id", using: :btree
+  add_index "users", ["department"], name: "index_users_on_department", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-  add_index "users", ["school_id"], name: "index_users_on_school_id", using: :btree
+  add_index "users", ["school"], name: "index_users_on_school", using: :btree
 
   create_table "wish_universities", force: true do |t|
     t.integer  "user_id"

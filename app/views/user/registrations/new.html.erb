@@ -88,11 +88,7 @@
     <%= f.label :school,
       class: 'control-label col-sm-2' %>
     <div class="col-sm-4">
-      <%= f.collection_select :school_id,
-        @schools,
-        :id,
-        :name,
-        { include_blank: true },
+      <%= f.text_field :school,
         class: 'form-control' %>
     </div>
   </div>
@@ -101,11 +97,7 @@
     <%= f.label :department,
       class: 'control-label col-sm-2' %>
     <div class="col-sm-4">
-      <%= f.collection_select :department_id,
-        @departments,
-        :id,
-        :name,
-        { include_blank: true },
+      <%= f.text_field :department,
         class: 'form-control' %>
     </div>
   </div>

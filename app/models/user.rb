@@ -3,8 +3,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   ###### Association ######
-  belongs_to :school
-  belongs_to :department
   has_many :wish_universities
   accepts_nested_attributes_for :wish_universities
 
