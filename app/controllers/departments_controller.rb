@@ -1,10 +1,11 @@
 class DepartmentsController < ApplicationController
+  before_action :set_university
   before_action :set_department, only: [:show, :edit, :update, :destroy]
 
   # GET /departments
   # GET /departments.json
   def index
-    @departments = Department.all
+    @departments = @university.departments.all
   end
 
   # GET /departments/1
@@ -62,9 +63,13 @@ class DepartmentsController < ApplicationController
   end
 
   private
+    def set_university
+      @university = University.find(params[:university_id])
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_department
-      @department = Department.find(params[:id])
+      @department = @university.departments.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
