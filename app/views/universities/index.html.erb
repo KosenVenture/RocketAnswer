@@ -2,26 +2,24 @@
 
 <h1>学校一覧</h1>
 
-<table class="table table-hover table-bordered">
-  <thead>
-    <tr>
-      <th>学校名</th>
-      <th>種類</th>
-      <th>設立</th>
-      <th>都道府県</th>
-      <th>住所</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @universities.each do |university| %>
+<div class="page-header">
+  <table class="table table-hover table-bordered">
+    <thead>
       <tr>
-        <td><%= link_to university.name, university %></td>
-        <td><%= university.type %></td>
-        <td><%= university.establishment %></td>
-        <td><%= university.prefecture %></td>
-        <td><%= university.address %></td>
+        <th>学校名</th>
+        <th>都道府県</th>
+        <th>住所</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @universities.each do |university| %>
+        <tr>
+          <td><%= link_to "#{university.establishment} #{university.name}", university %></td>
+          <td><%= university.prefecture %></td>
+          <td><%= university.address %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

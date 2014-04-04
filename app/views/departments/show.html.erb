@@ -16,7 +16,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>操作</th>
+      <th>教科</th>
       <th>実施年</th>
       <th>投稿ユーザ</th>
     </tr>
@@ -26,8 +26,7 @@
     <% @answers.each do |answer| %>
       <tr>
         <td>
-          <%= link_to '開く', answer_path(answer),
-            class: 'btn btn-xs btn-primary' %>
+          <%= link_to answer.subject, answer_path(answer) %>
         </td>
         <td><%= answer.year %></td>
         <td><%= answer.user.try(:nickname) %></td>
