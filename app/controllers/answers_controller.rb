@@ -1,7 +1,7 @@
 class AnswersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_subject
   before_action :set_answer, only: [:show, :edit, :update, :destroy]
+  before_action :set_department, only: [:new, :create]
 
   # GET /answers/1
   # GET /answers/1.json
@@ -12,7 +12,7 @@ class AnswersController < ApplicationController
 
   # GET /answers/new
   def new
-    @answer = @subject.answers.build
+    @answer = @department.answers.new(user: current_user)
   end
 
   # GET /answers/1/edit
@@ -22,13 +22,14 @@ class AnswersController < ApplicationController
   # POST /answers
   # POST /answers.json
   def create
-    @answer = @subject.answers.build(answer_params)
+    @answer = @department.answers.new(answer_params)
+    @answer.user = current_user
 
     respond_to do |format|
       if @answer.save
         format.html {
-          redirect_to subject_answer_path(@subject, @answer),
-          notice: 'アップロードしました。'
+          redirect_to answer_path(@answer),
+          notice: '作成しました。'
         }
       else
         format.html { render action: 'new' }
@@ -42,7 +43,7 @@ class AnswersController < ApplicationController
     respond_to do |format|
       if @answer.update(answer_params)
         format.html {
-          redirect_to subject_answer_path(@subject, @answer),
+          redirect_to answer_path(@answer),
             notice: '更新しました。'
         }
       else
@@ -62,16 +63,16 @@ class AnswersController < ApplicationController
   end
 
   private
-    def set_subject
-      @subject = Subject.find(params[:subject_id])
+    def set_answer
+      @answer = Answer.find(params[:id])
     end
 
-    def set_answer
-      @answer = @subject.answers.find(params[:id])
+    def set_department
+      @department = Department.find(params[:department_id] || params[:answer].try(:fetch, :department_id))
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def answer_params
-      params.require(:answer).permit(:subject_id, :user_id, :year, answer_files_attributes: [:id, :order])
+      params.require(:answer).permit(:department_id, :subject, :year, answer_files_attributes: [:id, :order])
     end
 end

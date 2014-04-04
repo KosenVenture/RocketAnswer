@@ -16,12 +16,7 @@ crumb :department do |department|
   parent :university, department.school
 end
 
-crumb :subject do |subject|
-  link subject.name, subject_path(subject)
-  parent :department, subject.department
-end
-
 crumb :answer do |answer|
-  link "#{answer.year}年", subject_answer_path(answer.subject, answer)
-  parent :subject, answer.subject
+  link answer.name, answer_path(answer)
+  parent :department, answer.department
 end

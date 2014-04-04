@@ -4,12 +4,12 @@
     <div class="col-md-3 visible-md visible-lg">
       <div class="thumbs">
         <!-- 並び替え用フォーム -->
-        <%= form_for [@subject, @answer] do |f| %>
+        <%= form_for @answer do |f| %>
           <ol>
             <!-- 個別のファイル -->
             <%= f.fields_for :answer_files do |file_form| %>
               <li>
-                <%= link_to subject_answer_answer_file_path(@subject, @answer, file_form.object),
+                <%= link_to answer_answer_file_path(@answer, file_form.object),
                   method: :delete, data: { confirm: 'この画像を削除してもよろしいですか？' } do %>
                   <i class="fa fa-trash-o"></i>
                 <% end %>

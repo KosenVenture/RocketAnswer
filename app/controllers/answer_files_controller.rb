@@ -8,7 +8,7 @@ class AnswerFilesController < ApplicationController
     respond_to do |format|
       if @answer_file.save
         format.html {
-          redirect_to subject_answer_path(@subject, @answer),
+          redirect_to answer_path(@answer),
             notice: '正常にアップロードされました。'
         }
         format.json {
@@ -20,7 +20,7 @@ class AnswerFilesController < ApplicationController
           }
       else
         format.html {
-          redirect_to subject_answer_path(@subject, @answer),
+          redirect_to answer_path(@answer),
             alert: 'アップロードに失敗しました。'
         }
       end
@@ -33,13 +33,13 @@ class AnswerFilesController < ApplicationController
     respond_to do |format|
       if @answer_file.destroy
         format.html {
-          redirect_to subject_answer_path(@subject, @answer),
+          redirect_to answer_path(@answer),
             notice: '削除されました。'
         }
         format.json { head :no_content }
       else
         format.html {
-          redirect_to subject_answer_path(@subject, @answer),
+          redirect_to answer_path(@answer),
             alert: '削除に失敗しました。'
         }
         format.html { head :internal_server_error }
@@ -53,7 +53,6 @@ private
   end
 
   def set_resources
-    @subject = Subject.find(params[:subject_id])
-    @answer = @subject.answers.find(params[:answer_id])
+    @answer = Answer.find(params[:answer_id])
   end
 end

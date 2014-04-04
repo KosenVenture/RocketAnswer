@@ -4,25 +4,34 @@
 
 <h1><%= @department.name %></h1>
 
-<table class="table table-hover table-bordered">
+<h2>投稿されている解答</h2>
+
+<p>
+  <%= link_to new_answer_path(department_id: @department.id),
+    class: 'btn btn-primary btn-sm' do %>
+    <i class="fa fa-plus"></i> 追加
+  <% end %>
+</p>
+
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>科目</th>
-      <th>回答数</th>
+      <th>操作</th>
+      <th>実施年</th>
+      <th>投稿ユーザ</th>
     </tr>
   </thead>
+
   <tbody>
-    <% @department.subjects.each do |subject| %>
+    <% @answers.each do |answer| %>
       <tr>
-        <td><%= link_to subject.name, subject_path(subject) %></td>
-        <td><%= subject.answers.count %></td>
+        <td>
+          <%= link_to '開く', answer_path(answer),
+            class: 'btn btn-xs btn-primary' %>
+        </td>
+        <td><%= answer.year %></td>
+        <td><%= answer.user.try(:nickname) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<p>
-  <%= link_to new_subject_path(department_id: @department.id), class: 'btn btn-primary btn-sm' do %>
-    <i class="fa fa-plus"></i> 科目の追加
-  <% end %>
-</p>

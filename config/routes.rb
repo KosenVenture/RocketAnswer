@@ -10,10 +10,8 @@ KaitouShare::Application.routes.draw do
     resources :departments, only: [:index, :show]
   end
 
-  resources :subjects, except: [:index] do
-    resources :answers, except: [:index] do
-      resources :answer_files, only: [:create, :destroy]
-    end
+  resources :answers, except: [:index] do
+    resources :answer_files, only: [:create, :destroy]
   end
 
   devise_for :admin_users, ActiveAdmin::Devise.config
