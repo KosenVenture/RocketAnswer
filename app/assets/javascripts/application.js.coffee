@@ -5,4 +5,5 @@
 //= require jquery-fileupload
 //= require selectize
 //= require answers
+//= require registration
 //= require_self

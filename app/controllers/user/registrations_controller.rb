@@ -9,8 +9,6 @@ class User::RegistrationsController < Devise::RegistrationsController
 
 private
   def set_resources
-    @schools = School.all
     @universities = University.all
-    @departments = Department.all
   end
 end
