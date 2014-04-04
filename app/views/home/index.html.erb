@@ -1,2 +1,109 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="jumbotron">
+  <h1>Kaitou Share</h1>
+  <p>大学編入試験問題の解答を共有しましょう。</p>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h4><i class="fa fa-search"></i>&nbsp;&nbsp;解答を探す</h4>
+      </div>
+      <div class="panel-body">
+        <p>投稿されている解答を、大学別に探すことができます。</p>
+        <hr>
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="panel panel-half-primary">
+              <div class="panel-heading">
+                <h5><i class="fa fa-rss"></i>&nbsp;&nbsp;最近投稿された解答</h5>
+              </div>
+              <div class="panel-body">
+                <ul class="list-unstyled">
+                  <% @recent_answers.each do |answer| %>
+                    <li>
+                      <span class="label label-info">
+                        <i class="fa fa-user"></i>
+                        <%= answer.user.nickname %>
+                      </span>
+                      &nbsp;&nbsp;
+                      <%= link_to answer.full_name, answer %>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="panel panel-half-primary">
+              <div class="panel-heading">
+                <h5><i class="fa fa-star"></i>&nbsp;&nbsp;評価の高い解答</h5>
+              </div>
+              <div class="panel-body">
+                Comming soon!
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="pull-right">
+          <%= link_to universities_path, class: 'btn btn-primary' do %>
+            <i class="fa fa-building-o"></i>
+            &nbsp;
+            大学一覧 &gt;&gt;
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-6">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h4><i class="fa fa-upload"></i>&nbsp;&nbsp;解答を投稿する</h4>
+      </div>
+      <div class="panel-body">
+        <p>よりよい解答をお待ちしています！</p>
+        <p>各学科のページから投稿をお願いします。</p>
+        <hr>
+        <div class="pull-right">
+          <%= link_to universities_path, class: 'btn btn-info btn-sm' do %>
+            <i class="fa fa-building-o"></i>
+            &nbsp;
+            大学一覧 &gt;&gt;
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-6">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h4><i class="fa fa-check"></i>&nbsp;&nbsp;登録する</h4>
+      </div>
+      <div class="panel-body">
+        <p>解答の閲覧・投稿には利用登録が必要です。</p>
+        <p>こちらから、登録をお願いします。</p>
+        <hr>
+        <div class="pull-right">
+          <% if user_signed_in? %>
+            既にログイン済です
+          <% else %>
+            <%= link_to new_user_registration_path, class: 'btn btn-success btn-sm' do %>
+              <i class="fa fa-check"></i>
+              登録
+            <% end %>
+            <%= link_to new_user_registration_path, class: 'btn btn-primary btn-sm' do %>
+              <i class="fa fa-sign-in"></i>
+              ログイン
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
