@@ -5,6 +5,7 @@
 //= require selectize
 //= require selectize.bootstrap3
 //= require answers
+//= require home
 //= require_self
 
 body {
@@ -25,4 +26,8 @@ body {
 
 .breadcrumb {
   font-size: 13px;
+}
+
+.navbar {
+  box-shadow: 1px 1px 3px;
 }

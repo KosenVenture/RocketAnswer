@@ -1,0 +1,19 @@
+.panel-success > .panel-heading {
+  color: #ffffff;
+  background-color: #43ac6a;
+}
+
+.panel-info > .panel-heading {
+  color: #ffffff;
+  background-color: #59bbd9;
+}
+
+.panel-half-primary {
+  border-color: #5b9fcf;
+  > .panel-heading {
+    color: #ffffff;
+    background-color: #5b9fcf;
+    border-color: #5b9fcf;
+  }
+}
+
