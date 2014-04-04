@@ -2,6 +2,7 @@ class Answer < ActiveRecord::Base
 
   ###### Association ######
   belongs_to :department
+  delegate :school, to: :department
   belongs_to :user
   has_many :answer_files,
     dependent: :destroy
@@ -12,6 +13,7 @@ class Answer < ActiveRecord::Base
     presence: true
 
   ###### Scope ######
+  default_scope -> { order('created_at DESC') }
 
 
   ###### Callback ######
@@ -23,5 +25,9 @@ class Answer < ActiveRecord::Base
   ###### Instance Method ######
   def name
     "#{subject}（#{year}年）"
+  end
+
+  def full_name
+    "#{school.name} #{department.name} #{subject}（#{year}年）"
   end
 end
