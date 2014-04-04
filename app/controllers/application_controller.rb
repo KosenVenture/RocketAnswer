@@ -16,11 +16,12 @@ class ApplicationController < ActionController::Base
 
   def devise_permit_params(u)
     u.permit(
+      :email, :password, :password_confirmation, :current_password,
       :first_name, :last_name,
       :nickname,
       :school, :department,
       :graduate_year,
-      wish_universities_attributes: [:id, :university_id, :department_id]
+      wish_universities_attributes: [:id, :university_id, :department_id, :rank]
     )
   end
 end
