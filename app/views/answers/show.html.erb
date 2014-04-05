@@ -46,6 +46,20 @@
 
 <hr>
 
+<h2>コメント</h2>
+<div class="comments">
+  <% 10.times do |i|%>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%=  5.times.map{ [*'あ'..'ん'].sample }.join %> さん</h3>
+      </div>
+      <div class="panel-body">
+        コメント…
+      </div>
+    </div>
+  <% end %>
+</div>
+
 <p>
   <%= link_to university_department_path(@answer.department.school, @answer.department), class: 'btn btn-info btn-sm' do %>
     <i class="fa fa-arrow-left"></i> 戻る
