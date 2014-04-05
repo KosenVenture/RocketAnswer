@@ -105,8 +105,10 @@
   <div class="form-group">
     <%= f.label :graduate_year, class: 'control-label col-sm-2' %>
     <div class="col-sm-4">
-      <%= f.text_field :graduate_year,
-        class: 'form-control' %>
+      <div class="input-group">
+        <%= f.text_field :graduate_year, class: 'form-control' %>
+        <span class="input-group-addon">年</span>
+      </div>
     </div>
   </div>
 
