@@ -37,7 +37,7 @@ User.create(
   first_name: '高専',
   nickname: 'こうせん',
   email: 'nnct@example.com',
-  graduate_year: 2010,
+  graduate_year: 2015,
   password: 'testtest', password_confirmation: 'testtest'
 )
 
