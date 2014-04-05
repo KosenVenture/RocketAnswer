@@ -9,8 +9,10 @@ class Answer < ActiveRecord::Base
   accepts_nested_attributes_for :answer_files
 
   ###### Validation ######
-  validates :department_id, :subject, :year,
-    presence: true
+  validates :department, associated: true
+  validates :user, associated: true
+  validates :subject, presence: true, length: { maximum: 20 }
+  validates :year, presence: true, numericality: { greater_than: 1900 } 
 
   ###### Scope ######
   default_scope -> { order('created_at DESC') }
