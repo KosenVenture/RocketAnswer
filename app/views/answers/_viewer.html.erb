@@ -9,9 +9,11 @@
             <!-- 個別のファイル -->
             <%= f.fields_for :answer_files do |file_form| %>
               <li>
-                <%= link_to answer_answer_file_path(@answer, file_form.object),
-                  method: :delete, data: { confirm: 'この画像を削除してもよろしいですか？' } do %>
-                  <i class="fa fa-trash-o"></i>
+                <% if can? :update, @answer %>
+                  <%= link_to answer_answer_file_path(@answer, file_form.object),
+                    method: :delete, data: { confirm: 'この画像を削除してもよろしいですか？' } do %>
+                    <i class="fa fa-trash-o"></i>
+                  <% end %>
                 <% end %>
                 <%= file_form.hidden_field :order %>
                 <a href="#file_<%= file_form.object.id %>">
