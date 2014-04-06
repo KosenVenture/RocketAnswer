@@ -53,7 +53,7 @@
       <div class="panel-heading">
         <h3 class="panel-title"><%= comment.user.nickname %> さん</h3>
       </div>
-      <div class="panel-body"><%= comment.content %></div>
+      <div class="panel-body"><%= markdown(comment.content) %></div>
     </div>
   <% end %>
 </div>

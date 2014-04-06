@@ -32,6 +32,8 @@ gem 'jbuilder', '~> 1.2'
 gem 'font-awesome-rails'
 ## パンくずリスト
 gem 'gretel'
+## Markdown
+gem 'redcarpet'
 
 # 管理画面
 gem 'activeadmin', github: 'gregbell/active_admin'
