@@ -32,3 +32,6 @@ config/settings/*.local.rb
 config/database.yml
 
 public/uploads
+
+# Vagrant
+.vagrant
