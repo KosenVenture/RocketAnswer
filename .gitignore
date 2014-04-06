@@ -35,3 +35,6 @@ public/uploads
 
 # Vagrant
 .vagrant
+
+# chef
+lib/chef/.chef
