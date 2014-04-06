@@ -2,8 +2,8 @@ class CommentsController < InheritedResources::Base
   authorize_resource
 
   before_action :authenticate_user!
-  before_action :set_comment, only: [:update]
   before_action :set_answer, only: [:create, :update]
+  before_action :set_comment, only: [:update]
 
   def create
     @comment = @answer.comments.new(comment_params)
@@ -46,11 +46,11 @@ class CommentsController < InheritedResources::Base
   private
 
   def set_comment
-    @comment = Comment.find(params[:id])
+    @comment = @answer.comments.find(params[:id])
   end
 
   def set_answer
-    @answer = @comment.try(:answer) || @Answer.find(params[:answer_id])
+    @answer = Answer.find(params[:answer_id])
   end
 
   def comment_params
