@@ -10,6 +10,7 @@ class AnswersController < ApplicationController
   def show
     @answer_files = @answer.answer_files
     @new_answer_file = AnswerFile.new(answer: @answer)
+    @comment = Comment.new(user: current_user)
   end
 
   # GET /answers/new
