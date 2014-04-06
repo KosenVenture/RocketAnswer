@@ -52,6 +52,19 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title"><%= comment.user.nickname %> さん</h3>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="pull-right">
+              <% if can? :delete, comment %>
+                <%= link_to answer_comment_path(@answer, comment),
+                  class: 'btn btn-danger btn-xs',
+                  method: :delete, data: { confirm: '削除してよろしいですか？' } do %>
+                  <i class="fa fa-trash-o"></i> 削除
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="panel-body"><%= markdown(comment.content) %></div>
     </div>

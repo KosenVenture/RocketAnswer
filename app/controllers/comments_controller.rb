@@ -1,4 +1,6 @@
 class CommentsController < InheritedResources::Base
+  load_and_authorize_resource
+
   before_action :authenticate_user!
 
   def create
@@ -12,6 +14,15 @@ class CommentsController < InheritedResources::Base
       else
         format.html { render action: 'new' }
       end
+    end
+  end
+
+  def destroy
+    answer = @comment.answer
+    @comment.destroy
+
+    respond_to do |format|
+      format.html { redirect_to answer_path(answer) }
     end
   end
 
