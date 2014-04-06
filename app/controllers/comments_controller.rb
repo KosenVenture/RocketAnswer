@@ -13,7 +13,7 @@ class CommentsController < InheritedResources::Base
           redirect_to answer_path(@comment.answer), notice: 'コメントしました'
         }
       else
-        format.html { render action: 'new' }
+        format.html { redirect_to answer_path(@comment.answer) }
       end
     end
   end
