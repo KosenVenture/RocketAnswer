@@ -27,7 +27,6 @@ namespace :deploy do
   task :restart do
     invoke :'god:restart'
     invoke :'god:unicorn:restart'
-    invoke :'god:resque:restart'
     invoke :'nginx:reload'
   end
 
