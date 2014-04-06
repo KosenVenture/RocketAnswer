@@ -1,4 +1,6 @@
 KaitouShare::Application.routes.draw do
+  resources :comments
+
   root to: 'home#index'
 
   devise_for :user,
@@ -12,6 +14,7 @@ KaitouShare::Application.routes.draw do
 
   resources :answers, except: [:index] do
     resources :answer_files, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy]
   end
 
   devise_for :admin_users, ActiveAdmin::Devise.config

@@ -4,9 +4,9 @@ class Answer < ActiveRecord::Base
   belongs_to :department
   delegate :school, to: :department
   belongs_to :user
-  has_many :answer_files,
-    dependent: :destroy
+  has_many :answer_files, dependent: :destroy
   accepts_nested_attributes_for :answer_files
+  has_many :comments, dependent: :destroy
 
   ###### Validation ######
   validates :department_id, :subject, :year,
