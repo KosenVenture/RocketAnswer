@@ -2,6 +2,9 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.0.4'
 
+# rack server
+gem 'unicorn'
+
 # DB系
 gem 'mysql2'
 
@@ -86,5 +89,10 @@ group :development, :test do
 
   # N+1 Query検出
   gem 'bullet'
+
+  # Capistrano
+  gem 'capistrano', '~> 3.1.0', require: false
+  gem 'capistrano-rails', '~> 1.1', require: false
+  gem 'capistrano-bundler', '~> 1.1.2', require: false
 end
 
