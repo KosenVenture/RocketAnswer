@@ -1,5 +1,5 @@
 class CommentsController < InheritedResources::Base
-  load_and_authorize_resource
+  authorize_resource
 
   before_action :authenticate_user!
 
@@ -28,11 +28,7 @@ class CommentsController < InheritedResources::Base
 
   private
 
-  def set_comment
-    @comment = Comment.find(params[:id])
-  end
-
   def comment_params
-    params.require(:comment).permit(:user_id, :content)
+    params.require(:comment).permit(:answer_id, :user_id, :content)
   end
 end
