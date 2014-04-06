@@ -1,0 +1,20 @@
+{
+  "mysql":{
+    "server_root_password": "root",
+    "server_debian_password": "root",
+    "server_repl_password": "root"
+  },
+  "nginx":{
+    "worker_processes": "1",
+    "worker_connections": "768"
+  },
+  "rbenv-ruby": {
+    "ruby-version": "2.1.1",
+    "gems": ["bundler", "god"]
+  },
+  "run_list":[
+    "role[web]",
+    "role[app]",
+    "role[db]"
+  ]
+}
