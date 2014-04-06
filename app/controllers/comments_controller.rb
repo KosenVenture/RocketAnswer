@@ -3,9 +3,10 @@ class CommentsController < InheritedResources::Base
 
   before_action :authenticate_user!
   before_action :set_comment, only: [:update]
+  before_action :set_answer, only: [:create, :update]
 
   def create
-    @comment = Answer.find(params[:answer_id]).comments.new(comment_params)
+    @comment = @answer.comments.new(comment_params)
 
     respond_to do |format|
       if @comment.save
@@ -35,11 +36,10 @@ class CommentsController < InheritedResources::Base
   end
 
   def destroy
-    answer = @comment.answer
     @comment.destroy
 
     respond_to do |format|
-      format.html { redirect_to answer_path(answer) }
+      format.html { redirect_to answer_path(@answer) }
     end
   end
 
@@ -47,6 +47,10 @@ class CommentsController < InheritedResources::Base
 
   def set_comment
     @comment = Comment.find(params[:id])
+  end
+
+  def set_answer
+    @answer = @comment.try(:answer) || @Answer.find(params[:answer_id])
   end
 
   def comment_params

@@ -12,10 +12,8 @@ KaitouShare::Application.routes.draw do
 
   resources :answers, except: [:index] do
     resources :answer_files, only: [:create, :destroy]
-    resources :comments, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy, :update]
   end
-
-  resources :comments, only: [:update]
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

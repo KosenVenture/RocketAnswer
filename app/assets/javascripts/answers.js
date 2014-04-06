@@ -19,7 +19,7 @@ editComment = function (elem) {
     $('<button>').addClass('btn btn-default btn-xs').text('更新')
       .click(function(){
         $.ajax({
-          url: '/comments/' + $panelBody.data('comment-id') + '.json',
+          url: '/answers/' + answer_id + '/comments/' + $panelBody.data('comment-id') + '.json',
           data: { comment: { content: $panelBody.children('textarea').val() }},
           type: 'PUT'
         }).done(function(comment) {
