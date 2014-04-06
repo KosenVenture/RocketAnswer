@@ -7,6 +7,27 @@ var fileUploadErrors = {
   emptyResult: 'Empty file upload result'
 };
 
+editComment = function (elem) {
+  $('.panel-body').each(function(){
+    $(this).html($(this).data('content'));
+  });
+
+  $panelBody = $(elem).closest('.panel-default').children('.panel-body');
+  $panelBody.html($('<textarea>').addClass('form-control').val($panelBody.data('content-raw')));
+
+  $panelBody.append(
+    $('<button>').addClass('btn btn-default btn-xs').text('更新')
+      .click(function(){
+        $.ajax({
+          url: '/comments/' + $panelBody.data('comment-id') + '.json',
+          data: { comment: { content: $panelBody.children('textarea').val() }},
+          type: 'PUT'
+        }).done(function(comment) {
+          $panelBody.html(comment.content);
+        })
+      }));
+};
+
 $(function () {
 
     // サムネイル一覧を並び替え可能に

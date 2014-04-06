@@ -55,6 +55,11 @@
         <div class="row">
           <div class="col-md-12">
             <div class="pull-right">
+              <% if can? :update, comment %>
+                <%= button_tag class: 'btn btn-default btn-xs', onclick: 'editComment(this);' do %>
+                  <%= fa_icon 'pencil-square-o', text: '編集' %>
+                <% end %>
+              <% end %>
               <% if can? :delete, comment %>
                 <%= link_to answer_comment_path(@answer, comment),
                   class: 'btn btn-danger btn-xs',
@@ -66,7 +71,7 @@
           </div>
         </div>
       </div>
-      <div class="panel-body"><%= markdown(comment.content) %></div>
+      <div class="panel-body" data-content="<%= markdown(comment.content) %>" data-content-raw="<%= comment.content %>" data-comment-id="<%= comment.id %>"><%= markdown(comment.content) %></div>
     </div>
   <% end %>
 </div>
