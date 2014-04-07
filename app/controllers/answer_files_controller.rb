@@ -6,6 +6,7 @@ class AnswerFilesController < ApplicationController
 
   def create
     @answer_file = @answer.answer_files.build(answer_file_params)
+    @answer_file.user = current_user
 
     respond_to do |format|
       if @answer_file.save
