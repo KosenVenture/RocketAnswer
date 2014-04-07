@@ -91,6 +91,7 @@
       <%= f.text_field :school,
         class: 'form-control' %>
     </div>
+    <span class="label label-danger">必須</span>
   </div>
 
   <div class="form-group">
@@ -100,6 +101,7 @@
       <%= f.text_field :department,
         class: 'form-control' %>
     </div>
+    <span class="label label-danger">必須</span>
   </div>
 
   <div class="form-group">
@@ -110,6 +112,7 @@
         <span class="input-group-addon">年</span>
       </div>
     </div>
+    <span class="label label-danger">必須</span>
   </div>
 
   <%= f.fields_for :wish_universities do |univ_form| %>
