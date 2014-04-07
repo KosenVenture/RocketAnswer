@@ -2,19 +2,20 @@ class CommentsController < InheritedResources::Base
   authorize_resource
 
   before_action :authenticate_user!
-  before_action :set_answer, only: [:create, :update]
-  before_action :set_comment, only: [:update]
+  before_action :set_answer
+  before_action :set_comment, only: [:update, :destroy]
 
   def create
     @comment = @answer.comments.new(comment_params)
+    @comment.user = current_user
 
     respond_to do |format|
       if @comment.save
         format.html {
-          redirect_to answer_path(@comment.answer), notice: 'コメントしました'
+          redirect_to answer_path(@answer), notice: 'コメントしました'
         }
       else
-        format.html { redirect_to answer_path(@comment.answer) }
+        format.html { redirect_to answer_path(@answer) }
       end
     end
   end
@@ -54,6 +55,6 @@ class CommentsController < InheritedResources::Base
   end
 
   def comment_params
-    params.require(:comment).permit(:answer_id, :user_id, :content)
+    params.require(:comment).permit(:content)
   end
 end
