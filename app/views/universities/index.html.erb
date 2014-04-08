@@ -6,18 +6,18 @@
   <table class="table table-hover table-bordered">
     <thead>
       <tr>
+        <th>設置</th>
         <th>学校名</th>
-        <th>都道府県</th>
-        <th>住所</th>
+        <th>投稿解答数</th>
       </tr>
     </thead>
 
     <tbody>
       <% @universities.each do |university| %>
         <tr>
-          <td><%= link_to "#{university.establishment} #{university.name}", university %></td>
-          <td><%= university.prefecture %></td>
-          <td><%= university.address %></td>
+          <td><%= university.establishment %></td>
+          <td><%= link_to university.name, university %></td>
+          <td><%= university.answers.count %></td>
         </tr>
       <% end %>
     </tbody>
