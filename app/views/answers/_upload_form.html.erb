@@ -1,6 +1,7 @@
 <div class="uploader">
   <div class="page-header">
-  <h3>画像を追加</h3>
+  <h3>画像/PDFを追加</h3>
+  <p>PDF, JPG, PNG形式の画像をアップロードできます。</p>
   </div>
   <%= form_for [@subject, @answer, @new_answer_file],
     html: { multipart: true } do |f| %>
