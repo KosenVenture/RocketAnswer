@@ -9,8 +9,6 @@ class Answer < ActiveRecord::Base
   has_many :comments, dependent: :destroy
 
   ###### Validation ######
-  validates :department, associated: true
-  validates :user, associated: true
   validates :subject, presence: true, length: { maximum: 20 }
   validates :year, presence: true,
     numericality: { greater_than: 1900, less_than_or_equal_to: DateTime.now.year } 

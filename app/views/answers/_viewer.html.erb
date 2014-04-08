@@ -17,7 +17,11 @@
                 <% end %>
                 <%= file_form.hidden_field :order %>
                 <a href="#file_<%= file_form.object.id %>">
-                  <%= image_tag file_form.object.image.url %>
+                  <% if file_form.object.is_pdf? %>
+                    PDF
+                  <% else %>
+                    <%= image_tag file_form.object.image.url %>
+                  <% end %>
                 </a>
               </li>
             <% end %>
@@ -30,7 +34,13 @@
     <div class="col-md-9">
       <div class="preview">
         <% @answer_files.each do |file| %>
-          <%= image_tag file.image.url, id: "file_#{file.id}" %>
+          <% if file.is_pdf? %>
+            <%= link_to file.image.url, id: "file_#{file.id}", class: 'btn btn-primary' do %>
+              PDFを開く
+            <% end %>
+          <% else %>
+            <%= image_tag file.image.url, id: "file_#{file.id}" %>
+          <% end %>
         <% end %>
       </div>
     </div>

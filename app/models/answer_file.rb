@@ -33,4 +33,9 @@ class AnswerFile < ActiveRecord::Base
       "delete_type" => "DELETE"
     }
   end
+
+  def is_pdf?
+    ext = image.file.filename.split('.').last
+    ext == 'pdf' || ext == 'PDF'
+  end
 end
