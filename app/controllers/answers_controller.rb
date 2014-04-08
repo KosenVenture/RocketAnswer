@@ -58,10 +58,11 @@ class AnswersController < ApplicationController
   # DELETE /answers/1
   # DELETE /answers/1.json
   def destroy
+    dep = @answer.department
     @answer.destroy
 
     respond_to do |format|
-      format.html { redirect_to answers_url }
+      format.html { redirect_to university_department_path(dep.school.id, dep) }
     end
   end
 
