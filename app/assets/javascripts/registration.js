@@ -26,11 +26,11 @@ $(function() {
       });
     }
 
-    $select_univ = $('#user_wish_universities_attributes_' + index + '_university_id').selectize({
+    $select_univ = $(index + '_university_id').selectize({
       onChange: loadDepartments
     });
 
-    $select_dep = $('#user_wish_universities_attributes_' + index + '_department_id').selectize({
+    $select_dep = $(index + '_department_id').selectize({
       valueField: 'id',
       labelField: 'name',
       searchField: ['name']
@@ -47,7 +47,13 @@ $(function() {
     }
   }
 
-  wish_univ_selectize(0);
-  wish_univ_selectize(1);
-  wish_univ_selectize(2);
+  if($('select#answer_university_id')[0]) {
+    wish_univ_selectize('select#answer');
+  }
+
+  if($('select#user_wish_universities_attributes_0_university_id')[0]) {
+    wish_univ_selectize('select#user_wish_universities_attributes_0');
+    wish_univ_selectize('select#user_wish_universities_attributes_1');
+    wish_univ_selectize('select#user_wish_universities_attributes_2');
+  }
 });

@@ -3,7 +3,7 @@ class AnswersController < ApplicationController
 
   before_action :authenticate_user!
   before_action :set_answer, only: [:show, :edit, :update, :destroy]
-  before_action :set_department, only: [:new, :create]
+  before_action :set_universities, only: [:new, :edit, :create, :update]
 
   # GET /answers/1
   # GET /answers/1.json
@@ -15,7 +15,7 @@ class AnswersController < ApplicationController
 
   # GET /answers/new
   def new
-    @answer = @department.answers.new(user: current_user)
+    @answer = Answer.new(user: current_user)
   end
 
   # GET /answers/1/edit
@@ -25,7 +25,7 @@ class AnswersController < ApplicationController
   # POST /answers
   # POST /answers.json
   def create
-    @answer = @department.answers.new(answer_params)
+    @answer = Answer.new(answer_params)
     @answer.user = current_user
 
     respond_to do |format|
@@ -71,12 +71,12 @@ class AnswersController < ApplicationController
       @answer = Answer.find(params[:id])
     end
 
-    def set_department
-      @department = Department.find(params[:department_id] || params[:answer].try(:fetch, :department_id))
+    def set_universities
+      @universities = University.all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def answer_params
-      params.require(:answer).permit(:department_id, :subject, :year, answer_files_attributes: [:id, :order])
+      params.require(:answer).permit(:university_id, :department_id, :subject, :year, answer_files_attributes: [:id, :order])
     end
 end
