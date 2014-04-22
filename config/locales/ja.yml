@@ -6,6 +6,7 @@ ja:
     attributes:
       answer:
         user_id: 'ユーザID'
+        university_id: '大学名'
         department_id: '学科名'
         subject: '試験科目名'
         year: '実施年'
