@@ -5,9 +5,26 @@
   <%= f.hidden_field :department_id %>
 
   <div class="form-group">
+    <%= f.label :university_id, class: 'control-label col-sm-2' %>
+    <div class="col-sm-4">
+      <%= f.collection_select :university_id,
+        @universities,
+        :id,
+        :name,
+        { include_blank: true },
+        class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
     <%= f.label :department_id, class: 'control-label col-sm-2' %>
     <div class="col-sm-4">
-      <p class="form-control-static"><%= @answer.department.full_name %></p>
+      <%= f.collection_select :department_id,
+        @answer.department.try(:school).try(:departments) || [],
+        :id,
+        :name,
+        { include_blank: true },
+        class: 'form-control' %>
     </div>
   </div>
 
