@@ -1,5 +1,5 @@
 class Answer < ActiveRecord::Base
-
+  attr_accessor :university_id
   ###### Association ######
   belongs_to :department
   delegate :school, to: :department
@@ -11,7 +11,9 @@ class Answer < ActiveRecord::Base
   ###### Validation ######
   validates :subject, presence: true, length: { maximum: 20 }
   validates :year, presence: true,
-    numericality: { greater_than: 1900, less_than_or_equal_to: DateTime.now.year } 
+    numericality: { greater_than: 1900, less_than_or_equal_to: DateTime.now.year }
+  validates :university_id, :department_id,
+    presence: true
 
   ###### Scope ######
   default_scope -> { order('created_at DESC') }
