@@ -8,7 +8,7 @@
 //= require home
 //= require_self
 
-$footer-height: 180px;
+$footer-height: 290px;
 
 html {
   position: relative;
@@ -27,7 +27,7 @@ footer {
   bottom: 0;
   width: 100%;
   padding: 20px 0;
-  min-height: $footer-height;
+  max-height: $footer-height;
 
   font-size: 10pt;
 
