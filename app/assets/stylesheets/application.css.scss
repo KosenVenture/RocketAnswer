@@ -8,8 +8,26 @@
 //= require home
 //= require_self
 
+$footer-height: 180px;
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
   //background-color: #fdffff;
+  padding-bottom: 50+$footer-height;
+}
+
+footer {
+  background-color: #008cba;
+  color: #ffffff;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 20px 0;
+  min-height: $footer-height;
 }
 
 #main {
@@ -25,10 +43,6 @@ body {
 
 .breadcrumb {
   font-size: 13px;
-}
-
-.navbar {
-  box-shadow: 1px 1px 3px;
 }
 
 .jumbotron {
