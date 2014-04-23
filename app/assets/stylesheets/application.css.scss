@@ -8,13 +8,39 @@
 //= require home
 //= require_self
 
+$footer-height: 180px;
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
-  padding-top: 50px;
   //background-color: #fdffff;
+  padding-bottom: 50+$footer-height;
+}
+
+footer {
+  background-color: #008cba;
+  color: #ffffff;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 20px 0;
+  min-height: $footer-height;
+
+  font-size: 10pt;
+
+  a {
+    color: #ffffff;
+  }
+
+  h3 {
+    font-size: 15pt;
+  }
 }
 
 #main {
-  padding-top: 15px;
   padding-bottom: 30px;
 }
 
@@ -27,10 +53,6 @@ body {
 
 .breadcrumb {
   font-size: 13px;
-}
-
-.navbar {
-  box-shadow: 1px 1px 3px;
 }
 
 .jumbotron {

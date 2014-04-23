@@ -1,6 +1,21 @@
-<div class="jumbotron">
-  <h1>Kaitou Share</h1>
-  <p>大学編入試験問題の解答を共有しましょう。</p>
+<div id="title">
+  <%= image_tag 'title.png', alt: 'Rocket Answer - 大学編入試験問題の解答を共有しよう。' %>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+    <div id="about_service">
+      <h1>What is Rocket Answer?</h1>
+      <p>
+        "Rocket Answer"は、大学編入学試験問題の解答を共有しあうサービスです。
+      </p>
+      <p>
+        このサービスでは、個人（編入生・受験生）が解いた解答を『共有・評価』し合うことで、
+        <br>
+        これらの問題を少しでも解決することを目指しています。
+      </p>
+    </div>
+  </div>
 </div>
 
 <div class="row">
@@ -70,10 +85,10 @@
         <p>各学科のページから投稿をお願いします。</p>
         <hr>
         <div class="pull-right">
-          <%= link_to universities_path, class: 'btn btn-info btn-sm' do %>
-            <i class="fa fa-building-o"></i>
+          <%= link_to new_answer_path, class: 'btn btn-info btn-sm' do %>
+            <i class="fa fa-upload"></i>
             &nbsp;
-            大学一覧 &gt;&gt;
+            解答を投稿 &gt;&gt;
           <% end %>
         </div>
       </div>
@@ -97,7 +112,7 @@
               <i class="fa fa-rocket"></i>
               利用登録
             <% end %>
-            <%= link_to new_user_registration_path, class: 'btn btn-primary btn-sm' do %>
+            <%= link_to new_user_session_path, class: 'btn btn-primary btn-sm' do %>
               <i class="fa fa-sign-in"></i>
               ログイン
             <% end %>

@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-KaitouShare::Application.load_tasks
+RocketAnswer::Application.load_tasks

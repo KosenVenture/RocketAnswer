@@ -1,11 +1,11 @@
 worker_processes 4
 
-listen "/var/www/kaitoushare/current/tmp/sockets/unicorn.sock"
+listen "/var/www/RocketAnswer/current/tmp/sockets/unicorn.sock"
 
-stderr_path '/var/www/kaitoushare/current/log/unicorn.log'
-stdout_path '/var/www/kaitoushare/current/log/unicorn.log'
+stderr_path '/var/www/RocketAnswer/current/log/unicorn.log'
+stdout_path '/var/www/RocketAnswer/current/log/unicorn.log'
 
-pid '/var/www/kaitoushare/current/tmp/pids/unicorn.pid'
+pid '/var/www/RocketAnswer/current/tmp/pids/unicorn.pid'
 
 timeout 30
 preload_app true

@@ -1,3 +1,5 @@
+<%= content_for :title do %><%= @department.name %><% end %>
+
 <% breadcrumb @department %>
 
 <p id="notice"><%= notice %></p>
@@ -5,13 +7,6 @@
 <h1><%= @department.name %></h1>
 
 <h2>投稿されている解答</h2>
-
-<p>
-  <%= link_to new_answer_path(department_id: @department.id),
-    class: 'btn btn-primary btn-sm' do %>
-    <i class="fa fa-plus"></i> 追加
-  <% end %>
-</p>
 
 <table class="table table-striped">
   <thead>

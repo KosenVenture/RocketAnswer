@@ -4,7 +4,7 @@ class UniversitiesController < ApplicationController
   # GET /universities
   # GET /universities.json
   def index
-    @universities = University.all
+    @universities = University.answer_exists
   end
 
   # GET /universities/1

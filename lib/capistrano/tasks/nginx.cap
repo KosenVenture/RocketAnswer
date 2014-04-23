@@ -4,13 +4,13 @@ namespace :nginx do
     on roles(:app) do
       execute :sudo, :ln, "-nfs",
         "#{release_path}/config/nginx-app.conf",
-        "/etc/nginx/sites-enabled/kaitoushare-app"
+        "/etc/nginx/sites-enabled/rocketanswer-app"
     end
 
     on roles(:web) do
       execute :sudo, :ln, "-nfs",
         "#{release_path}/config/deploy/#{fetch(:stage)}/nginx-web.conf",
-        "/etc/nginx/sites-enabled/kaitoushare-web"
+        "/etc/nginx/sites-enabled/rocketanswer-web"
     end
   end
 

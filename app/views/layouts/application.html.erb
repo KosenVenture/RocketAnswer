@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>KaitouShare</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= content_for?(:title) ? yield(:title) : '大学編入試験解答共有サービス' %> - Rocket Answer</title>
+    <meta name="keywords" content="編入,過去問,解答,高専,高専ベンチャー">
+    <meta name="description" content="大学編入試験問題の解答を共有するサービスです。">
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <div id="header">
+    <header>
       <%= render 'menu/navbar' %>
-    </div>
+    </header>
 
     <div id="main" class="container">
       <%= bootstrap_alert %>
@@ -19,5 +24,27 @@
 
       <%= yield %>
     </div>
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div id="title" class="col-sm-4">
+            <h1>Rocket Answer</h1>
+            <p>大学編入試験解答共有サービス</p>
+            <p>&copy; 2014 Rocket Answer, Kosen Venture. <br>All rights reserved.</p>
+          </div>
+          <div class="col-sm-4">
+
+          </div>
+          <div class="col-sm-4">
+            <h3>サイトマップ</h3>
+            <ul id="sitemap">
+              <li><%= link_to 'トップページ', root_path %> </li>
+              <li><%= link_to '開発・運営チーム', aboutus_path %></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
