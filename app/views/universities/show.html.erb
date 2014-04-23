@@ -17,11 +17,6 @@
             <ul class="list-unstyled">
               <% dep.answers.limit(5).each do |answer| %>
                 <li>
-                  <span class="label label-info">
-                    <i class="fa fa-thumbs-o-up"></i>
-                    12
-                  </span>
-                  &nbsp;
                   <%= link_to answer.name, answer_path(answer) %>
                 </li>
               <% end %>
