@@ -17,3 +17,37 @@
   }
 }
 
+#title {
+  img {
+    width: 100%;
+  }
+}
+
+#about_service {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  padding: 0;
+  border: solid 1px #43ac6a;
+  h1 {
+    font-size: 32px;
+    background-color: #43ac6a;
+    color: #ffffff;
+    padding: 15px 0;
+    margin-top: 0;
+  }
+}
+
+#about_us {
+  //text-align: center;
+  #head {
+    h1 {
+      padding-bottom: 20px;
+      margin-bottom: 30px;
+      border-bottom: solid 1px #f0f0f0;
+    }
+  }
+  dd {
+    padding-left: 1.5em;
+  }
+}

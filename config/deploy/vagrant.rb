@@ -4,7 +4,7 @@ set :migration_role, 'db'
 set :uid, 'vagrant'
 set :gid, 'vagrant'
 
-server 'kaitoushare-vm',
+server 'rocketanswer-vm',
   user: 'vagrant',
   roles: %w{web app db},
   ssh_options: {

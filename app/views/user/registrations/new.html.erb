@@ -1,6 +1,10 @@
+<%= content_for :title do %>利用登録<% end %>
+
 <div class="page-header">
-  <h1>利用登録</h1>
+  <h1><i class="fa fa-rocket"></i> 利用登録</h1>
 </div>
+
+<p>以下の登録情報は、サービス運営の向上のためにのみ活用します。</p>
 
 <%= form_for(resource,
   as: resource_name,
@@ -40,15 +44,6 @@
             class: 'form-control' %>
         </div>
       </div>
-    </div>
-    <span class="label label-danger">必須</span>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :nickname, class: 'control-label col-sm-2' %>
-    <div class="col-sm-4">
-      <%= f.text_field :nickname,
-        class: 'form-control' %>
     </div>
     <span class="label label-danger">必須</span>
   </div>
@@ -115,12 +110,24 @@
     <span class="label label-danger">必須</span>
   </div>
 
+  <div class="form-group">
+    <%= f.label :nickname, class: 'control-label col-sm-2' %>
+    <div class="col-sm-4">
+      <%= f.text_field :nickname,
+        class: 'form-control' %>
+    </div>
+    <span class="label label-danger">必須</span>
+    ※一般公開されます
+  </div>
+
+  <h3><i class="fa fa-star"></i> 志望大学</h3>
+  <p>志望大学を設定すると、今後実装される通知機能や絞り込み機能などが利用できるようになります。</p>
   <%= f.fields_for :wish_universities do |univ_form| %>
     <div class="form-group">
       <%= univ_form.label "第#{univ_form.index + 1}志望",
         class: 'control-label col-sm-2' %>
 
-      <div class="col-sm-4">
+      <div class="col-sm-6">
         <div class="row">
           <div class="col-xs-6">
             <%= univ_form.collection_select :university_id,
@@ -128,7 +135,7 @@
               :id,
               :name,
               { include_blank: true },
-              class: 'form-control' %>
+              class: 'form-control', placeholder: '大学名' %>
           </div>
           <div class="col-xs-6">
             <%= univ_form.collection_select :department_id,
@@ -136,13 +143,14 @@
               :id,
               :name,
               { include_blank: true },
-              class: 'form-control' %>
+              class: 'form-control', placeholder: '学部・学科名' %>
           </div>
           <%= univ_form.hidden_field :rank, value: univ_form.index + 1 %>
         </div>
       </div>
     </div>
   <% end %>
+  <p><small>※一覧に登録されていない大学・学科などがありましたら、『意見箱』にお寄せください。</small></p>
 
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
