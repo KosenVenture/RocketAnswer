@@ -12,7 +12,7 @@ class Answer < ActiveRecord::Base
   validates :subject, presence: true, length: { maximum: 20 }
   validates :year, presence: true,
     numericality: { greater_than: 1900, less_than_or_equal_to: DateTime.now.year }
-  validates :university_id, :department_id,
+  validates :department_id,
     presence: true
 
   ###### Scope ######
