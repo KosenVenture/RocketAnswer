@@ -37,3 +37,17 @@
     margin-top: 0;
   }
 }
+
+#about_us {
+  //text-align: center;
+  #head {
+    h1 {
+      padding-bottom: 20px;
+      margin-bottom: 30px;
+      border-bottom: solid 1px #f0f0f0;
+    }
+  }
+  dd {
+    padding-left: 1.5em;
+  }
+}

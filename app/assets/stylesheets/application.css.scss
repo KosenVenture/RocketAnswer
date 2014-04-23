@@ -28,6 +28,16 @@ footer {
   width: 100%;
   padding: 20px 0;
   min-height: $footer-height;
+
+  font-size: 10pt;
+
+  a {
+    color: #ffffff;
+  }
+
+  h3 {
+    font-size: 15pt;
+  }
 }
 
 #main {

@@ -26,12 +26,20 @@
     <footer>
       <div class="container">
         <div class="row">
-          <div id="title" class="col-sm-6">
+          <div id="title" class="col-sm-4">
             <h1>Rocket Answer</h1>
-            <p><small>大学編入試験解答共有サービス</small></p>
-            <p><small>&copy; 2014 Rocket Answer. All rights reserved.</small></p>
+            <p>大学編入試験解答共有サービス</p>
+            <p>&copy; 2014 Rocket Answer. All rights reserved.</p>
           </div>
-          <div class="col-sm-6">
+          <div class="col-sm-4">
+
+          </div>
+          <div class="col-sm-4">
+            <h3>サイトマップ</h3>
+            <ul id="sitemap">
+              <li><%= link_to 'トップページ', root_path %> </li>
+              <li><%= link_to '開発・運営チーム', aboutus_path %></li>
+            </ul>
           </div>
         </div>
       </div>

@@ -1,6 +1,8 @@
 KaitouShare::Application.routes.draw do
   root to: 'home#index'
 
+  get 'aboutus', to: 'home#aboutus'
+
   devise_for :user,
     controllers: {
       registrations: 'user/registrations'
