@@ -1,4 +1,4 @@
-# KaitouShare
+# Rocket Answer
 
 編入試験・解答共有サービス
 
@@ -13,8 +13,8 @@
 ### リポジトリの取得
 
 ```sh
-git clone git@github.com:kosen-venture/KaitouShare.git
-cd KaitouShare
+git clone git@github.com:kosen-venture/RocketAnswer.git
+cd RocketAnswer
 
 # gemのインストール
 bundle install --path vendor/bundle --without production
@@ -71,8 +71,7 @@ push後に、Pull Requestを発行してマージの申請をください。
 
 
 
-
 ### Copyright
 
-(C) 2014 KosenVenture, All rights reserved.
+(C) 2014 Rocket Answer, Kosen Venture, All rights reserved.
 

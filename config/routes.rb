@@ -1,4 +1,4 @@
-KaitouShare::Application.routes.draw do
+RocketAnswer::Application.routes.draw do
   root to: 'home#index'
 
   get 'aboutus', to: 'home#aboutus'

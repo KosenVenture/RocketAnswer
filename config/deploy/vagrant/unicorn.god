@@ -1,5 +1,5 @@
 rails_env = 'production'
-rails_root = ENV['RAILS_ROOT'] || "/var/www/kaitoushare/current"
+rails_root = ENV['RAILS_ROOT'] || "/var/www/RocketAnswer/current"
 
 God.watch do |w|
   w.name = "unicorn"
