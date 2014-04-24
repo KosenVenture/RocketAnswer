@@ -25,6 +25,16 @@
     <% end %>
   </head>
   <body>
+    <!-- Facebook social button -->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1&appId=574866612602179";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
     <header>
       <%= render 'menu/navbar' %>
     </header>
@@ -41,15 +51,20 @@
     <footer>
       <div class="container">
         <div class="row">
-          <div id="title" class="col-sm-4">
+          <div id="title" class="col-sm-4 col-xs-6">
             <h1>Rocket Answer</h1>
             <p>大学編入試験解答共有サービス</p>
             <p>&copy; 2014 Rocket Answer, Kosen Venture. <br>All rights reserved.</p>
           </div>
-          <div class="col-sm-4">
-
+          <div class="col-sm-4 hidden-xs">
+            <h3>SNSでシェア</h3>
+            <div class="social_buttons">
+              <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://rocket-answer.com" data-text="大学編入試験解答共有サービス - Rocket Answer" data-lang="ja" data-hashtags="rocket_answer">ツイート</a>
+              <div class="fb-like" data-href="https://rocket-answer.com/" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+              <a href="http://b.hatena.ne.jp/entry/https://rocket-answer.com/" class="hatena-bookmark-button" data-hatena-bookmark-title="大学編入試験解答共有サービス - Rocket Answer" data-hatena-bookmark-layout="standard-balloon" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加"><img src="https://b.hatena.ne.jp/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a>
+            </div>
           </div>
-          <div class="col-sm-4">
+          <div class="col-sm-4 col-xs-6">
             <h3>サイトマップ</h3>
             <ul id="sitemap">
               <li><%= link_to 'トップページ', root_path %> </li>
@@ -59,5 +74,9 @@
         </div>
       </div>
     </footer>
+
+    <!-- Twitter Social Button -->
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    <script type="text/javascript" src="https://b.hatena.ne.jp/js/bookmark_button.js" charset="utf-8" async="async"></script>
   </body>
 </html>
