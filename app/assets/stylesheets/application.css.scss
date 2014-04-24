@@ -8,7 +8,7 @@
 //= require home
 //= require_self
 
-$footer-height: 180px;
+$footer-height: 280px;
 
 html {
   position: relative;
@@ -27,7 +27,7 @@ footer {
   bottom: 0;
   width: 100%;
   padding: 20px 0;
-  min-height: $footer-height;
+  max-height: $footer-height;
 
   font-size: 10pt;
 
@@ -57,4 +57,14 @@ footer {
 
 .jumbotron {
   background-color: #f4f9fa;
+}
+
+.social_buttons {
+  line-height: 28px;
+  iframe {
+    vertical-align: bottom;
+  }
+  .twitter-share-button {
+    width: 90px !important;
+  }
 }
