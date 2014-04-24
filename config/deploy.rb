@@ -12,7 +12,7 @@ set :keep_releases, 5
 
 set :log_level, :debug
 
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
 
 namespace :deploy do
   desc 'Prepare'
