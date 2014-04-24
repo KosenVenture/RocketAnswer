@@ -70,8 +70,12 @@ git push origin
 push後に、Pull Requestを発行してマージの申請をください。
 
 
+### License
+
+* GPL v2
+
 
 ### Copyright
 
-(C) 2014 Rocket Answer, Kosen Venture, All rights reserved.
+(C) 2014 Rocket Answer, Kosen Venture.
 
