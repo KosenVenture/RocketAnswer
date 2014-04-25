@@ -7,11 +7,14 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :wish_universities
 
   ###### Validation ######
+  validates :last_name, :first_name, :nickname,
+    presence: true
   validates :last_name, :first_name, :nickname, :school, :department,
-    presence: true, length: { maximum: 20 }
+    length: { maximum: 20 }
   validates :nickname, uniqueness: true
-  validates :graduate_year, presence: true,
-    numericality: { greater_than_or_equal_to: DateTime.now.year, less_than: 2100 }
+  validates :graduate_year,
+    numericality: { greater_than_or_equal_to: DateTime.now.year, less_than: 2100 },
+    allow_blank: true
 
   ###### Scope ######
 
