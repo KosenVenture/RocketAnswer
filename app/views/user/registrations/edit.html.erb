@@ -27,6 +27,8 @@
     });
   </script>
 
+
+  <h3><i class="fa fa-user"></i> 利用者情報</h3>
   <div class="form-group">
     <%= f.label :name, class: 'control-label col-sm-2' %>
     <div class="col-sm-4">
@@ -54,6 +56,7 @@
         class: 'form-control' %>
     </div>
     <span class="label label-danger">必須</span>
+    ※一般公開されます
   </div>
 
   <div class="form-group">
@@ -73,6 +76,7 @@
         autocomplete: "off",
         class: 'form-control' %>
     </div>
+    <span class="label label-danger">必須</span>
   </div>
 
   <div class="form-group">
@@ -83,8 +87,45 @@
         autocomplete: "off",
         class: 'form-control' %>
     </div>
+    <span class="label label-danger">必須</span>
   </div>
 
+
+  <h3><i class="fa fa-star"></i> 志望大学</h3>
+  <p>志望大学を設定すると、今後実装される通知機能や絞り込み機能などが利用できるようになります。</p>
+  <%= f.fields_for :wish_universities do |univ_form| %>
+    <div class="form-group">
+      <%= univ_form.label "第#{univ_form.index + 1}志望",
+        class: 'control-label col-sm-2' %>
+
+      <div class="col-sm-6">
+        <div class="row">
+          <div class="col-xs-6">
+            <%= univ_form.collection_select :university_id,
+              @universities,
+              :id,
+              :name,
+              { include_blank: true },
+              class: 'form-control', placeholder: '大学名' %>
+          </div>
+          <div class="col-xs-6">
+            <%= univ_form.collection_select :department_id,
+              univ_form.object.university.try(:departments) || [],
+              :id,
+              :name,
+              { include_blank: true },
+              class: 'form-control', placeholder: '学部・学科名' %>
+          </div>
+          <%= univ_form.hidden_field :rank, value: univ_form.index + 1 %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <p><small>※一覧に登録されていない大学・学科などがありましたら、『意見箱』にお寄せください。</small></p>
+
+
+  <h3><fa class="fa fa-pencil"></fa> アンケート</h3>
+  <p>学生の方はアンケートにご協力ください。</p>
   <div class="form-group">
     <%= f.label :school,
       class: 'control-label col-sm-2' %>
@@ -106,39 +147,15 @@
   <div class="form-group">
     <%= f.label :graduate_year, class: 'control-label col-sm-2' %>
     <div class="col-sm-4">
-      <%= f.text_field :graduate_year,
-        class: 'form-control' %>
+      <div class="input-group">
+        <%= f.text_field :graduate_year, class: 'form-control' %>
+        <span class="input-group-addon">年</span>
+      </div>
     </div>
   </div>
 
-  <%= f.fields_for :wish_universities do |univ_form| %>
-    <div class="form-group">
-      <%= univ_form.label "第#{univ_form.index + 1}志望",
-        class: 'control-label col-sm-2' %>
-
-      <div class="col-sm-4">
-        <div class="row">
-          <div class="col-xs-6">
-            <%= univ_form.collection_select :university_id,
-              @universities,
-              :id,
-              :name,
-              { include_blank: true },
-              class: 'form-control' %>
-          </div>
-          <div class="col-xs-6">
-            <%= univ_form.collection_select :department_id,
-              univ_form.object.university.try(:departments) || [],
-              :id,
-              :name,
-              { include_blank: true },
-              class: 'form-control' %>
-          </div>
-          <%= univ_form.hidden_field :rank, value: univ_form.index + 1 %>
-        </div>
-      </div>
-    </div>
-  <% end %>
+  <br>
+  <p>※変更を保存するためにはパスワードを入力してください</p>
 
   <div class="form-group">
     <%= f.label :current_password,
