@@ -24,6 +24,11 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+        <li>
+          <%= link_to contact_path do %>
+            <i class="fa fa-question-circle"></i> お問い合わせ
+          <% end %>
+        </li>
         <% if user_signed_in? %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.nickname %> さん<b class="caret"></b></a>

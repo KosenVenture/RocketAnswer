@@ -17,6 +17,8 @@ RocketAnswer::Application.routes.draw do
     resources :comments, only: [:create, :destroy, :update]
   end
 
+  resource :contact, only: [:show, :create]
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 end

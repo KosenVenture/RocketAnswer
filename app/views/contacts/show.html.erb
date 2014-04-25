@@ -1,0 +1,71 @@
+<div class="page-header">
+  <h1><i class="fa fa-question-circle"></i> お問い合わせ</h1>
+</div>
+
+<p>サービスに関するお問い合わせは、こちらのフォームからお願いいたします。</p>
+
+
+<%= form_for(@contact,
+  url: contact_path,
+  html: { class: 'form-horizontal' }
+  ) do |f| %>
+
+  <%= render partial: 'shared/form_error', locals: { object: @contact } %>
+
+  <script>
+    $(function(){
+      // エラーのあるフィールドを赤く
+      <% @contact.errors.each do |i| %>
+        $('#user_<%= i %>').parents('.form-group').addClass('has-error');
+      <% end %>
+
+      // focusされたらエラーを消す
+      $('input').focus(function() {
+        $(this).parents('.form-group').removeClass('has-error');
+      });
+    });
+  </script>
+
+  <div class="form-group">
+    <%= f.label :name, class: 'control-label col-sm-2' %>
+    <div class="col-sm-4">
+      <%= f.text_field :name,
+        class: 'form-control' %>
+    </div>
+    <span class="label label-danger">必須</span>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :email, class: 'control-label col-sm-2' %>
+    <div class="col-sm-4">
+      <%= f.email_field :email,
+        class: 'form-control' %>
+    </div>
+    <span class="label label-danger">必須</span>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :body, class: 'control-label col-sm-2' %>
+    <div class="col-sm-4">
+      <%= f.text_area :body, rows: 15,
+        class: 'form-control' %>
+    </div>
+    <span class="label label-danger">必須</span>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :accept, class: 'control-label col-sm-2' %>
+    <div class="col-sm-4">
+      <%= f.check_box :accept %>
+      <%= f.label 'チェックしてください' %>
+
+    </div>
+    <span class="label label-danger">必須</span>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit '送信する', class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>

@@ -38,4 +38,7 @@ RocketAnswer::Application.configure do
 
   # assetsのログを非表示に
   config.assets.logger = false
+
+  config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.raise_delivery_errors = true
 end
