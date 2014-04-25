@@ -7,6 +7,12 @@
     <title><%= content_for?(:title) ? yield(:title) : '大学編入試験解答共有サービス' %> - Rocket Answer</title>
     <meta name="keywords" content="編入,過去問,解答,高専,高専ベンチャー">
     <meta name="description" content="大学編入学試験の『過去問の解答』を共有しあうサービスです。">
+    <meta name="og:site_name" content="Rocket Answer">
+    <meta name="og:title" content="<%= content_for?(:title) ? yield(:title) : '大学編入試験解答共有サービス' %> - Rocket Answer">
+    <meta name="og:image" content="<%= image_url 'logo_square.png' %>">
+    <meta name="og:type" content="website">
+    <meta name="fb:app_id" content="1391861017701246">
+    <meta name="fg:page_id" content="286759698157697">
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
