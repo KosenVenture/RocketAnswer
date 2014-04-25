@@ -3,6 +3,7 @@
   <h3>画像/PDFを追加</h3>
   <p>PDF, JPG, PNG形式の画像をアップロードできます。</p>
   </div>
+
   <%= form_for [@subject, @answer, @new_answer_file],
     html: { multipart: true } do |f| %>
     <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
@@ -39,6 +40,8 @@
   <% end %>
 
 </div>
+
+<%= render partial: 'shared/using_notice' %>
 
 <script id="template-upload" type="text/x-tmpl">
   {% for (var i=0, file; file=o.files[i]; i++) { %}

@@ -92,7 +92,10 @@
 
 
   <h3><i class="fa fa-star"></i> 志望大学</h3>
-  <p>志望大学を設定すると、今後実装される通知機能や絞り込み機能などが利用できるようになります。</p>
+  <p>
+    志望大学を設定すると、今後実装される通知機能や絞り込み機能などが利用できるようになります。
+    （登録後にも設定・編集が可能です）
+  </p>
   <%= f.fields_for :wish_universities do |univ_form| %>
     <div class="form-group">
       <%= univ_form.label "第#{univ_form.index + 1}志望",
@@ -121,7 +124,12 @@
       </div>
     </div>
   <% end %>
-  <p><small>※一覧に登録されていない大学・学科などがありましたら、『意見箱』にお寄せください。</small></p>
+  <p>
+    <small>
+      ※一覧に登録されていない大学・学科などがありましたら、
+      『<%= link_to 'お問い合わせ', contact_path %>』からご連絡ください。
+    </small>
+  </p>
 
 
   <h3><fa class="fa fa-pencil"></fa> アンケート</h3>
@@ -152,6 +160,11 @@
         <span class="input-group-addon">年</span>
       </div>
     </div>
+  </div>
+
+
+  <div class="col-sm-7">
+    <%= render partial: 'shared/using_notice' %>
   </div>
 
   <div class="form-group">
