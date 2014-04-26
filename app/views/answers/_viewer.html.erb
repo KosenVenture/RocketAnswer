@@ -20,7 +20,7 @@
                   <% if file_form.object.is_pdf? %>
                     PDF
                   <% else %>
-                    <%= image_tag file_form.object.image.url %>
+                    <%= image_tag file_form.object.image.url(:thumb) %>
                   <% end %>
                 </a>
               </li>

@@ -17,6 +17,7 @@ gem 'rails-i18n'
 gem 'rails_config'
 gem 'jquery-fileupload-rails'
 gem 'carrierwave'
+gem 'rmagick'
 gem 'devise'
 ## 認可ライブラリ
 gem 'cancancan', '~> 1.7'
