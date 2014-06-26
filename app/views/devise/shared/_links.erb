@@ -1,3 +1,7 @@
+<%- if controller_name != 'passwords' && controller_name != 'registrations' %>
+  <%= link_to '初めてご利用の方（利用登録）', new_user_registration_path %><br />
+<% end -%>
+
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
   <%= link_to "パスワードを忘れた場合", new_password_path(resource_name) %><br />
 <% end -%>

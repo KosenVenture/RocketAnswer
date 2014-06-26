@@ -29,6 +29,17 @@
           <div class="fb-like" data-href="https://www.facebook.com/rocket.answer" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
           <a href="http://b.hatena.ne.jp/entry/http://rocket-answer.com/" class="hatena-bookmark-button" data-hatena-bookmark-title="大学編入試験解答共有サービス - Rocket Answer" data-hatena-bookmark-layout="standard-balloon" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加"><img src="https://b.hatena.ne.jp/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a>
         </div>
+<br>
+        <% unless user_signed_in? %>
+          <%= link_to new_user_registration_path, class: 'btn btn-success btn-sm' do %>
+            <i class="fa fa-rocket"></i>
+            初めて利用する（利用登録）
+          <% end %>
+          <%= link_to new_user_session_path, class: 'btn btn-primary btn-sm' do %>
+            <i class="fa fa-sign-in"></i>
+            ログインする
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
@@ -36,53 +47,29 @@
 
 <div class="row">
   <div class="col-sm-12">
-    <div class="panel panel-primary">
+    <div class="panel panel-half-primary">
       <div class="panel-heading">
-        <h4><i class="fa fa-search"></i>&nbsp;&nbsp;解答を探す</h4>
+        <h5><i class="fa fa-rss"></i>&nbsp;&nbsp;最近投稿された解答</h5>
       </div>
       <div class="panel-body">
-        <p>投稿されている解答を、大学別に探すことができます。</p>
-        <hr>
-        <div class="row">
-          <div class="col-sm-6">
-            <div class="panel panel-half-primary">
-              <div class="panel-heading">
-                <h5><i class="fa fa-rss"></i>&nbsp;&nbsp;最近投稿された解答</h5>
-              </div>
-              <div class="panel-body">
-                <ul class="list-unstyled">
-                  <% @recent_answers.each do |answer| %>
-                    <li>
-                      <span class="label label-info">
-                        <i class="fa fa-user"></i>
-                        <%= answer.user.nickname %>
-                      </span>
-                      &nbsp;&nbsp;
-                      <%= link_to answer.full_name, answer %>
-                    </li>
-                  <% end %>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-6">
-            <div class="panel panel-half-primary">
-              <div class="panel-heading">
-                <h5><i class="fa fa-star"></i>&nbsp;&nbsp;評価の高い解答</h5>
-              </div>
-              <div class="panel-body">
-                Comming soon!
-              </div>
-            </div>
-          </div>
-        </div>
+        <ul class="list-unstyled">
+          <% @recent_answers.each do |answer| %>
+            <li>
+              <span class="label label-info">
+                <i class="fa fa-user"></i>
+                <%= answer.user.nickname %>
+              </span>
+              &nbsp;&nbsp;
+              <%= link_to answer.full_name, answer %>
+            </li>
+          <% end %>
+        </ul>
         <hr>
         <div class="pull-right">
-          <%= link_to universities_path, class: 'btn btn-primary' do %>
+          <%= link_to universities_path, class: 'btn btn-primary btn-sm' do %>
             <i class="fa fa-building-o"></i>
             &nbsp;
-            大学一覧 &gt;&gt;
+            全て見る &gt;&gt;
           <% end %>
         </div>
       </div>
@@ -90,53 +77,5 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col-sm-6">
-    <div class="panel panel-info">
-      <div class="panel-heading">
-        <h4><i class="fa fa-upload"></i>&nbsp;&nbsp;解答を投稿する</h4>
-      </div>
-      <div class="panel-body">
-        <p>よりよい解答をお待ちしています！</p>
-        <p>各学科のページから投稿をお願いします。</p>
-        <hr>
-        <div class="pull-right">
-          <%= link_to new_answer_path, class: 'btn btn-info btn-sm' do %>
-            <i class="fa fa-upload"></i>
-            &nbsp;
-            解答を投稿 &gt;&gt;
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-sm-6">
-    <div class="panel panel-success">
-      <div class="panel-heading">
-        <h4><i class="fa fa-rocket"></i>&nbsp;&nbsp;登録する</h4>
-      </div>
-      <div class="panel-body">
-        <p>解答の閲覧・投稿には利用登録が必要です。</p>
-        <p>こちらから、登録をお願いします。</p>
-        <hr>
-        <div class="pull-right">
-          <% if user_signed_in? %>
-            既にログイン済です
-          <% else %>
-            <%= link_to new_user_registration_path, class: 'btn btn-success btn-sm' do %>
-              <i class="fa fa-rocket"></i>
-              利用登録
-            <% end %>
-            <%= link_to new_user_session_path, class: 'btn btn-primary btn-sm' do %>
-              <i class="fa fa-sign-in"></i>
-              ログイン
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
 <div class="fb-like-box hidden-xs" data-href="https://www.facebook.com/rocket.answer" data-width="720px" data-height="500px" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="true" data-show-border="true"></div>
