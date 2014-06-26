@@ -8,7 +8,6 @@ ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
 set :deploy_to, "/var/www/RocketAnswer"
 set :pty, true
-set :keep_releases, 5
 
 set :log_level, :debug
 
