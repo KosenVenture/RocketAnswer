@@ -19,7 +19,7 @@ class AnswerFilesController < ApplicationController
               files: [@answer_file.to_jq_upload]
             },
             status: :created,
-            location: @answer_file
+            location: answer_answer_file_path(answer_id: @answer.id, id: @answer_file.id)
           }
       else
         format.html {
