@@ -29,7 +29,7 @@ class AnswerFile < ActiveRecord::Base
       "name" => read_attribute(:image),
       "size" => image.size,
       "url" => image.url,
-      "delete_url" => subject_answer_answer_file_path(self.answer.subject, self.answer, self),
+      "delete_url" => answer_answer_file_path(answer_id: self.answer.id, id: self.id),
       "delete_type" => "DELETE"
     }
   end

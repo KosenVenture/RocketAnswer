@@ -5,6 +5,8 @@
 <div class="page-header">
   <h2>
     <%= @answer.name %>
+    <span class="badge"><i class="fa fa-folder-o"></i> <%= @answer.stocked_count %>ストック</span>
+    
   </h2>
 
   <div class="row">
@@ -16,6 +18,20 @@
             <%= @answer.user.try(:nickname) %>
           </span>
         </h4>
+
+        <% if @answer.stocked?(current_user)%>
+          <%= link_to stock_answer_path(@answer),
+            class: 'btn btn-sm', method: :post do %>
+            <i class="fa fa-star"></i>
+            ストックを解除
+          <% end %>
+        <% else %>
+          <%= link_to stock_answer_path(@answer),
+            class: 'btn btn-sm', method: :post do %>
+            <i class="fa fa-star-o"></i>
+            ストックに登録
+            <% end %>
+        <% end %>
 
         <% if can? :update, @answer %>
           <%= link_to edit_answer_path(@answer),

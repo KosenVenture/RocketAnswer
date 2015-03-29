@@ -4,7 +4,7 @@
   <p>PDF, JPG, PNG形式の画像をアップロードできます。</p>
   </div>
 
-  <%= form_for [@subject, @answer, @new_answer_file],
+  <%= form_for [@answer, @new_answer_file],
     html: { multipart: true } do |f| %>
     <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
     <div class="row fileupload-buttonbar">
