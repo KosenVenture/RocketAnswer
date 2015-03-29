@@ -5,7 +5,7 @@ class Ability
     user ||= User.new # guest user
 
     can :read, Answer
-    can :manage, [Answer, AnswerFile, Comment], user_id: user.id
+    can :manage, [Answer, AnswerFile, Comment, AnswerStock], user_id: user.id
 
     # Define abilities for the passed in user here. For example:
     #

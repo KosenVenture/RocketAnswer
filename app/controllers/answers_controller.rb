@@ -1,5 +1,6 @@
 class AnswersController < ApplicationController
   load_and_authorize_resource
+  skip_authorize_resource only: :stock
 
   before_action :authenticate_user!
   before_action :set_answer, only: [:show, :edit, :update, :destroy, :stock]
