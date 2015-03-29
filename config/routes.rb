@@ -21,6 +21,8 @@ RocketAnswer::Application.routes.draw do
     end
   end
 
+  resources :answer_stocks
+
   resource :contact, only: [:show, :create]
 
   devise_for :admin_users, ActiveAdmin::Devise.config

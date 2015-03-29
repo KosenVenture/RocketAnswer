@@ -22,6 +22,13 @@
             <i class="fa fa-upload"></i> 解答を投稿
           <% end %>
         </li>
+        <% if user_signed_in? %>
+          <li>
+            <%= link_to answer_stocks_path do %>
+              <i class="fa fa-folder"></i> ストック一覧
+            <% end %>
+          </li>
+        <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>

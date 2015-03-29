@@ -5,8 +5,11 @@ class User < ActiveRecord::Base
   ###### Association ######
   has_many :wish_universities
   accepts_nested_attributes_for :wish_universities
-  has_many :socks, class_name: :AnswerStock
-  has_many :stocked_answers, class_name: :Answer, through: :stocks
+  has_many :stocks, class_name: :AnswerStock
+  has_many :stocked_answers,
+    class_name: :Answer,
+    through: :stocks,
+    source: :answer
 
   ###### Validation ######
   validates :last_name, :first_name, :nickname,
