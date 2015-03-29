@@ -20,7 +20,7 @@
                   <% if file_form.object.is_pdf? %>
                     PDF
                   <% else %>
-                    <%= image_tag file_form.object.image.url %>
+                    <%= image_tag file_form.object.image.url(:thumb) %>
                   <% end %>
                 </a>
               </li>
@@ -39,7 +39,7 @@
               PDFを開く
             <% end %>
           <% else %>
-            <%= image_tag file.image.url, id: "file_#{file.id}" %>
+            <%= link_to image_tag(file.image.url(:thumb), id: "file_#{file.id}"), file.image.url, target: ['_blank'] %>
           <% end %>
         <% end %>
       </div>
