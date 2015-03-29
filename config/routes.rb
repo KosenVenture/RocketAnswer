@@ -15,6 +15,10 @@ RocketAnswer::Application.routes.draw do
   resources :answers, except: [:index] do
     resources :answer_files, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy, :update]
+
+    member do
+      post 'stock'
+    end
   end
 
   resource :contact, only: [:show, :create]

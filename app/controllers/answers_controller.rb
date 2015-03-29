@@ -2,7 +2,7 @@ class AnswersController < ApplicationController
   load_and_authorize_resource
 
   before_action :authenticate_user!
-  before_action :set_answer, only: [:show, :edit, :update, :destroy]
+  before_action :set_answer, only: [:show, :edit, :update, :destroy, :stock]
   before_action :set_universities, only: [:new, :edit, :create, :update]
 
   # GET /answers/1
@@ -63,6 +63,27 @@ class AnswersController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to university_department_path(dep.school.id, dep) }
+    end
+  end
+
+  def stock
+    # このページをストックしているか？
+    if @answer.stocked?(current_user)
+      # ストックしている
+      # stockを削除
+      @answer.stocks.where(user_id: current_user.id).delete_all
+
+      # 元のページにリダイレクト
+      redirect_to answer_path(@answer),
+        notice: 'ストックを削除しました。'
+    else
+      # ストックしていない
+      # stockを作成
+      @answer.stocking_users << current_user
+
+      # 元のページにリダイレクト
+      redirect_to answer_path(@answer),
+        notice: 'ストックに追加しました。'
     end
   end
 

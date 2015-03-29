@@ -7,6 +7,12 @@ class Answer < ActiveRecord::Base
   has_many :answer_files, dependent: :destroy
   accepts_nested_attributes_for :answer_files
   has_many :comments, dependent: :destroy
+  has_many :stocks, class_name: :AnswerStock
+  has_many :stocking_users,
+    class_name: :User,
+    through: :stocks,
+    source: :user
+
 
   ###### Validation ######
   validates :subject, presence: true, length: { maximum: 20 }
@@ -32,5 +38,16 @@ class Answer < ActiveRecord::Base
 
   def full_name
     "#{school.name} #{department.name} #{subject}（#{year}年）"
+  end
+
+  # ストックしているかどうか
+  def stocked?(user)
+    # 該当ユーザのstocksが存在するか
+    @stocked ||= self.stocks.where(user_id: user.id).exists?
+  end
+
+  # ストック数
+  def stocked_count
+    @stocked_count ||= self.stocks.count
   end
 end
