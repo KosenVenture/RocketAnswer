@@ -4,7 +4,7 @@ class User::RegistrationsController < Devise::RegistrationsController
   def new
     build_resource({})
     3.times { resource.wish_universities.build }
-    respond_with self.resource
+    super
   end
 
 private

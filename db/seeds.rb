@@ -6,8 +6,8 @@ AdminUser.create(
   password: 'password', password_confirmation: 'password'
   )
 
-school_list_path = Rails.root.join('config', 'schools.csv')
-department_list_path = Rails.root.join('config', 'departments.csv')
+school_list_path = Rails.root.join('db', 'schools.csv')
+department_list_path = Rails.root.join('db', 'departments.csv')
 
 CSV.table(school_list_path).each do |row|
   University.create(row.to_h)
@@ -16,4 +16,3 @@ end
 CSV.table(department_list_path).each do |row|
   Department.create(row.to_h)
 end
-

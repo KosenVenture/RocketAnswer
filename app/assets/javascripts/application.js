@@ -1,0 +1,12 @@
+//= require rails-ujs
+//= require jquery
+//= require jquery-ui/core
+//= require jquery-ui/widget
+//= require jquery-ui/position
+//= require jquery-ui/widgets/sortable
+//= require bootstrap/bootstrap.min
+//= require jquery-fileupload/jquery.fileupload
+//= require selectize
+//= require answers
+//= require registration
+//= require_self

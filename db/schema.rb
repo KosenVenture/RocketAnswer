@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -13,145 +12,136 @@
 
 ActiveRecord::Schema.define(version: 20150328071713) do
 
-  create_table "active_admin_comments", force: true do |t|
-    t.string   "namespace"
-    t.text     "body"
-    t.string   "resource_id",   null: false
-    t.string   "resource_type", null: false
-    t.integer  "author_id"
-    t.string   "author_type"
+  create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "namespace"
+    t.text "body"
+    t.string "resource_id", null: false
+    t.string "resource_type", null: false
+    t.integer "author_id"
+    t.string "author_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
+    t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
+    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
   end
 
-  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
-  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
-  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
-
-  create_table "admin_users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
+  create_table "admin_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["email"], name: "index_admin_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  end
+
+  create_table "answer_files", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "answer_id"
+    t.integer "user_id"
+    t.string "image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer "order"
+    t.index ["answer_id"], name: "index_answer_files_on_answer_id"
+    t.index ["user_id"], name: "index_answer_files_on_user_id"
+  end
+
+  create_table "answer_stocks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "answer_id"
+    t.integer "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["answer_id"], name: "index_answer_stocks_on_answer_id"
+    t.index ["user_id"], name: "index_answer_stocks_on_user_id"
+  end
+
+  create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "user_id"
+    t.integer "year"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer "department_id"
+    t.string "subject"
+    t.index ["user_id"], name: "index_answers_on_user_id"
+  end
+
+  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "user_id"
+    t.integer "answer_id"
+    t.text "content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
-  add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
-
-  create_table "answer_files", force: true do |t|
-    t.integer  "answer_id"
-    t.integer  "user_id"
-    t.string   "image"
+  create_table "departments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "school_id"
+    t.string "name"
+    t.string "kind"
+    t.string "prefecture"
+    t.string "address"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "order"
+    t.index ["kind"], name: "index_departments_on_kind"
+    t.index ["prefecture"], name: "index_departments_on_prefecture"
+    t.index ["school_id"], name: "index_departments_on_school_id"
   end
 
-  add_index "answer_files", ["answer_id"], name: "index_answer_files_on_answer_id", using: :btree
-  add_index "answer_files", ["user_id"], name: "index_answer_files_on_user_id", using: :btree
-
-  create_table "answer_stocks", force: true do |t|
-    t.integer  "answer_id"
-    t.integer  "user_id"
+  create_table "schools", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "type"
+    t.string "establishment"
+    t.string "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string "prefecture"
+    t.string "address"
+    t.index ["establishment"], name: "index_schools_on_establishment"
+    t.index ["name"], name: "index_schools_on_name"
+    t.index ["type"], name: "index_schools_on_type"
   end
 
-  add_index "answer_stocks", ["answer_id"], name: "index_answer_stocks_on_answer_id", using: :btree
-  add_index "answer_stocks", ["user_id"], name: "index_answer_stocks_on_user_id", using: :btree
-
-  create_table "answers", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "year"
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "nickname"
+    t.string "email", default: "", null: false
+    t.integer "graduate_year"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "department_id"
-    t.string   "subject"
-  end
-
-  add_index "answers", ["user_id"], name: "index_answers_on_user_id", using: :btree
-
-  create_table "comments", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "answer_id"
-    t.text     "content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "departments", force: true do |t|
-    t.integer  "school_id"
-    t.string   "name"
-    t.string   "kind"
-    t.string   "prefecture"
-    t.string   "address"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "departments", ["kind"], name: "index_departments_on_kind", using: :btree
-  add_index "departments", ["prefecture"], name: "index_departments_on_prefecture", using: :btree
-  add_index "departments", ["school_id"], name: "index_departments_on_school_id", using: :btree
-
-  create_table "schools", force: true do |t|
-    t.string   "type"
-    t.string   "establishment"
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "prefecture"
-    t.string   "address"
-  end
-
-  add_index "schools", ["establishment"], name: "index_schools_on_establishment", using: :btree
-  add_index "schools", ["name"], name: "index_schools_on_name", using: :btree
-  add_index "schools", ["type"], name: "index_schools_on_type", using: :btree
-
-  create_table "users", force: true do |t|
-    t.string   "nickname"
-    t.string   "email",                  default: "", null: false
-    t.integer  "graduate_year"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "encrypted_password",     default: "", null: false
-    t.string   "reset_password_token"
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "school"
-    t.string   "department"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "school"
+    t.string "department"
+    t.index ["department"], name: "index_users_on_department"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["school"], name: "index_users_on_school"
   end
 
-  add_index "users", ["department"], name: "index_users_on_department", using: :btree
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-  add_index "users", ["school"], name: "index_users_on_school", using: :btree
-
-  create_table "wish_universities", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "university_id"
-    t.integer  "department_id"
-    t.integer  "rank"
+  create_table "wish_universities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "user_id"
+    t.integer "university_id"
+    t.integer "department_id"
+    t.integer "rank"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["department_id"], name: "index_wish_universities_on_department_id"
+    t.index ["university_id"], name: "index_wish_universities_on_university_id"
+    t.index ["user_id"], name: "index_wish_universities_on_user_id"
   end
-
-  add_index "wish_universities", ["department_id"], name: "index_wish_universities_on_department_id", using: :btree
-  add_index "wish_universities", ["university_id"], name: "index_wish_universities_on_university_id", using: :btree
-  add_index "wish_universities", ["user_id"], name: "index_wish_universities_on_user_id", using: :btree
 
 end

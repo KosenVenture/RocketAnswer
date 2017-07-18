@@ -1,98 +1,82 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.0.4'
-
-# rack server
-gem 'unicorn'
-
-# DB系
-gem 'mysql2'
-
-# 機能ライブラリ系
-gem 'bcrypt', '~> 3.1.7'
-gem 'kaminari'
-## I18nの辞書
-gem 'rails-i18n'
-## 設定ファイルの管理に
-gem 'rails_config'
-gem 'jquery-fileupload-rails'
-gem 'carrierwave'
-gem 'devise'
-## 認可ライブラリ
-gem 'cancancan', '~> 1.7'
-
-# asset系
-gem 'sass-rails', '~> 4.0.2'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.0.0'
-gem 'therubyracer', platforms: :ruby
-gem 'jquery-rails'
-gem 'jquery-ui-rails'
-gem 'selectize-rails'
-
-# view系
-gem 'jbuilder', '~> 1.2'
-gem 'font-awesome-rails'
-## パンくずリスト
-gem 'gretel'
-## Markdown
-gem 'redcarpet'
-
-# 管理画面
-gem 'activeadmin', github: 'gregbell/active_admin'
-
-# 開発ツール系
-## 高機能コンソール
-gem 'pry'
-gem 'pry-rails'
-gem 'hirb'
-gem 'hirb-unicode'
-gem 'awesome_print'
-## デバッグ出力
-gem 'tapp'
-
-group :development do
-  # エラー画面拡張
-  gem 'better_errors'
-  gem 'binding_of_caller'
-  gem 'meta_request'
-
-  # railsコマンド高速起動
-  gem 'spring'
-  gem "spring-commands-rspec"
-
-  # ER図作成
-  gem 'rails-erd'
+git_source(:github) do |repo_name|
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  "https://github.com/#{repo_name}.git"
 end
 
+gem 'rails', '~> 5.1.2'
 
-# テスト系
+### Database
+gem 'mysql2', '>= 0.3.18', '< 0.5'
+
+### Rack
+gem 'puma', '~> 3.7'
+
+### 設定関連
+gem 'config'
+
+
+### モデル関連
+gem 'bcrypt', '~> 3.1.7'
+gem 'devise'
+gem 'carrierwave'
+
+
+### ユーザー権限管理
+gem 'cancancan', '~> 1.16'
+
+
+### Assets関連
+gem 'therubyracer', platforms: :ruby
+gem 'sass-rails', '~> 5.0'
+gem 'uglifier', '>= 1.3.0'
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'jquery-fileupload-rails'
+gem 'selectize-rails'
+gem 'font-awesome-rails'
+
+
+### View関連
+gem 'jbuilder', '~> 2.5'
+gem 'kaminari'
+# パンくずリスト
+gem 'gretel'
+# Markdown
+gem 'redcarpet'
+
+
+### 管理画面
+gem 'activeadmin'
+
+
+### ロケール関連
+gem 'rails-i18n'
+
+
+### pry
+gem 'pry'
+gem 'pry-rails'
+
+
 group :development, :test do
-  # RSpec
-  gem 'rspec-rails'
-  gem 'shoulda-matchers'
-  gem 'factory_girl_rails'
-  gem 'database_cleaner'
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+end
 
-  # Guard
-  gem 'rb-fsevent', :require => false
-  gem 'guard'
-  gem 'guard-rspec'
-  gem 'guard-livereload'
-  # Growl通知
-  gem 'growl'
-  # Guardの通知センター通知(for OS X Mountain Linon)
-  gem 'terminal-notifier-guard'
-
-  # Code coverage
-  gem "simplecov", require: false
+group :development do
+  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
+  gem 'web-console', '>= 3.3.0'
+  gem 'listen', '>= 3.0.5', '< 3.2'
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spring'
+  gem 'spring-watcher-listen', '~> 2.0.0'
 
   # N+1 Query検出
   gem 'bullet'
 
-  # Capistrano
-  gem 'capistrano', '~> 3.1.0', require: false
-  gem 'capistrano-rails', '~> 1.1', require: false
-  gem 'capistrano-bundler', '~> 1.1.2', require: false
+  gem 'hirb'
+  gem 'hirb-unicode'
+  gem 'awesome_print'
 end
-

@@ -4,9 +4,9 @@
 
 ## 開発環境
 
-* Ruby 2.1.1
-* Ruby on Rails 4.0.4
-* MySQL
+* Ruby 2.4
+* Ruby on Rails 5.1.2
+* MariaDB
 
 ## 開発の手順
 
@@ -16,17 +16,10 @@
 git clone git@github.com:kosen-venture/RocketAnswer.git
 cd RocketAnswer
 
-# gemのインストール
-bundle install --path vendor/bundle --without production
+docker-compose build
+docker-compose up
 
-# DBの設定
-cp config/database{.yml.sample,.yml}
-# config/database.yml を各自の環境に合わせて設定してください
-
-# DBの作成
-bundle exec rake db:create
-bundle exec rake db:migrate
-bundle exec rake db:seed # 簡単なテストデータが投入される
+docker-compose run --rm app rails db:setup
 ```
 
 
@@ -77,5 +70,4 @@ push後に、Pull Requestを発行してマージの申請をください。
 
 ### Copyright
 
-(C) 2014 Rocket Answer, Kosen Venture.
-
+(C) 2014-2017 Rocket Answer, Kosen Venture.
