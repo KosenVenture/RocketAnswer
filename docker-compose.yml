@@ -1,0 +1,35 @@
+version: '2'
+services:
+  app:
+    build:
+      context: .
+      args:
+        app_env: development
+    environment:
+      DATABASE_HOST: mariadb
+      DATABASE_USER: root
+      DATABASE_PASSWORD: RocketAnswer
+    ports:
+      - "3000:3000"
+    command: rails s -b 0.0.0.0 -p 3000
+    volumes:
+      - .:/usr/local/rocket_answer
+    links:
+      - mariadb
+  mariadb:
+    image: mariadb:10.2
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_USER: RocketAnswer
+      MYSQL_PASSWORD: RocketAnswer
+      MYSQL_ROOT_PASSWORD: RocketAnswer
+    volumes:
+      - rocket-mariadb:/var/lib/mysql
+  mailcatcher:
+    image: schickling/mailcatcher
+    ports:
+      - "1080:1080"
+volumes:
+  rocket-mariadb: {}
