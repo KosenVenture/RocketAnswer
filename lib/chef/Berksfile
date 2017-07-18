@@ -1,9 +1,0 @@
-source "https://api.berkshelf.com"
-
-cookbook 'yum'
-cookbook 'yum-epel'
-cookbook 'nginx'
-cookbook 'mysql'
-cookbook 'git'
-cookbook 'nodejs', git:'https://github.com/mdxp/nodejs-cookbook.git'
-cookbook 'rbenv-ruby', path: 'site-cookbooks/rbenv-ruby'
