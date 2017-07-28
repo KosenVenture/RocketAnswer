@@ -5,7 +5,7 @@ ActiveAdmin.setup do |config|
   # Set the title that is displayed on the main layout
   # for each of the active admin pages.
   #
-  config.site_title = "Kaitou Share"
+  config.site_title = "Rocket Answer"
 
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
@@ -140,8 +140,8 @@ ActiveAdmin.setup do |config|
   # Active Admin resources and pages from here.
   #
   # config.before_filter :do_something_awesome
-  
-  
+
+
   # == Setting a Favicon
   #
   # config.favicon = '/assets/favicon.ico'

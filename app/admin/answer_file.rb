@@ -1,6 +1,6 @@
 ActiveAdmin.register AnswerFile do
   permit_params :answer_id, :user_id, :image, :order
-    
+
   # See permitted parameters documentation:
   # https://github.com/gregbell/active_admin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
@@ -15,25 +15,27 @@ ActiveAdmin.register AnswerFile do
   # end
 
   index do
-    column :id
-    column :answer_id do |answer_file|
-      link_to answer_file.id, admin_answer_path(answer_file.answer)
+    id_column
+    column :answer do |answer_file|
+      link_to answer_file.answer.full_name, admin_answer_path(answer_file.answer)
     end
     column :image do |answer_file|
-      image_tag(answer_file.image)
+      link_to('開く', answer_file.image.url, target: '_blank')
     end
-    column :order
+    column :user
     column :created_at
-    column :updated_at
-    default_actions
+    actions
   end
 
   show do |answer_file|
     attributes_table do
       row :id
-      row :answer_id
+      row :user
+      row :answer do
+        link_to answer_file.answer.full_name, admin_answer_path(answer_file.answer)
+      end
       row :image do
-        image_tag(answer_file.image)
+        link_to image_tag(answer_file.image, width: 400), answer_file.image.url, target: '_blank'
       end
       row :order
       row :created_at
@@ -41,5 +43,4 @@ ActiveAdmin.register AnswerFile do
     end
     active_admin_comments
   end
-
 end

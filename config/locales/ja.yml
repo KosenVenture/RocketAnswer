@@ -3,6 +3,11 @@ ja:
     models:
       answer: '解答'
       user: 'ユーザ'
+      answer_file: 解答ファイル
+      comment: コメント
+      department: 学科
+      university: 学校
+      admin_user: 管理ユーザ
     attributes:
       answer:
         user_id: 'ユーザID'
@@ -12,8 +17,8 @@ ja:
         year: '実施年'
       user:
         name: '本名'
-        first_name: '本名（姓）'
-        last_name: '本名（名）'
+        first_name: '本名（名）'
+        last_name: '本名（姓）'
         nickname: 'ニックネーム'
         email: 'メールアドレス'
         school: '在籍学校'
