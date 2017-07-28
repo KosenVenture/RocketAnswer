@@ -20,7 +20,10 @@ editComment = function (elem) {
       .click(function(){
         $.ajax({
           url: '/answers/' + answer_id + '/comments/' + $panelBody.data('comment-id') + '.json',
-          data: { comment: { content: $panelBody.children('textarea').val() }},
+          data: {
+            comment: { content: $panelBody.children('textarea').val() },
+            authenticity_token: Rails.csrfToken(),
+          },
           type: 'PUT'
         }).done(function(comment) {
           $panelBody.html(comment.content);
