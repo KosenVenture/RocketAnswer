@@ -1,0 +1,3 @@
+smtp:
+  host: <%= ENV['SMTP_HOST'] %>
+  port: <%= ENV['SMTP_PORT'] %>

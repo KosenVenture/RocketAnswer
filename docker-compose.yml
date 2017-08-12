@@ -9,6 +9,8 @@ services:
       DATABASE_HOST: mariadb
       DATABASE_USER: root
       DATABASE_PASSWORD: RocketAnswer
+      SMTP_HOST: mailcatcher
+      SMTP_PORT: 1025
     ports:
       - "3000:3000"
     command: rails s -b 0.0.0.0 -p 3000

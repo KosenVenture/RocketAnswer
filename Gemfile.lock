@@ -90,6 +90,10 @@ GEM
       railties (>= 4.1.0, < 5.2)
       responders
       warden (~> 1.2.3)
+    dotenv (2.2.1)
+    dotenv-rails (2.2.1)
+      dotenv (= 2.2.1)
+      railties (>= 3.2, < 5.2)
     erubi (1.6.1)
     execjs (2.7.0)
     ffi (1.9.18)
@@ -276,6 +280,7 @@ DEPENDENCIES
   carrierwave
   config
   devise
+  dotenv-rails
   font-awesome-rails
   gretel
   hirb

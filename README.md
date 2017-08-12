@@ -25,6 +25,22 @@ docker-compose up
 docker-compose run --rm app rails db:setup
 ```
 
+### Dockerを使わない場合
+
+- MySQL or MariaDBを用意する
+- mailcatcher gemをインストールして起動しておく
+    - https://mailcatcher.me/
+    - 開発用のメールSMTPサーバ（ブラウザで送信されたメールが全て見られる）
+- 以下の環境変数を設定する
+    - `.env.local` というファイルをつくっておけば自動でロードされます
+
+```
+DATABASE_HOST=localhost
+DATABASE_USER=RocketAnswer
+DATABASE_PASSWORD=hogehoge
+SMTP_HOST=localhost
+SMTP_PORT=1025
+```
 
 ### ブランチの役割について
 
