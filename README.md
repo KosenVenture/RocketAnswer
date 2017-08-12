@@ -1,5 +1,8 @@
 # Rocket Answer
 
+[![Code Climate](https://codeclimate.com/github/kosen-venture/RocketAnswer/badges/gpa.svg)](https://codeclimate.com/github/kosen-venture/RocketAnswer)
+
+
 編入試験・解答共有サービス
 
 ## 開発環境
