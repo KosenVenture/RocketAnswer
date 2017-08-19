@@ -73,7 +73,7 @@
 
         <div class="row">
           <div class="col-md-4">
-            <% if @answer.id == comment.id then %>
+            <% if @answer.user.id == comment.user.id %>
               <small>投稿者</small>
             <% end %>
           </div>
