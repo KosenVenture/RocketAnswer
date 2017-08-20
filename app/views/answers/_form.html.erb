@@ -53,6 +53,18 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :exam_url, class: 'control-label col-sm-2' %>
+    <div class="col-sm-4">
+      <%= f.text_field :esma_url, class: 'form-control' %>
+      <small>
+        <p>
+          ※過去問が公開されている場合、公開先のURLをお貼りください。
+        </p>
+      </small>
+    </div>
+  </div>
+
+  <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <%= f.submit '作成', class: 'btn btn-primary btn-sm' %>
     </div>
