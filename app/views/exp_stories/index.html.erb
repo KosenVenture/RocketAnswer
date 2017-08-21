@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Exp Stories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Advice</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @exp_stories.each do |exp_story| %>
+      <tr>
+        <td><%= exp_story.advice %></td>
+        <td><%= link_to 'Show', exp_story %></td>
+        <td><%= link_to 'Edit', edit_exp_story_path(exp_story) %></td>
+        <td><%= link_to 'Destroy', exp_story, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Exp Story', new_exp_story_path %>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :exp_stories
   root to: 'home#index'
 
   get 'aboutus', to: 'home#aboutus'

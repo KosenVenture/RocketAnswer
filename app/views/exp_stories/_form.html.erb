@@ -1,0 +1,22 @@
+<%= form_with(model: exp_story, local: true) do |form| %>
+  <% if exp_story.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(exp_story.errors.count, "error") %> prohibited this exp_story from being saved:</h2>
+
+      <ul>
+      <% exp_story.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :advice %>
+    <%= form.text_area :advice, id: :exp_story_advice %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
