@@ -1,22 +1,93 @@
-<%= form_with(model: exp_story, local: true) do |form| %>
-  <% if exp_story.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(exp_story.errors.count, "error") %> prohibited this exp_story from being saved:</h2>
+<%= form_for @exp_story,
+  html: { class: 'form-horizontal' } do |f| %>
+  <%= render partial: 'shared/form_error', locals: { object: @exp_story } %>
 
-      <ul>
-      <% exp_story.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <div class="form-group">
+    <%= f.label :year, class: 'control-label col-sm-2' %>
+    <div class="col-sm-4">
+      <div class="input-group">
+        <%= f.text_field :year, class: 'form-control' %>
+        <span class="input-group-addon">年</span>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :advice %>
-    <%= form.text_area :advice, id: :exp_story_advice %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-group">
+    <%= f.label :wish_university, class: 'control-label col-sm-2' %>
+    <div class="col-sm-4">
+      <%= f.collection_select :wish_university,
+        University.all,
+        :id,
+        :name,
+        { include_blank: true },
+        class: 'form-control' %>
+      <p>
+        <small>
+          ※一覧に登録されていない大学・学科などがありましたら、
+          『<%= link_to 'お問い合わせ', contact_path %>』からご連絡ください。
+        </small>
+      </p>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :way, class: 'control-label col-sm-2' %>
+    <div class="col-sm-1">
+      <%= f.select :way, 
+        ExpStory.way.options,
+        { include_blank: true },
+        class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :is_passed, class: 'control-label col-sm-2' %>
+    <div class="col-sm-1">
+      <%= f.select :is_passed, 
+        [['合格', true], ['不合格', false]],
+        { include_blank: true },
+        class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :self_intro, class: 'control-label col-sm-2' %>
+    <div class="col-sm-4">
+      <%= f.text_area :self_intro, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :motivation, class: 'control-label col-sm-2' %>
+    <div class="col-sm-4">
+      <%= f.text_area :motivation, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :exam, class: 'control-label col-sm-2' %>
+    <div class="col-sm-4">
+      <%= f.text_area :exam, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :interview, class: 'control-label col-sm-2' %>
+    <div class="col-sm-4">
+      <%= f.text_area :interview, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :advice, class: 'control-label col-sm-2' %>
+    <div class="col-sm-4">
+      <%= f.text_area :advice, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit '作成', class: 'btn btn-primary btn-sm' %>
+    </div>
   </div>
 <% end %>

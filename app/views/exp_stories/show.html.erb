@@ -1,9 +1,8 @@
-<p id="notice"><%= notice %></p>
+<%= content_for :title do %>体験談を追加<% end %>
 
-<p>
-  <strong>Advice:</strong>
-  <%= @exp_story.advice %>
-</p>
+<div class="page-header">
+  <h1>体験談を追加</h1>
+</div>
 
-<%= link_to 'Edit', edit_exp_story_path(@exp_story) %> |
-<%= link_to 'Back', exp_stories_path %>
+<%= render 'form' %>
+

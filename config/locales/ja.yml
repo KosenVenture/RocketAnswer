@@ -15,6 +15,16 @@ ja:
         department_id: '学科名'
         subject: '試験科目名'
         year: '実施年'
+      exp_story:
+        year: '実施年'
+        wish_university: '志望校'
+        way: '受験方法'
+        is_passed: '合否'
+        self_intro: '自己紹介'
+        motivation: '動機'
+        exam: '試験'
+        interview: '面接'
+        advice: '使用した参考書やアドバイス'
       user:
         name: '本名'
         first_name: '本名（名）'
@@ -35,3 +45,10 @@ ja:
         email: 'メールアドレス'
         body: '本文'
         accept: 'スパム対策'
+  enumerize:
+    exp_story:
+      way:
+        ippan: '一般'
+        suisen: '推薦'
+
+

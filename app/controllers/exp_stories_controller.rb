@@ -1,6 +1,6 @@
 class ExpStoriesController < InheritedResources::Base
 
-  private
+	private
 
     def exp_story_params
       params.require(:exp_story).permit(:advice)

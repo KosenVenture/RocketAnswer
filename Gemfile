@@ -21,6 +21,7 @@ gem 'config'
 gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 gem 'carrierwave'
+gem 'enumerize'
 
 
 ### ユーザー権限管理
