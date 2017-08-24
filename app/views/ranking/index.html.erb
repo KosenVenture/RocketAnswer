@@ -1,0 +1,25 @@
+<%= content_for :title do %>投稿数ランキング<% end %>
+
+<div class="page-header">
+  <h1>投稿数ランキング</h1>
+</div>
+
+<table class="table table-hover table-bordered">
+  <thead>
+    <tr>
+      <th>順位</th>
+      <th>ユーザ名</th>
+      <th>投稿数</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ranks.each do |rank| %>
+      <tr>
+        <td><%= rank["rank"] %>位</td>
+        <td><%= rank["user_answer"] %></td>
+        <td><%= rank["user_answer_count"] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
