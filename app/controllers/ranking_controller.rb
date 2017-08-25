@@ -17,28 +17,31 @@ class RankingController < ApplicationController
     # 投稿のあるユーザのidと投稿数を取得
     @ranks = Answer.find_by_sql(sql)
 
-    # ハッシュに変更
-    @ranks.map!{|rank| rank.attributes}
+    # 解答がある場合のみ実行
+    if @ranks.present? then
+      # ハッシュに変更
+      @ranks.map!{|rank| rank.attributes}
 
-    # 投稿数順にソート
-    @ranks.sort! do |a, b|
-      a[:user_answer_count] <=> b[:user_answer_count]
-    end
-
-    # 順位を追加
-    i = @ranks.first["user_answer_count"]
-    jyuni = 1
-    @ranks.each do |rank|
-      if rank["user_answer_count"] < i then
-        i = rank["user_answer_count"]
-        jyuni += 1
+      # 投稿数順にソート
+      @ranks.sort! do |a, b|
+        a[:user_answer_count] <=> b[:user_answer_count]
       end
-      rank.store("rank", jyuni)
-    end
 
-    # ユーザのidをニックネームに置換
-    @ranks.each do |rank|
-      rank["user_answer"] = User.find(rank["user_answer"]).nickname
+      # 順位を追加
+      i = @ranks.first["user_answer_count"]
+      jyuni = 1
+      @ranks.each do |rank|
+        if rank["user_answer_count"] < i then
+          i = rank["user_answer_count"]
+          jyuni += 1
+        end
+        rank.store("rank", jyuni)
+      end
+
+      # ユーザのidをニックネームに置換
+      @ranks.each do |rank|
+        rank["user_answer"] = User.find(rank["user_answer"]).nickname
+      end
     end
   end
 
