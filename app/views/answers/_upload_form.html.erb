@@ -39,6 +39,7 @@
     </table>
   <% end %>
   
+  <%= markdown("---") %>
   <h3>解答を追加</h3>
   <p>texとMarkdownを用いて記述することが出来ます。</p>
   <%=form_for @answer do |f| %>
@@ -48,7 +49,7 @@
     </div>
 
     <div class="actions">
-      <%= f.submit "変更する"%>
+      <%= f.submit "変更する",class: 'btn btn-primary btn-sm'%>
     </div>
   <% end %>
 
