@@ -15,7 +15,7 @@ ja:
         department_id: '学科名'
         subject: '試験科目名'
         year: '実施年'
-        exam_url '過去問'
+        exam_url: '過去問'
       user:
         name: '本名'
         first_name: '本名（名）'

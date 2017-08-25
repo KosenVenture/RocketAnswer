@@ -15,9 +15,7 @@ class Answer < ActiveRecord::Base
 
 
   ###### Validation ######
-  validates :exam_url, {
-    url: => {:allow_blank => true}
-  }
+  validates :exam_url, :url => {:allow_blank => true}
   validates :subject, presence: true, length: { maximum: 20 }
   validates :year, presence: true,
     numericality: { greater_than: 1900, less_than_or_equal_to: DateTime.now.year }
