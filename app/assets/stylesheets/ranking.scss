@@ -10,3 +10,35 @@
 .other-place:before{
   visibility: hidden
 }
+
+/*タブ部分*/
+#tab .tab_area ul li{
+    display: block;
+    background: #008cba;
+    border-right: 2px solid #ffffff;
+    width: 24%;
+    float: left;
+    -webkit-box-sizing: border-box ;
+    -moz-box-sizing: border-box ;
+    box-sizing: border-box ;
+    margin-top: 15px;
+}
+
+#tab .tab_area ul li a{
+    display: block;
+    text-align: center;
+    font-size: 120%;
+    padding: 5px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+#tab .tab_area ul li a:hover {
+    background: #007196;
+    text-decoration: none;
+}
+
+#tab .tab_area_active a{
+  background-color: #007196;
+  font-weight: bold;
+}
