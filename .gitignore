@@ -24,3 +24,5 @@
 /public/uploads
 
 /.env*.local
+
+/alias.sh

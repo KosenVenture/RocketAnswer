@@ -18,6 +18,7 @@ ja:
       exp_story:
         year: '実施年'
         wish_university: '志望校'
+        department: '学科'
         way: '受験方法'
         is_passed: '合否'
         self_intro: '自己紹介'

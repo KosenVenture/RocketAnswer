@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170822131204) do
+ActiveRecord::Schema.define(version: 20170827034652) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "namespace"
@@ -110,6 +110,10 @@ ActiveRecord::Schema.define(version: 20170822131204) do
     t.text "graduated_department"
     t.integer "max_rank"
     t.integer "way"
+    t.bigint "department_id"
+    t.bigint "user_id"
+    t.index ["department_id"], name: "index_exp_stories_on_department_id"
+    t.index ["user_id"], name: "index_exp_stories_on_user_id"
   end
 
   create_table "schools", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -162,4 +166,5 @@ ActiveRecord::Schema.define(version: 20170822131204) do
     t.index ["user_id"], name: "index_wish_universities_on_user_id"
   end
 
+  add_foreign_key "exp_stories", "users"
 end
