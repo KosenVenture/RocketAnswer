@@ -6,12 +6,14 @@ class AnswersController < ApplicationController
   before_action :set_answer, only: [:show, :edit, :update, :destroy, :stock]
   before_action :set_universities, only: [:new, :edit, :create, :update]
 
-  # GET /answers/1
+  # GET /answers/1 
   # GET /answers/1.json
   def show
     @answer_files = @answer.answer_files
     @new_answer_file = AnswerFile.new(answer: @answer)
     @comment = Comment.new(user: current_user)
+    @q = AnswerFile.search(params[:answer])
+    @answers = @q.result(distinct: true)
   end
 
   # GET /answers/new
