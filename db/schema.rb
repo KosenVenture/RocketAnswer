@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170827034652) do
+ActiveRecord::Schema.define(version: 20170830125852) do
 
   create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "namespace"
@@ -106,9 +106,6 @@ ActiveRecord::Schema.define(version: 20170827034652) do
     t.text "interview"
     t.text "textbook"
     t.text "wish_university"
-    t.text "graduated_school"
-    t.text "graduated_department"
-    t.integer "max_rank"
     t.integer "way"
     t.bigint "department_id"
     t.bigint "user_id"
@@ -148,6 +145,9 @@ ActiveRecord::Schema.define(version: 20170827034652) do
     t.string "last_name"
     t.string "school"
     t.string "department"
+    t.string "grad_school"
+    t.string "grad_department"
+    t.integer "max_rank"
     t.index ["department"], name: "index_users_on_department"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

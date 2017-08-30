@@ -18,13 +18,13 @@ ja:
       exp_story:
         year: '実施年'
         wish_university: '志望校'
-        department: '学科'
+        department_id: '志望学科'
         way: '受験方法'
         is_passed: '合否'
         self_intro: '自己紹介'
         motivation: '動機'
-        exam: '試験'
-        interview: '面接'
+        exam: '試験内容'
+        interview: '面接内容'
         advice: '使用した参考書やアドバイス'
       user:
         name: '本名'
@@ -51,5 +51,3 @@ ja:
       way:
         ippan: '一般'
         suisen: '推薦'
-
-

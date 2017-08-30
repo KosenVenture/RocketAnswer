@@ -6,12 +6,12 @@ class ExpStoriesController < ApplicationController
   end
 
   def new
-    @exp_story = ExpStory.new(user: @current_user)
+    @exp_story = ExpStory.new(user: current_user)
   end
 
   def create
     @exp_story = ExpStory.new(exp_story_params)
-    @exp_story.user = @current_user
+    @exp_story.user = current_user
 
     respond_to do |format|
       if @exp_story.save
@@ -41,7 +41,16 @@ class ExpStoriesController < ApplicationController
     end
 
   def exp_story_params
-    params.require(:exp_story).permit(:advice)
+    params.require(:exp_story).permit(:year,
+                                      :wish_university,
+                                      :department,
+                                      :way,
+                                      :is_passed,
+                                      :self_intro,
+                                      :motivation,
+                                      :exam,
+                                      :interview,
+                                      :advice)
   end
 end
 

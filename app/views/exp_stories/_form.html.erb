@@ -2,8 +2,6 @@
   html: { class: 'form-horizontal' } do |f| %>
   <%= render partial: 'shared/form_error', locals: { object: @exp_story } %>
 
-  <%= f.hidden_field :department %>
-
   <div class="form-group">
     <%= f.label :year, class: 'control-label col-sm-2' %>
     <div class="col-sm-4">
@@ -27,9 +25,9 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :department, class: 'control-label col-sm-2' %>
+    <%= f.label :department_id, class: 'control-label col-sm-2' %>
     <div class="col-sm-4">
-      <%= f.collection_select :department,
+      <%= f.collection_select :department_id,
         @exp_story.department.try(:school).try(:departments) || [],
         :id,
         :name,
@@ -98,6 +96,29 @@
       <%= f.text_area :advice, class: 'form-control' %>
     </div>
   </div>
+
+  <%= f.fields_for :users do |h| %>
+  <div class="form-group">
+    <%= h.label :grad_school, class: 'control-label col-sm-2' %>
+    <div class="col-sm-4">
+      <%= h.text_field :grad_school, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= h.label :grad_department, class: 'control-label col-sm-2' %>
+    <div class="col-sm-4">
+      <%= h.text_field :grad_department, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= h.label :max_rank, class: 'control-label col-sm-2' %>
+    <div class="col-sm-4">
+      <%= h.text_field :max_rank, class: 'form-control' %>
+    </div>
+  </div>
+  <% end %>
 
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
