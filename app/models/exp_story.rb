@@ -17,4 +17,9 @@ class ExpStory < ApplicationRecord
   validates :is_passed, inclusion: {in: [true, false]}
   enumerize :way, in: [:ippan, :suisen]
 
+  ###### Instance Method ######
+  def name
+    "#{way}（#{year}年）"
+  end
+
 end

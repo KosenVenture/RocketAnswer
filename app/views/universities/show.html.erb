@@ -18,8 +18,16 @@
           <div class="panel-body">
             <ul class="list-unstyled">
               <% dep.answers.limit(5).each do |answer| %>
+                <p><small>解答</small></p>
                 <li>
                   <%= link_to answer.name, answer_path(answer) %>
+                </li>
+              <% end %>
+              <hr>
+              <% dep.exp_stories.limit(5).each do |exp_story| %>
+                <p><small>体験談</small></p>
+                <li>
+                  <%= link_to exp_story.name, exp_story_path(exp_story) %>
                 </li>
               <% end %>
             </ul>
