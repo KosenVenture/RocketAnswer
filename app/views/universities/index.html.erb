@@ -11,6 +11,7 @@
         <th>設置</th>
         <th>学校名</th>
         <th>投稿解答数</th>
+        <th>投稿体験談数</th>
       </tr>
     </thead>
 
@@ -20,6 +21,7 @@
           <td><%= university.establishment %></td>
           <td><%= link_to university.name, university %></td>
           <td><%= university.answers.count %></td>
+          <td><%= university.exp_stories.count %></td>
         </tr>
       <% end %>
     </tbody>

@@ -6,7 +6,7 @@ $(document).on 'change', '#exp_story_wish_university', ->
   $.ajax(
 	type: 'GET'
     url: '/exp_stories/get_depts'
-    data: {
+      data: {
         school_id: $(this).val()
       }
     ).done (data) ->
