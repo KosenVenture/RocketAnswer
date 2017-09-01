@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :exp_stories
   root to: 'home#index'
 
   get 'aboutus', to: 'home#aboutus'
@@ -19,6 +18,14 @@ Rails.application.routes.draw do
 
     member do
       post 'stock'
+    end
+  end
+
+# 体験談用のルート
+  resources :exp_stories, except: [:index] do
+    collection do
+      # 学科取得用ルート
+      get 'get_depts'
     end
   end
 

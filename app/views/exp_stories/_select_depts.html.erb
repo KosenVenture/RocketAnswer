@@ -1,0 +1,16 @@
+<%= label :exp_story, :department_id, class: 'control-label col-sm-2' %>
+<div class="col-sm-4">
+  <%= collection_select :exp_story, 
+    :department_id, 
+    Department.where(school_id: school_id), 
+    :id, 
+    :name,
+    { include_blank: true },
+    class: 'form-control' %>
+  <p>
+    <small>
+      ※一覧に登録されていない大学・学科などがありましたら、
+      『<%= link_to 'お問い合わせ', contact_path %>』からご連絡ください。
+    </small>
+  </p>
+</div>

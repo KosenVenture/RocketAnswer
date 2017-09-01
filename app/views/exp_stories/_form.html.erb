@@ -20,11 +20,11 @@
         :id,
         :name,
         { include_blank: true },
-        class: 'form-control' %>
+        class: 'form-control wish_university-select' %>
     </div>
   </div>
 
-  <div class="form-group">
+<!--   <div class="form-group">
     <%= f.label :department_id, class: 'control-label col-sm-2' %>
     <div class="col-sm-4">
       <%= f.collection_select :department_id,
@@ -40,6 +40,11 @@
         </small>
       </p>
     </div>
+  </div> -->
+
+
+  <div class="form-group dept-select">
+    <%= render partial: 'select_depts', locals: {school_id: School.first.id} %>
   </div>
 
   <div class="form-group">

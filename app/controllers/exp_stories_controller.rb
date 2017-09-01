@@ -34,6 +34,11 @@ class ExpStoriesController < ApplicationController
   def destroy
   end
 
+  # Ajax処理を行うアクション
+  def get_depts
+    render partial: 'select_depts', locals: {school_id: params[:school_id]}
+  end
+
   private
 
   def set_universities
