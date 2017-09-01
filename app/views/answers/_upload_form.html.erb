@@ -38,6 +38,24 @@
     <table class="table table-striped"><tbody class="files" data-toggle="modal-gallery" data-target="#modal-gallery"></tbody>
     </table>
   <% end %>
+  
+  <%= markdown("---") %>
+  <h3>解答を追加</h3>
+  <p>tex数式とMarkdown記法で解答を記述できます。</p>
+  <small>
+  ※インライン数式は$ $で、ディスプレイ数式の場合は$$ $$で囲んでください。改行は\\\ですることが出来ます。
+  ※画像をアップロードした場合は空欄で省略できます。
+  </small>
+  <%=form_for @answer do |f| %>
+
+    <div class="field">
+      <%= f.text_area :answer_text , size: "100x50"%>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "変更する",class: 'btn btn-primary btn-sm'%>
+    </div>
+  <% end %>
 
 </div>
 
