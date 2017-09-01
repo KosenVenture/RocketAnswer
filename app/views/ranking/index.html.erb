@@ -1,0 +1,66 @@
+<%= content_for :title do %>投稿数ランキング<% end %>
+
+<div class="page-header">
+  <h1><i class="fa fa-trophy aria-hidden="true" "></i> 投稿数ランキング</h1>
+</div>
+
+<div id="tab">
+    <div class="tab_area clearfix">
+        <ul>
+          <% tab_active = "tab_area_active" %>
+          <% case @period %>
+          <% when nil %>
+          <%  val_all = tab_active %>
+          <% when @period_month %>
+          <%  val_month = tab_active %>
+          <% when @period_half_year %>
+          <%  val_half_year = tab_active %>
+          <% when @period_year %>
+          <%  val_year = tab_active %>
+          <% end %>
+          <li class = "<%= "#{val_all}" if val_all.present? %>" ><%= link_to "全期間", ranking_path %></li>
+          <li class = "<%= "#{val_month}" if val_month.present? %>" ><%= link_to "1ヶ月", ranking_path(period: "#{@period_month}" ) %></li>
+          <li class = "<%= "#{val_half_year}" if val_half_year.present? %>" ><%= link_to "6ヶ月", ranking_path(period: "#{@period_half_year}") %></li>
+          <li class = "<%= "#{val_year}" if val_year.present? %>" ><%= link_to "1年", ranking_path(period: "#{@period_year}") %></li>
+        </ul>
+    </div>
+</div>
+
+<% if @begin_date.present? %>
+<%= "#{@begin_date} から " + Date.today.to_s %>
+<% else %>
+<%= "全期間" %>
+<% end %>
+<%= " の投稿ランキング" %>
+
+<table class="table table-hover table-bordered">
+  <thead>
+    <tr>
+      <th>順位</th>
+      <th>ユーザ名</th>
+      <th>投稿数</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ranks.each do |rank| %>
+      <tr>
+        <td>
+          <% case rank["rank"] %>
+          <% when 1 then %>
+          <%  val = "gold-place" %>
+          <% when 2 then %>
+          <%  val = "silver-place" %>
+          <% when 3 then %>
+          <%  val = "bronze-place" %>
+          <% else %>
+          <%  val = "other-place" %>
+          <% end %>
+          <i class="fa fa-trophy <%= "#{val}" %> aria-hidden="true" "></i>
+        <%= rank["rank"] %>位</td>
+        <td><%= rank["user_answer"] %></td>
+        <td><%= rank["user_answer_count"] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
