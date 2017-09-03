@@ -1,0 +1,55 @@
+<div class="row">
+  <div class="viewer">
+    <div class="container">
+      <div class="page-header">
+        <h4>自己紹介</h4>
+      </div>
+      <p>
+        <%= @exp_story.self_intro %>
+        <div class="badge badge-info">
+          出身学校
+        </div><br>
+        <%= @exp_story.grad_school %><br>
+        <%= @exp_story.grad_department %><br>
+      </div>
+      </p>
+      <div class="page-header">
+        <h4>動機</h4>
+      </div>
+      <p>
+        <%= @exp_story.motivation %>
+      </p>
+      <div class="page-header">
+        <h4>試験内容</h4>
+      </div>
+      <p>
+        <%= @exp_story.exam %>
+      </p>
+      <div class="page-header">
+        <h4>面接内容</h4>
+      </div>
+      <p>
+        <%= @exp_story.interview %>
+      </p>
+      <div class="page-header">
+        <h4>使用した参考書やアドバイス</h4>
+      </div>
+      <p>
+        <%= @exp_story.advice %>
+      </p>
+    <!-- <h4>
+      <span class="label label-primary">
+        出身校
+      </span>
+    </h4>
+    <%= @exp_story.grad_school %>
+    <%= @exp_story.is_passed %>
+    
+    <%= @exp_story.motivation %>
+    <%= @exp_story.exam %>
+    <%= @exp_story.interview %>
+    <%= @exp_story.grad_school %>
+    <%= @exp_story.advice %> -->
+    </div>
+  </div>
+</div>

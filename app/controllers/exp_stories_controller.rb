@@ -3,6 +3,7 @@ class ExpStoriesController < ApplicationController
   before_action :set_universities, only: [:new, :edit, :create, :update]
 
   def show
+    @exp_story = ExpStory.find(params[:id])
   end
 
   def new
