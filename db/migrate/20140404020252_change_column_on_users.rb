@@ -1,4 +1,4 @@
-class ChangeColumnOnUsers < ActiveRecord::Migration
+class ChangeColumnOnUsers < ActiveRecord::Migration[5.1]
   def change
     remove_column :users, :school_id
     remove_column :users, :department_id
