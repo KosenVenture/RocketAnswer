@@ -15,7 +15,9 @@ class ExpStory < ApplicationRecord
   validates :exam, presence: true
   validates :interview, presence: true          
   validates :is_passed, inclusion: {in: [true, false]}
-  enumerize :way, in: [:ippan, :suisen]
+  validates :grad_school, presence: true
+  validates :grad_department, presence: true
+  enumerize :way, in: {ippan: 0, suisen: 1}
 
   ###### Instance Method ######
   def name

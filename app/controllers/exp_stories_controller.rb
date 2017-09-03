@@ -48,14 +48,16 @@ class ExpStoriesController < ApplicationController
   def exp_story_params
     params.require(:exp_story).permit(:year,
                                       :wish_university,
-                                      :department,
+                                      :department_id,
                                       :way,
                                       :is_passed,
                                       :self_intro,
                                       :motivation,
                                       :exam,
                                       :interview,
-                                      :advice)
+                                      :advice,
+                                      :grad_school,
+                                      :grad_department)
   end
 end
 

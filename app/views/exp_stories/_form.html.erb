@@ -43,7 +43,7 @@
   </div> -->
 
 
-  <div class="form-group dept-select">
+  <div class="dept-select">
     <%= render partial: 'select_depts', locals: {school_id: School.first.id} %>
   </div>
 
@@ -102,28 +102,19 @@
     </div>
   </div>
 
-  <%= f.fields_for :users do |h| %>
   <div class="form-group">
-    <%= h.label :grad_school, class: 'control-label col-sm-2' %>
+    <%= f.label :grad_school, class: 'control-label col-sm-2' %>
     <div class="col-sm-4">
-      <%= h.text_field :grad_school, class: 'form-control' %>
+      <%= f.text_field :grad_school, class: 'form-control' %>
     </div>
   </div>
 
   <div class="form-group">
-    <%= h.label :grad_department, class: 'control-label col-sm-2' %>
+    <%= f.label :grad_department, class: 'control-label col-sm-2' %>
     <div class="col-sm-4">
-      <%= h.text_field :grad_department, class: 'form-control' %>
+      <%= f.text_field :grad_department, class: 'form-control' %>
     </div>
   </div>
-
-  <div class="form-group">
-    <%= h.label :max_rank, class: 'control-label col-sm-2' %>
-    <div class="col-sm-4">
-      <%= h.text_field :max_rank, class: 'form-control' %>
-    </div>
-  </div>
-  <% end %>
 
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">

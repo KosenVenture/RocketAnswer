@@ -18,7 +18,7 @@ ja:
       exp_story:
         year: '実施年'
         wish_university: '志望校'
-        department_id: '志望学科'
+        department: '志望学科'
         way: '受験方法'
         is_passed: '合否'
         self_intro: '自己紹介'
@@ -26,6 +26,8 @@ ja:
         exam: '試験内容'
         interview: '面接内容'
         advice: '使用した参考書やアドバイス'
+        grad_school: '出身学校'
+        grad_department: '出身学科'
       user:
         name: '本名'
         first_name: '本名（名）'
