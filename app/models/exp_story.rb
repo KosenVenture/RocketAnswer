@@ -1,5 +1,7 @@
 class ExpStory < ApplicationRecord
   extend Enumerize
+  attr_accessor :university_id
+
   ###### Association ######
   belongs_to :department
   delegate :school, to: :department

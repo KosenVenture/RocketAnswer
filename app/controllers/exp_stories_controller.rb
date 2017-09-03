@@ -34,20 +34,15 @@ class ExpStoriesController < ApplicationController
   def destroy
   end
 
-  # Ajax処理を行うアクション
-  def get_depts
-    render partial: 'select_depts', locals: {school_id: params[:school_id]}
-  end
-
   private
 
   def set_universities
-      @universities = University.all
-    end
+    @universities = University.all
+  end
 
   def exp_story_params
     params.require(:exp_story).permit(:year,
-                                      :wish_university,
+                                      :university_id,
                                       :department_id,
                                       :way,
                                       :is_passed,
@@ -60,4 +55,3 @@ class ExpStoriesController < ApplicationController
                                       :grad_department)
   end
 end
-

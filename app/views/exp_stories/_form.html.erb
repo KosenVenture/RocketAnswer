@@ -13,18 +13,18 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :wish_university, class: 'control-label col-sm-2' %>
+    <%= f.label :university_id, class: 'control-label col-sm-2' %>
     <div class="col-sm-4">
-      <%= f.collection_select :wish_university,
+      <%= f.collection_select :university_id,
         @universities,
         :id,
         :name,
         { include_blank: true },
-        class: 'form-control wish_university-select' %>
+        class: 'form-control' %>
     </div>
   </div>
 
-<!--   <div class="form-group">
+  <div class="form-group">
     <%= f.label :department_id, class: 'control-label col-sm-2' %>
     <div class="col-sm-4">
       <%= f.collection_select :department_id,
@@ -40,17 +40,12 @@
         </small>
       </p>
     </div>
-  </div> -->
-
-
-  <div class="dept-select">
-    <%= render partial: 'select_depts', locals: {school_id: School.first.id} %>
   </div>
 
   <div class="form-group">
     <%= f.label :way, class: 'control-label col-sm-2' %>
     <div class="col-sm-1">
-      <%= f.select :way, 
+      <%= f.select :way,
         ExpStory.way.options,
         { include_blank: true },
         class: 'form-control' %>
@@ -60,7 +55,7 @@
   <div class="form-group">
     <%= f.label :is_passed, class: 'control-label col-sm-2' %>
     <div class="col-sm-1">
-      <%= f.select :is_passed, 
+      <%= f.select :is_passed,
         [['合格', true], ['不合格', false]],
         { include_blank: true },
         class: 'form-control' %>
@@ -70,35 +65,35 @@
   <div class="form-group">
     <%= f.label :self_intro, class: 'control-label col-sm-2' %>
     <div class="col-sm-4">
-      <%= f.text_area :self_intro, class: 'form-control' %>
+      <%= f.text_area :self_intro, class: 'form-control', rows: 10 %>
     </div>
   </div>
 
   <div class="form-group">
     <%= f.label :motivation, class: 'control-label col-sm-2' %>
     <div class="col-sm-4">
-      <%= f.text_area :motivation, class: 'form-control' %>
+      <%= f.text_area :motivation, class: 'form-control', rows: 10 %>
     </div>
   </div>
 
   <div class="form-group">
     <%= f.label :exam, class: 'control-label col-sm-2' %>
     <div class="col-sm-4">
-      <%= f.text_area :exam, class: 'form-control' %>
+      <%= f.text_area :exam, class: 'form-control', rows: 10 %>
     </div>
   </div>
 
   <div class="form-group">
     <%= f.label :interview, class: 'control-label col-sm-2' %>
     <div class="col-sm-4">
-      <%= f.text_area :interview, class: 'form-control' %>
+      <%= f.text_area :interview, class: 'form-control', rows: 10 %>
     </div>
   </div>
 
   <div class="form-group">
     <%= f.label :advice, class: 'control-label col-sm-2' %>
     <div class="col-sm-4">
-      <%= f.text_area :advice, class: 'form-control' %>
+      <%= f.text_area :advice, class: 'form-control', rows: 10 %>
     </div>
   </div>
 
