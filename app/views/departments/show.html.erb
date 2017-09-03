@@ -35,20 +35,20 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>教科</th>
+      <th>受験方法</th>
       <th>実施年</th>
       <th>投稿ユーザ</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @answers.each do |answer| %>
+    <% @exp_stories.each do |exp_story| %>
       <tr>
         <td>
-          <%= link_to answer.subject, answer_path(answer) %>
+          <%= link_to exp_story.get_way(), exp_story_path(exp_story) %>
         </td>
-        <td><%= answer.year %></td>
-        <td><%= answer.user.try(:nickname) %></td>
+        <td><%= exp_story.year %></td>
+        <td><%= exp_story.user.try(:nickname) %></td>
       </tr>
     <% end %>
   </tbody>
