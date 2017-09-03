@@ -1,9 +1,9 @@
 class ExpStoriesController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_exp_story, only: [:show, :edit, :update, :destroy]
   before_action :set_universities, only: [:new, :edit, :create, :update]
 
   def show
-    @exp_story = ExpStory.find(params[:id])
   end
 
   def new
@@ -30,12 +30,31 @@ class ExpStoriesController < ApplicationController
   end
 
   def update
+    respond_to do |format|
+      if @exp_story.update(exp_story_params)
+        format.html {
+          redirect_to exp_story_path(@exp_story),
+            notice: '更新しました。'
+        }
+      else
+        format.html { render action: 'edit' }
+      end
+    end
   end
 
   def destroy
+    dep = @exp_story.department
+    @exp_story.destroy
+
+    respond_to do |format|
+      format.html { redirect_to university_department_path(dep.school.id, dep) }
+    end
   end
 
   private
+  def set_exp_story
+      @exp_story = ExpStory.find(params[:id])
+    end
 
   def set_universities
     @universities = University.all
