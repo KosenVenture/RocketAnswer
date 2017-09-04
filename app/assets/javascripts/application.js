@@ -9,5 +9,4 @@
 //= require selectize
 //= require answers
 //= require registration
-//= require ranking
 //= require_self
