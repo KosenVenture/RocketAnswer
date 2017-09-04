@@ -3,7 +3,7 @@ class RankingController < ApplicationController
     query = Answer
       .group(:user)
       .having('count_all > 0')
-      .order('count_all DESC')
+      .reorder('count_all DESC')
       .limit(20)
 
      if params[:begin_date]
