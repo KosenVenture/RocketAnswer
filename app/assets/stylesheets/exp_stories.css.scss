@@ -1,0 +1,17 @@
+.viewer{
+  h3:before{
+  	color:#008cba; //アイコンの色
+  	width:30px;
+  	height:30px;
+  	line-height:30px;
+  	text-align:center;
+  	margin-right:10px;
+  	font-family:"FontAwesome";
+  	content:"\f00c"; //アイコンの種類
+  	font-weight:lighter;
+  	font-size:25px; //アイコンの大きさ
+  	position: relative;
+  	top:-3px;
+  	display:inline-block;
+  }
+}

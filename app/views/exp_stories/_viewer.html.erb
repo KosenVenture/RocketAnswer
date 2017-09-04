@@ -1,43 +1,61 @@
-<div class="row">
+<div class="container-fluid">
   <div class="viewer">
-    <div class="container">
-      <div class="section">
-        <h3>自己紹介</h3><hr>
-      </div>
-      <p>
-        <%= @exp_story.self_intro %><br><br>
-        <span class="label label-default">
-          出身学校
-        </span><br>
-        <%= @exp_story.grad_school %><br>
-        <%= @exp_story.grad_department %><br>
-      </p>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="col-sm-6 exp_group">
+          <div class="section">
+            <h3>自己紹介</h3><hr>
+          </div>
+          <p>
+            <%= simple_format(@exp_story.self_intro) %><br><br>
+            <span class="label label-default">
+              出身学校
+            </span><br>
+            <%= @exp_story.grad_school %><br>
+            <%= @exp_story.grad_department %><br>
+          </p>
+        </div>
 
-      <div class="section">
-        <h3>動機</h3><hr>
+        <div class="col-sm-6 exp_group">
+          <div class="section">
+            <h3>動機</h3><hr>
+          </div>
+          <p>
+            <%= simple_format(@exp_story.motivation) %>
+          </p>
+        </div>
       </div>
-      <p>
-        <%= @exp_story.motivation %>
-      </p>
 
-      <div class="section">
-        <h3>試験内容</h3><hr>
+      <div class="col-sm-12">
+        <div class="col-sm-6 exp_group">
+          <div class="section">
+            <h3>試験内容</h3><hr>
+          </div>
+          <p>
+            <%= simple_format(@exp_story.exam) %>
+          </p>
+        </div>
+
+        <div class="col-sm-6 exp_group">
+          <div class="section">
+            <h3>面接内容</h3><hr>
+          </div>
+          <p>
+            <%= simple_format(@exp_story.interview) %>
+          </p>
+        </div>
+      </div>  
+
+      <div class="col-sm-12">
+        <div class="col-sm-6 exp_group">
+          <div class="section">
+            <h3>使用した参考書やアドバイス</h3><hr>
+          </div>
+          <p>
+            <%= simple_format(@exp_story.advice) %>
+          </p>
+        </div>
       </div>
-      <p>
-        <%= @exp_story.exam %>
-      </p>
-      <div class="section">
-        <h3>面接内容</h3><hr>
-      </div>
-      <p>
-        <%= @exp_story.interview %>
-      </p>
-      <div class="section">
-        <h3>使用した参考書やアドバイス</h3><hr>
-      </div>
-      <p>
-        <%= @exp_story.advice %>
-      </p>
     </div>
   </div>
 </div>
