@@ -11,7 +11,9 @@ class DepartmentsController < ApplicationController
   # GET /departments/1
   # GET /departments/1.json
   def show
-    @answers = @department.answers.includes(:user)
+    answers = @department.answers
+    @q = answers.search(params[:q])
+    @answers = @q.result.includes(:user)
   end
 
   private
