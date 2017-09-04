@@ -32,9 +32,15 @@
   </thead>
 
   <tbody>
+    <% rank = 1 %>
+    <% count_before = @ranks.first[1] if @ranks.present? %>
     <% @ranks.each_with_index do |(user, count), index| %>
+      <% if count < count_before %>
+      <%  rank += 1 %>
+      <%  count_before = count %>
+      <% end %>
       <tr>
-        <td><%= trophy(index + 1) %><%= index + 1 %>位</td>
+        <td><%= trophy(rank) %><%= rank %>位</td>
         <td><%= user.nickname %></td>
         <td><%= count %></td>
       </tr>
