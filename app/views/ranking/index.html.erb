@@ -7,10 +7,10 @@
 <div id="tab">
   <div class="tab_area clearfix">
     <ul>
-      <li><%= link_to "全期間", ranking_path %></li>
-      <li><%= link_to "1ヶ月", ranking_path(begin_date: 1.month.ago.to_date.to_s) %></li>
-      <li><%= link_to "6ヶ月", ranking_path(begin_date: 6.months.ago.to_date.to_s) %></li>
-      <li><%= link_to "1年", ranking_path(begin_date: 1.year.ago.to_date.to_s) %></li>
+      <li <%= active_tab() %> ><%= link_to "全期間", ranking_path %></li>
+      <li <%= active_tab(1.month.ago.to_date) %> ><%= link_to "1ヶ月", ranking_path(begin_date: 1.month.ago.to_date.to_s) %></li>
+      <li <%= active_tab(6.month.ago.to_date) %> ><%= link_to "6ヶ月", ranking_path(begin_date: 6.months.ago.to_date.to_s) %></li>
+      <li <%= active_tab(1.year.ago.to_date) %> ><%= link_to "1年", ranking_path(begin_date: 1.year.ago.to_date.to_s) %></li>
     </ul>
   </div>
 </div>

@@ -6,6 +6,12 @@ module RankingHelper
     end
   end
 
+  def active_tab(date=nil)
+    if date == @begin_date
+      "class=tab_area_active"
+    end
+  end
+
   private
 
   def rank_color(rank)
