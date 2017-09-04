@@ -11,6 +11,7 @@ class CommentsController < InheritedResources::Base
 
     respond_to do |format|
       if @comment.save
+        CommentMailer.send_notification_comment(@answer)
         format.html {
           redirect_to answer_path(@answer), notice: 'コメントしました'
         }

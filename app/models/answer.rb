@@ -40,6 +40,10 @@ class Answer < ActiveRecord::Base
   def full_name
     "#{school.name} #{department.name} #{subject}（#{year}年）"
   end
+  
+  def url
+    "https://rocket-answer/answers/#{answer_id}"
+  end
 
   # ストックしているかどうか
   def stocked?(user)
@@ -51,4 +55,6 @@ class Answer < ActiveRecord::Base
   def stocked_count
     @stocked_count ||= self.stocks.count
   end
+
+
 end
