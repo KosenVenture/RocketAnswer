@@ -50,6 +50,7 @@ $(function () {
     // ファイルアップロードフォーム
     $('#new_answer_file').fileupload({
         dataType: 'json',
+        autoUpload: false,
         done: function (e, data) { // 完了時
           // プログレスバーを100%に
           $(data.context).find('.progress-bar').animate({'width': '100%'});
