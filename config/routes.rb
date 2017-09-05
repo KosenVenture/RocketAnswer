@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'ranking', to: 'ranking#index'
+
   root to: 'home#index'
 
   get 'aboutus', to: 'home#aboutus'
