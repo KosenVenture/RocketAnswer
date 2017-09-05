@@ -23,7 +23,6 @@ gem 'devise'
 gem 'carrierwave'
 gem 'enumerize'
 
-
 ### ユーザー権限管理
 gem 'cancancan', '~> 1.16'
 
