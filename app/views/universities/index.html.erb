@@ -20,8 +20,8 @@
         <tr>
           <td><%= university.establishment %></td>
           <td><%= link_to university.name, university %></td>
-          <td><%= university.answers.count %></td>
-          <td><%= university.exp_stories.count %></td>
+          <td><%= @answer_counts[university.id] || 0 %></td>
+          <td><%= @story_counts[university.id] || 0 %></td>
         </tr>
       <% end %>
     </tbody>
