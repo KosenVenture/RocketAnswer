@@ -52,9 +52,10 @@ class ExpStoriesController < ApplicationController
   end
 
   private
+
   def set_exp_story
-      @exp_story = ExpStory.find(params[:id])
-    end
+    @exp_story = ExpStory.find(params[:id])
+  end
 
   def set_universities
     @universities = University.all
