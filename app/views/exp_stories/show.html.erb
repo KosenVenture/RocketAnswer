@@ -1,0 +1,105 @@
+<%= content_for :title do %><%= @exp_story.full_name %> の編入体験談 - <%= @exp_story.user.nickname %><% end %>
+
+<% breadcrumb @exp_story %>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="pull-right">
+      <% if can? :update, @exp_story %>
+        <%= link_to edit_exp_story_path(@exp_story),
+          class: 'btn btn-success btn-sm' do %>
+          <i class="fa fa-pencil"></i>
+          編集
+        <% end %>
+      <% end %>
+
+      <% if can? :delete, @exp_story %>
+        <%= link_to exp_story_path(@exp_story),
+          class: 'btn btn-danger btn-sm',
+          method: :delete, data: { confirm: '削除してよろしいですか？' } do %>
+          <i class="fa fa-trash-o"></i>
+          削除
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="page-header">
+  <h2>
+    <i class="fa fa-comments"></i><%= @exp_story.full_name %> の編入体験談
+  </h2>
+</div>
+
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="section">
+      <h3><i class="fa fa-user-circle-o"></i> 投稿者について</h3><hr>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+    <p>
+      <span class="label label-primary">ニックネーム</span>
+      <span class="labeled-content"><%= @exp_story.user.nickname %></span>
+    </p>
+    <p>
+      <span class="label label-primary">出身学校</span>
+      <span class="labeled-content"><%= @exp_story.grad_school %> <%= @exp_story.grad_department %></span>
+    </p>
+    <p>
+      <span class="label label-primary">合否</span>
+      <span class="labeled-content"><%= @exp_story.is_passed_text %></span>
+    </p>
+  </div>
+
+  <div class="col-md-8">
+    <span class="label label-primary">自己紹介</span>
+    <p>
+      <%= simple_format(@exp_story.self_intro) %>
+    </p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-6">
+    <div class="section">
+      <h3><i class="fa fa-leaf"></i> 動機</h3><hr>
+    </div>
+    <p>
+      <%= simple_format(@exp_story.motivation) %>
+    </p>
+  </div>
+
+  <div class="col-sm-6">
+    <div class="section">
+      <h3><i class="fa fa-list-ul"></i> 試験内容</h3><hr>
+    </div>
+    <p>
+      <%= simple_format(@exp_story.exam) %>
+    </p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-6">
+    <div class="section">
+      <h3><i class="fa fa-users"></i> 面接内容</h3><hr>
+    </div>
+    <p>
+      <%= simple_format(@exp_story.interview) %>
+    </p>
+  </div>
+
+  <div class="col-sm-6">
+    <div class="section">
+      <h3><i class="fa fa-book"></i> 使用した参考書やアドバイス</h3><hr>
+    </div>
+    <p>
+      <%= simple_format(@exp_story.advice) %>
+    </p>
+  </div>
+</div>

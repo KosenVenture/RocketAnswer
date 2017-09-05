@@ -3,10 +3,10 @@
 <% breadcrumb @university %>
 
 <div class="page-header">
-  <h1><%= @university.name %></h1>
+  <h1><i class="fa fa-university"></i><%= @university.name %></h1>
 </div>
 
-<% @university.departments.each_slice(3) do |deps| %>
+<% @departments.each_slice(3) do |deps| %>
   <div class="row">
     <% deps.each do |dep| %>
       <div class="col-md-4">
@@ -17,9 +17,17 @@
           </div>
           <div class="panel-body">
             <ul class="list-unstyled">
-              <% dep.answers.limit(5).each do |answer| %>
+              <p><small><i class="fa fa-file-text-o"></i> 解答</small></p>
+              <% dep.answers.first(10).each do |answer| %>
                 <li>
                   <%= link_to answer.name, answer_path(answer) %>
+                </li>
+              <% end %>
+              <hr>
+              <p><small><i class="fa fa-comments"></i> 体験談</small></p>
+              <% dep.exp_stories.first(10).each do |exp_story| %>
+                <li>
+                  <%= link_to exp_story.name, exp_story_path(exp_story) %>
                 </li>
               <% end %>
             </ul>

@@ -21,6 +21,14 @@ Rails.application.routes.draw do
     end
   end
 
+# 体験談用のルート
+  resources :exp_stories, except: [:index] do
+    collection do
+      # 学科取得用ルート
+      get 'get_depts'
+    end
+  end
+
   resources :answer_stocks
 
   resource :contact, only: [:show, :create]

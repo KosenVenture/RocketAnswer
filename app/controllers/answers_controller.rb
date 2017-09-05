@@ -101,6 +101,6 @@ class AnswersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def answer_params
-      params.require(:answer).permit(:university_id, :department_id, :subject, :year, :exam_url, answer_files_attributes: [:id, :order])
+      params.require(:answer).permit(:university_id, :department_id, :subject, :year, :exam_url, :answer_text, answer_files_attributes: [:id, :order])
     end
 end

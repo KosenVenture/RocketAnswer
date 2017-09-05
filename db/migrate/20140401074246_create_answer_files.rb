@@ -1,4 +1,4 @@
-class CreateAnswerFiles < ActiveRecord::Migration
+class CreateAnswerFiles < ActiveRecord::Migration[5.1]
   def change
     create_table :answer_files do |t|
       t.references :answer, index: true

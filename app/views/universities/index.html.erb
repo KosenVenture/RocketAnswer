@@ -2,7 +2,7 @@
 
 <% breadcrumb :universities %>
 
-<h1>学校一覧</h1>
+<h1><i class="fa fa-list"></i>学校一覧</h1>
 
 <div class="page-header">
   <table class="table table-hover table-bordered">
@@ -11,6 +11,7 @@
         <th>設置</th>
         <th>学校名</th>
         <th>投稿解答数</th>
+        <th>投稿体験談数</th>
       </tr>
     </thead>
 
@@ -19,7 +20,8 @@
         <tr>
           <td><%= university.establishment %></td>
           <td><%= link_to university.name, university %></td>
-          <td><%= university.answers.count %></td>
+          <td><%= @answer_counts[university.id] || 0 %></td>
+          <td><%= @story_counts[university.id] || 0 %></td>
         </tr>
       <% end %>
     </tbody>

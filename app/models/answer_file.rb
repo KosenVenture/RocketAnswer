@@ -8,6 +8,7 @@ class AnswerFile < ActiveRecord::Base
   belongs_to :user
 
   ###### Validation ######
+  validates :image, presence: true
 
 
   ###### Scope ######

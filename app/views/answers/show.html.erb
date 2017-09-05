@@ -1,12 +1,12 @@
-<%= content_for :title do %><%= @answer.name %><% end %>
+<%= content_for :title do %><%= @answer.full_name %>の解答<% end %>
 
 <% breadcrumb @answer %>
 
 <div class="page-header">
   <h2>
-    <%= @answer.name %>
+    <i class="fa fa-file-text-o"></i><%= @answer.full_name %>の解答
     <span class="badge"><i class="fa fa-folder-o"></i> <%= @answer.stocked_count %>ストック</span>
-    
+
   </h2>
 
   <div class="row">

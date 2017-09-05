@@ -4,6 +4,8 @@ class Department < ActiveRecord::Base
   belongs_to :school
   has_many :answers,
     dependent: :nullify
+  has_many :exp_stories,
+    dependent: :nullify
 
   ###### Instance Method ######
   def full_name

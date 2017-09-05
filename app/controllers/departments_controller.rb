@@ -14,6 +14,8 @@ class DepartmentsController < ApplicationController
     answers = @department.answers
     @q = answers.search(params[:q])
     @answers = @q.result.includes(:user)
+
+    @exp_stories = @department.exp_stories.includes(:user).order(created_at: :desc)
   end
 
   private
