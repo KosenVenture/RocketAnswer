@@ -13,7 +13,7 @@
 
   <div class="form-group">
     <%= f.label '新しいコメント…' %><br>
-    <%= f.text_area :content, class: 'form-control' %>
+    <%= f.text_area :content, class: 'form-control', cols: '100', rows: '5' %>
   </div>
   <%= f.submit '投稿する', class: 'btn btn-primary btn-sm' %>
 <% end %>

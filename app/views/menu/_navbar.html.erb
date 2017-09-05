@@ -14,12 +14,17 @@
       <ul class="nav navbar-nav navbar-left">
         <li>
           <%= link_to universities_path do %>
-            <i class="fa fa-search"></i> 解答を探す
+            <i class="fa fa-search"></i> 解答・体験談を探す
           <% end %>
         </li>
         <li>
           <%= link_to new_answer_path do %>
-            <i class="fa fa-upload"></i> 解答を投稿
+            <i class="fa fa-file-text-o"></i> 解答を投稿
+          <% end %>
+        </li>
+        <li>
+          <%= link_to new_exp_story_path do %>
+            <i class="fa fa-comments"></i> 体験談を投稿
           <% end %>
         </li>
         <% if user_signed_in? %>

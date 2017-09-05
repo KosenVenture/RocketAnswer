@@ -1,0 +1,15 @@
+<%= content_for :title do %>体験談の編集<% end %>
+
+<div class="page-header">
+  <h1><i class="fa fa-edit"></i> 体験談の編集</h1>
+</div>
+
+<%= render 'form', exp_story: @exp_story %>
+
+<hr>
+
+<p>
+  <%= link_to exp_story_path(@exp_story), class: 'btn btn-info btn-sm' do %>
+    <i class="fa fa-arrow-left"></i> 戻る
+  <% end %>
+</p>

@@ -1,4 +1,4 @@
-class CreateWishUniversities < ActiveRecord::Migration
+class CreateWishUniversities < ActiveRecord::Migration[5.1]
   def change
     create_table :wish_universities do |t|
       t.references :user, index: true

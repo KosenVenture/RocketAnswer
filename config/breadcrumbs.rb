@@ -20,3 +20,8 @@ crumb :answer do |answer|
   link answer.name, answer_path(answer)
   parent :department, answer.department
 end
+
+crumb :exp_story do |exp_story|
+  link exp_story.name, exp_story_path(exp_story)
+  parent :department, exp_story.department
+end

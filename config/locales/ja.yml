@@ -36,3 +36,8 @@ ja:
         email: 'メールアドレス'
         body: '本文'
         accept: 'スパム対策'
+  enumerize:
+    exp_story:
+      way:
+        ippan: '一般入試'
+        suisen: '推薦入試'
