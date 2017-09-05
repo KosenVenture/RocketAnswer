@@ -19,6 +19,7 @@ ja:
         year: '実施年'
         university_id: '志望校'
         department_id: '志望学科'
+        department: '志望学科'
         way: '受験方法'
         is_passed: '合否'
         self_intro: '自己紹介'
@@ -51,5 +52,5 @@ ja:
   enumerize:
     exp_story:
       way:
-        ippan: '一般'
-        suisen: '推薦'
+        ippan: '一般入試'
+        suisen: '推薦入試'

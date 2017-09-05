@@ -23,15 +23,10 @@ class ExpStory < ApplicationRecord
 
   ###### Instance Method ######
   def name
-    get_way()+"（#{year}）"
+    "#{way_text}（#{year}年）"
   end
 
-  def get_way
-    if "#{way}" == "ippan"
-      "一般"
-    else
-      "推薦"
-    end
+  def full_name
+    "#{school.name} #{department.name} #{way_text}（#{year}年） の編入体験談"
   end
-
 end

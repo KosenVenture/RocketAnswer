@@ -1,22 +1,16 @@
-<%= content_for :title do %><%= @exp_story.name %><% end %>
+<%= content_for :title do %><%= @exp_story.full_name %> - <%= @exp_story.user.nickname %><% end %>
 
 <% breadcrumb @exp_story %>
 
 <div class="page-header">
   <h2>
-  <%= @exp_story.name %>
+    <i class="fa fa-comments"></i><%= @exp_story.full_name %>
   </h2>
 
   <div class="row">
     <div class="col-md-12">
-      <div class="pull-right">
-        <h4>
-          <span class="label label-primary">
-            <i class="fa fa-user"></i>
-            <%= @exp_story.user.try(:nickname) %>
-          </span>
-        </h4>
 
+      <div class="pull-right">
         <% if can? :update, @exp_story %>
           <%= link_to edit_exp_story_path(@exp_story),
             class: 'btn btn-success btn-sm' do %>
@@ -34,6 +28,11 @@
           <% end %>
         <% end %>
       </div>
+      <h3>
+        <i class="fa fa-user"></i>
+        <%= @exp_story.user.nickname %>
+      </h3>
+
     </div>
   </div>
 </div>
