@@ -8,7 +8,7 @@ module RankingHelper
 
   def active_tab(date=nil)
     if date == @begin_date
-      "class=tab_area_active"
+      "tab_area_active"
     end
   end
 
