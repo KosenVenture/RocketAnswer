@@ -1,12 +1,12 @@
-<%= content_for :title do %><%= @department.name %><% end %>
+<%= content_for :title do %><%= @department.full_name %>の解答と体験談<% end %>
 
 <% breadcrumb @department %>
 
 <p id="notice"><%= notice %></p>
 
-<h1><%= @department.name %></h1>
+<h1><i class="fa fa-sitemap"></i> <%= @department.full_name %></h1>
 
-<h2>投稿されている解答</h2>
+<h2><i class="fa fa-file-text-o"></i> 解答</h2>
 
 <table class="table table-striped">
   <thead>
@@ -30,7 +30,7 @@
   </tbody>
 </table>
 
-<h2>投稿されている体験談</h2>
+<h2><i class="fa fa-comments"></i> 体験談</h2>
 
 <table class="table table-striped">
   <thead>
@@ -45,7 +45,7 @@
     <% @exp_stories.each do |exp_story| %>
       <tr>
         <td>
-          <%= link_to exp_story.get_way(), exp_story_path(exp_story) %>
+          <%= link_to exp_story.way_text, exp_story_path(exp_story) %>
         </td>
         <td><%= exp_story.year %></td>
         <td><%= exp_story.user.try(:nickname) %></td>
