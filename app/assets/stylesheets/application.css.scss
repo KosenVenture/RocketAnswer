@@ -75,3 +75,10 @@ footer {
 .using-notice {
   font-size: 13px;
 }
+
+
+h1, h2, h3, h4, h5 {
+  &> i.fa {
+    margin-right: .4em;
+  }
+}

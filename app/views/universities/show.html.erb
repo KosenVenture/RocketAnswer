@@ -3,7 +3,7 @@
 <% breadcrumb @university %>
 
 <div class="page-header">
-  <h1><i class="fa fa-university"></i> <%= @university.name %></h1>
+  <h1><i class="fa fa-university"></i><%= @university.name %></h1>
 </div>
 
 <% @university.departments.each_slice(3) do |deps| %>
