@@ -29,4 +29,8 @@ class ExpStory < ApplicationRecord
   def full_name
     "#{school.name} #{department.name} #{way_text}（#{year}年） の編入体験談"
   end
+
+  def is_passed_text
+    is_passed ? '合格' : '不合格'
+  end
 end
