@@ -1,14 +1,9 @@
 class CommentMailer < ApplicationMailer
-  default from: "from@example.com"
+  default from: "notification@rocket-answer.com"
 
-  def notification_mail(answer)
+  def notification_mail(email, user, answer)
     @answer = answer
-
-    mail(
-      subject: "新しいコメントが付きました。"
-      to: @user.email
-    ) do |format|
-        format.text
-    end
+    @user = user
+    mail to: email, subject: "コメントが付きました"
   end
 end
