@@ -44,8 +44,10 @@
         <% end %>
       </div>
     </div>
-    <div class="answer_text">  
-      <%= markdown(@answer.answer_text) %>
+    <% if @answer.answer_text.present? %>
+      <div class="answer_text">  
+        <%= markdown(@answer.answer_text) %>
+      </div>
+    <% end %>
     </div>
-  </div>
 </div>
