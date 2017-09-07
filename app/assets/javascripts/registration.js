@@ -56,4 +56,8 @@ $(function() {
     wish_univ_selectize('select#user_wish_universities_attributes_1');
     wish_univ_selectize('select#user_wish_universities_attributes_2');
   }
+
+  if($('select#exp_story_university_id')[0]) {
+    wish_univ_selectize('select#exp_story');
+  }
 });

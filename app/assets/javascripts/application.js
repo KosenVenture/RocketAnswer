@@ -5,7 +5,7 @@
 //= require jquery-ui/position
 //= require jquery-ui/widgets/sortable
 //= require bootstrap/bootstrap.min
-//= require jquery-fileupload/jquery.fileupload
+//= require jquery-fileupload
 //= require selectize
 //= require answers
 //= require registration

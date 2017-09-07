@@ -66,13 +66,4 @@ Rails.application.configure do
   # assetsのログを非表示に
   config.assets.logger = false
 
-  config.action_mailer.smtp_settings = {
-    address:              'localhost',
-    port:                 1025,    
-    domain:               'localhost',
-    user_name:            '',      
-    password:             '',
-    authentication:       'plain',
-    enable_starttls_auto: true        
-  }
 end

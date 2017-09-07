@@ -1,31 +1,62 @@
-<%= content_for :title do %><%= @department.name %><% end %>
+<%= content_for :title do %><%= @department.full_name %>の解答と体験談<% end %>
 
 <% breadcrumb @department %>
 
 <p id="notice"><%= notice %></p>
 
-<h1><%= @department.name %></h1>
 
-<h2>投稿されている解答</h2>
+<h1><i class="fa fa-sitemap"></i> <%= @department.full_name %></h1>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>教科</th>
-      <th>実施年</th>
-      <th>投稿ユーザ</th>
-    </tr>
-  </thead>
+<div class="row">
+  <div class="col-md-6">
+    <h2><i class="fa fa-file-text-o"></i> 解答</h2>
 
-  <tbody>
-    <% @answers.each do |answer| %>
-      <tr>
-        <td>
-          <%= link_to answer.subject, answer_path(answer) %>
-        </td>
-        <td><%= answer.year %></td>
-        <td><%= answer.user.try(:nickname) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th><%= sort_link(@q, :subject, '教科') %></th>
+          <th><%= sort_link(@q, :year, '実施年') %></th>
+          <th>投稿ユーザ</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @answers.each do |answer| %>
+          <tr>
+            <td>
+              <%= link_to answer.subject, answer_path(answer) %>
+            </td>
+            <td><%= answer.year %></td>
+            <td><%= answer.user.nickname %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col-md-6">
+    <h2><i class="fa fa-comments"></i> 体験談</h2>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>受験方法</th>
+          <th>実施年</th>
+          <th>投稿ユーザ</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @exp_stories.each do |exp_story| %>
+          <tr>
+            <td>
+              <%= link_to exp_story.way_text, exp_story_path(exp_story) %>
+            </td>
+            <td><%= exp_story.year %></td>
+            <td><%= exp_story.user.nickname %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

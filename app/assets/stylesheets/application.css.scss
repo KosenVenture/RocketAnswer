@@ -7,7 +7,9 @@
 //= require selectize
 //= require selectize.bootstrap3
 //= require answers
+//= require exp_stories
 //= require home
+//= require ranking
 //= require_self
 
 $footer-height: 280px;
@@ -73,4 +75,11 @@ footer {
 
 .using-notice {
   font-size: 13px;
+}
+
+
+h1, h2, h3, h4, h5 {
+  &> i.fa {
+    margin-right: .4em;
+  }
 }

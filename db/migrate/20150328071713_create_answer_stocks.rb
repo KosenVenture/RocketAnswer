@@ -1,4 +1,4 @@
-class CreateAnswerStocks < ActiveRecord::Migration
+class CreateAnswerStocks < ActiveRecord::Migration[5.1]
   def change
     create_table :answer_stocks do |t|
       t.references :answer, index: true
