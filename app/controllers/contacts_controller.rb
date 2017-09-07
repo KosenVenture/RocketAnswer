@@ -7,7 +7,7 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
 
     if @contact.valid?
-      ContactMailer.user(@contact).deliver
+      ContactMailer.user(@contact).deliver_now
       redirect_to root_path, notice: 'お問い合わせを送信しました。'
     else
       render :show
