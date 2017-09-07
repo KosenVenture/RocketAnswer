@@ -11,17 +11,13 @@ class CommentsController < InheritedResources::Base
 
     respond_to do |format|
       if @comment.save
-        @comment_email = @answer.comments.includes(:user).map{|c| c.user.email}.uniq
-        @comment_user  = @answer.comments.includes(:user).map(&:user).name.uniq
-        @comment_list  = @comment_email.zip(@comment_user)
-  
-        if !@comment_user.include?(@answer.user.name)
-          @comment_list.push[@answer.user.email ,@answer.user.name]
+        @comment_user = @answer.comments.includes(:user).map(&:user).uniq 
+        if !@comment_user.include?(@answer.user)
+          @comment_user.push[@answer.user]
         end
-
-        @comment_list.each do |c_e c_u|
-          if c_u != @comment.user
-            CommentMailer.send_notification_comment(c_e, c_u, @answer).deliver
+        @comment_user.each do |u|
+          if u != @comment.user
+            CommentMailer.notification_mail(u, @answer).deliver
           end
         end
         format.html {

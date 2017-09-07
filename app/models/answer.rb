@@ -41,10 +41,6 @@ class Answer < ActiveRecord::Base
     "#{school.name} #{department.name} #{subject}（#{year}年）"
   end
   
-  def url
-    "https://rocket-answer/answers/#{answer_id}"
-  end
-
   # ストックしているかどうか
   def stocked?(user)
     # 該当ユーザのstocksが存在するか

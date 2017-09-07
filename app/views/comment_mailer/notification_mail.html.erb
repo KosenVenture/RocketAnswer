@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
   </head>
   <body>
-    <p><%= @user %> 様</p>
+    <p><%= @user.name %> 様</p>
     <HR>
     <p>
     あなたの投稿した解答又は、コメントを投稿した解答に新たなコメントが付きました。<br>
     </p>
-    <%= link_to @answer.url, @answer.url %>
+    <%= link_to answer_url(@answer), answer_url(@answer) %>
   </body>
   </body>
 </html>
