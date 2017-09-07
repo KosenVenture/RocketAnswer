@@ -40,7 +40,7 @@ class Answer < ActiveRecord::Base
   def full_name
     "#{school.name} #{department.name} #{subject}（#{year}年）"
   end
-  
+
   # ストックしているかどうか
   def stocked?(user)
     # 該当ユーザのstocksが存在するか

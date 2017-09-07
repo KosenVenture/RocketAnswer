@@ -12,12 +12,12 @@ class CommentsController < InheritedResources::Base
     respond_to do |format|
       if @comment.save
         @comment_user = @answer.comments.includes(:user).map(&:user).uniq 
-        if !@comment_user.include?(@answer.user)
-          @comment_user.push[@answer.user]
+        unless @comment_user.include?(@answer.user)
+          @comment_user.push(@answer.user)
         end
         @comment_user.each do |u|
           if u != @comment.user
-            CommentMailer.notification_mail(u, @answer).deliver
+            CommentMailer.notification_mail(u, @answer).deliver_now
           end
         end
         format.html {
