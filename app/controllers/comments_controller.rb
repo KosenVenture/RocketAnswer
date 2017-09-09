@@ -11,6 +11,15 @@ class CommentsController < InheritedResources::Base
 
     respond_to do |format|
       if @comment.save
+        @comment_user = @answer.comments.includes(:user).map(&:user).uniq 
+        unless @comment_user.include?(@answer.user)
+          @comment_user.push(@answer.user)
+        end
+        @comment_user.each do |u|
+          if u != @comment.user
+            CommentMailer.notification_mail(u, @answer).deliver_now
+          end
+        end
         format.html {
           redirect_to answer_path(@answer), notice: 'コメントしました'
         }

@@ -51,4 +51,6 @@ class Answer < ActiveRecord::Base
   def stocked_count
     @stocked_count ||= self.stocks.count
   end
+
+
 end
