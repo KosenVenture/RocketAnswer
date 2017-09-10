@@ -14,7 +14,7 @@
       <% if @answer.exam_url.present? %>
         <div class="pull-left">
           <h4>
-            <%=  link_to "過去問" , @answer.exam_url, target: "_blank" %>  
+            <%=  link_to "過去問" , @answer.exam_url, target: "_blank" %>
           </h4>
         </div>
       <% end %>
@@ -72,6 +72,10 @@
 <hr>
 
 <h2>コメント</h2>
+<p>※TeX数式とMarkdown記法で記述できます</p>
+<small>
+※インライン数式は\$ \$で、ディスプレイ数式の場合は\$\$ \$\$で囲んでください。改行は\\\ですることが出来ます。<br>
+</small>
 <div class="comments">
   <% @answer.comments.each do |comment| %>
     <div class="panel panel-default">
@@ -96,7 +100,7 @@
           </div>
         </div>
       </div>
-      <div class="panel-body" data-content="<%= markdown(comment.content) %>" data-content-raw="<%= comment.content %>" data-comment-id="<%= comment.id %>"><%= markdown(comment.content) %></div>
+      <div class="panel-body" data-content="<%= Base64.encode64(markdown(comment.content)) %>" data-content-raw="<%= Base64.encode64(comment.content) %>" data-comment-id="<%= comment.id %>"><%= markdown(comment.content) %></div>
     </div>
   <% end %>
 </div>

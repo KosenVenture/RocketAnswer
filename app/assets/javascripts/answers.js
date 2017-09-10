@@ -9,11 +9,13 @@ var fileUploadErrors = {
 
 editComment = function (elem) {
   $('.panel-body').each(function(){
-    $(this).html($(this).data('content'));
+    var content = window.atob($(this).data('content'))
+    $(this).html(content);
   });
 
   $panelBody = $(elem).closest('.panel-default').children('.panel-body');
-  $panelBody.html($('<textarea>').addClass('form-control').val($panelBody.data('content-raw')));
+  var content = window.atob($panelBody.data('content-raw'))
+  $panelBody.html($('<textarea class="form-control" rows=10>').addClass('form-control').val(content));
 
   $panelBody.append(
     $('<button>').addClass('btn btn-default btn-xs').text('更新')
