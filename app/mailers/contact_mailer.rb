@@ -1,9 +1,9 @@
-class ContactMailer < ActionMailer::Base
-  default from: "webmaster@rocket-answer.com"
-
+class ContactMailer < ApplicationMailer
   def user(contact)
     @contact = contact
 
-    mail to: 'ml@kosen-venture.com', subject: '[Rocket Answer]お問い合わせがあります'
+    mail to: 'ml@kosen-venture.com',
+      bcc: 'webmaster@rocket-answer.com',
+      subject: '[Rocket Answer]お問い合わせがあります'
   end
 end
