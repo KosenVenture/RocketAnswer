@@ -1,0 +1,2 @@
+mail:
+  default_host: <%= ENV['MAIL_DEFAULT_HOST'] %>

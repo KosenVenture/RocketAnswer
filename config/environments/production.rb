@@ -84,4 +84,8 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = Settings.smtp.to_h
+  config.action_mailer.default_url_options = { host: Settings.mail.default_host, protocol: 'https' }
 end
