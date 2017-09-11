@@ -6,4 +6,7 @@ class HomeController < ApplicationController
 
   def aboutus
   end
+
+  def campaign
+  end
 end

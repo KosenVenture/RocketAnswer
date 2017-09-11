@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   get 'aboutus', to: 'home#aboutus'
+  get 'campaign', to: 'home#campaign'
 
   devise_for :user,
     controllers: {
