@@ -33,7 +33,7 @@ ja:
         subject: 'アカウントの登録方法'
 #        subject: 'Confirmation instructions'
       reset_password_instructions:
-        subject: 'パスワードの再設定'
+        subject: '[Rocket Answer]パスワードの再設定'
 #        subject: 'Reset password instructions'
       unlock_instructions:
         subject: 'アカウントの凍結解除'
