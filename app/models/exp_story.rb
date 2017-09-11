@@ -10,15 +10,25 @@ class ExpStory < ApplicationRecord
   ###### Validation ######
   validates :year, presence: true,
     numericality: { greater_than: 1900, less_than_or_equal_to: DateTime.now.year }
-  validates :advice, presence: true
-  validates :self_intro, presence: true
-  validates :motivation, presence: true
+  validates :self_intro,
+    presence: true,
+    length: { minimum: 50, maximum: 10000 }
+  validates :motivation,
+    presence: true,
+    length: { minimum: 50, maximum: 10000 }
+  validates :exam,
+    presence: true,
+    length: { maximum: 10000 }
+  validates :interview,
+    presence: true,
+    length: { maximum: 10000 }
+  validates :advice,
+    presence: true,
+    length: { minimum: 10, maximum: 10000 }
   validates :way, presence: true
-  validates :exam, presence: true
-  validates :interview, presence: true
   validates :is_passed, inclusion: {in: [true, false]}
-  validates :grad_school, presence: true, length: { maximum: 20 }
-  validates :grad_department, presence: true, length: { maximum: 20 }
+  validates :grad_school, presence: true, length: { maximum: 30 }
+  validates :grad_department, presence: true, length: { maximum: 30 }
   enumerize :way, in: [:ippan, :suisen]
 
   ###### Instance Method ######

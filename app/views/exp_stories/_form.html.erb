@@ -63,41 +63,6 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :self_intro, class: 'control-label col-sm-2' %>
-    <div class="col-sm-6">
-      <%= f.text_area :self_intro, class: 'form-control', rows: 10 %>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :motivation, class: 'control-label col-sm-2' %>
-    <div class="col-sm-6">
-      <%= f.text_area :motivation, class: 'form-control', rows: 10 %>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :exam, class: 'control-label col-sm-2' %>
-    <div class="col-sm-6">
-      <%= f.text_area :exam, class: 'form-control', rows: 10 %>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :interview, class: 'control-label col-sm-2' %>
-    <div class="col-sm-6">
-      <%= f.text_area :interview, class: 'form-control', rows: 10 %>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :advice, class: 'control-label col-sm-2' %>
-    <div class="col-sm-6">
-      <%= f.text_area :advice, class: 'form-control', rows: 10 %>
-    </div>
-  </div>
-
-  <div class="form-group">
     <%= f.label :grad_school, class: 'control-label col-sm-2' %>
     <div class="col-sm-6">
       <%= f.text_field :grad_school, class: 'form-control' %>
@@ -108,6 +73,46 @@
     <%= f.label :grad_department, class: 'control-label col-sm-2' %>
     <div class="col-sm-6">
       <%= f.text_field :grad_department, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :self_intro, class: 'control-label col-sm-2' %>
+    <div class="col-sm-6">
+      <%= f.text_area :self_intro, class: 'form-control', rows: 10,
+        placeholder: '出身校での取り組みや、サークル活動、普段の勉強法や成績、席次などを教えてください。' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :motivation, class: 'control-label col-sm-2' %>
+    <div class="col-sm-6">
+      <%= f.text_area :motivation, class: 'form-control', rows: 10,
+        placeholder: 'この志望校を選択した経緯や理由、動機を教えてください。' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :exam, class: 'control-label col-sm-2' %>
+    <div class="col-sm-6">
+      <%= f.text_area :exam, class: 'form-control', rows: 10,
+        placeholder: '試験科目と内容、試験の当日の様子について教えてください。' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :interview, class: 'control-label col-sm-2' %>
+    <div class="col-sm-6">
+      <%= f.text_area :interview, class: 'form-control', rows: 10,
+        placeholder: '面接があった場合は、面接の様子や準備と対策について教えてください。' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :advice, class: 'control-label col-sm-2' %>
+    <div class="col-sm-6">
+      <%= f.text_area :advice, class: 'form-control', rows: 10,
+        placeholder: '勉強方法や使った参考書などの情報や、後輩へのアドバイスを教えてください。' %>
     </div>
   </div>
 
