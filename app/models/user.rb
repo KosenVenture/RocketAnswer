@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
     length: { maximum: 20 }
   validates :nickname, uniqueness: true
   validates :graduate_year,
-    numericality: { greater_than_or_equal_to: DateTime.now.year, less_than: 2100 },
+    numericality: { greater_than_or_equal_to: 1990, less_than: 2100 },
     allow_blank: true
 
   ###### Scope ######
