@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170825143344) do
+ActiveRecord::Schema.define(version: 2017_08_25_143344) do
 
-  create_table "active_admin_comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "active_admin_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
     t.string "resource_id", null: false
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20170825143344) do
     t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
   end
 
-  create_table "admin_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "admin_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20170825143344) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
-  create_table "answer_files", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "answer_files", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "answer_id"
     t.bigint "user_id"
     t.string "image"
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20170825143344) do
     t.index ["user_id"], name: "index_answer_files_on_user_id"
   end
 
-  create_table "answer_stocks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "answer_stocks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "answer_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 20170825143344) do
     t.index ["user_id"], name: "index_answer_stocks_on_user_id"
   end
 
-  create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.integer "year"
     t.datetime "created_at", null: false
@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 20170825143344) do
     t.index ["user_id"], name: "index_answers_on_user_id"
   end
 
-  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "answer_id"
     t.text "content"
@@ -85,7 +85,7 @@ ActiveRecord::Schema.define(version: 20170825143344) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "departments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "departments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "school_id"
     t.string "name"
     t.string "kind"
@@ -98,7 +98,7 @@ ActiveRecord::Schema.define(version: 20170825143344) do
     t.index ["school_id"], name: "index_departments_on_school_id"
   end
 
-  create_table "exp_stories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "exp_stories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.boolean "is_passed", default: false, null: false
     t.integer "year"
     t.text "self_intro"
@@ -118,7 +118,7 @@ ActiveRecord::Schema.define(version: 20170825143344) do
     t.index ["user_id"], name: "index_exp_stories_on_user_id"
   end
 
-  create_table "schools", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "schools", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "type"
     t.string "establishment"
     t.string "name"
@@ -131,7 +131,7 @@ ActiveRecord::Schema.define(version: 20170825143344) do
     t.index ["type"], name: "index_schools_on_type"
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname"
     t.string "email", default: "", null: false
     t.integer "graduate_year"
@@ -156,7 +156,7 @@ ActiveRecord::Schema.define(version: 20170825143344) do
     t.index ["school"], name: "index_users_on_school"
   end
 
-  create_table "wish_universities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "wish_universities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "university_id"
     t.bigint "department_id"
