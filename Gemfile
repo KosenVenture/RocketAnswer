@@ -5,13 +5,13 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'rails', '~> 5.1.2'
+gem 'rails', '~> 5.2'
 
 ### Database
 gem 'mysql2', '>= 0.3.18', '< 0.5'
 
 ### Rack
-gem 'puma', '~> 3.7'
+gem 'puma', '~> 3.12'
 
 ### 設定関連
 gem 'config'
@@ -24,7 +24,7 @@ gem 'carrierwave'
 gem 'enumerize'
 
 ### ユーザー権限管理
-gem 'cancancan', '~> 1.16'
+gem 'cancancan', '~> 2.2'
 
 
 ### Assets関連

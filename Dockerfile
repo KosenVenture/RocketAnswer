@@ -1,4 +1,4 @@
-FROM ruby:2.4
+FROM ruby:2.5
 
 ARG app_env
 ENV APP_ENV ${app_env:-production}
@@ -32,4 +32,4 @@ ENV SECRET_KEY_BASE 12345
 VOLUME $APP_HOME/public/assets
 
 EXPOSE 3000
-CMD ["rails", "server", "-b", "0.0.0.0"]
+CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
